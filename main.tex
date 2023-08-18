@@ -14,7 +14,7 @@
 \usepackage[colorlinks=false]{hyperref}
 \usepackage{flafter}
 
-
+\bibliographystyle{apalike}
 
 \setcounter{secnumdepth}{4}
 
@@ -87,7 +87,7 @@
       \paragraph{“AI”}
       \paragraph{Do we have the tools and the means?}
 
-\section{Exploring variability in the lab}
+\section{Behaviour in the lab}
   \subsection{Introduction}
     \subsubsection{Decision Making}
         \paragraph{Model Based vs. Model Free learning}
@@ -100,135 +100,102 @@
         \paragraph{Humans across time}
         \paragraph{Humans across changes in task}
   \subsection{Results}
-    \subsubsection{subsubsection name}
-
+    \subsubsection{Behaviour is maintained across species}
+    \subsubsection{Behaviour is maintained across changes in the task}
+    \subsubsection{Behaviour is maintained across sessions}
   \subsection{Discussion}
+  \subsection{Author Contributions}
+  \subsection{Acknowledgements}
 
-Describing the experiments
-Humans across time
-Humans across changes in task
-Describing the tasks
-Foraging task
-Results
-Behaviour is maintained across changes in task
-Behaviour is maintained across species
-Behaviour is maintained across sessions
-Discussion
-Acknowledgements
-\section{Exploring variability in the clinic}
-Introduction
-Why translational research on clinical populations
-Mental health disorders affect task performance
-OCD
-Depression
-Materials and Methods
-Describing the experiments
-Depression
-OCD
-Describing the tasks
-Reversal learning task
-Stop-signal reaction time task
-Foraging task
-Results
-Reversal learning task
-Stop-signal reaction time task
-Foraging task
-Discussion
-Author contributions
-Acknowledgements
-\section{Exploring variability in the real world}
-Introduction
-Investigating complex skill learning
-Studying behaviour in the wild
-Ethologically relevant tasks
-Set and setting
-Scalability
-\section{Materials and Methods}
-Hexxed
-Task description
-Architecture
-The game
-The database
-The analysis pipeline
-Optimality in hexxed
-ANNs
-Other levels
-Results
-Picky
-Sticky
-Leapy
-Discussion
-Author contributions
+\section{Behaviour in the clinic}
+  \subsection{Introduction}
+    \subsubsection{Why translational research?}
+        \paragraph{Obsessive Compulsive Disorder and task performance}
+  \subsection{Materials and Methods}
+    \subsubsection{The tasks}
+        \paragraph{Foraging Task}
+        \paragraph{Reversal Learning Task}
+        \paragraph{Stop-Signal Reaction Time Task}
+    \subsubsection{The experiments}
+        \paragraph{Obsessive Compulsive Disorder}
+  \subsection{Results}
+    \subsubsection{Foraging Task}
+    \subsubsection{Reversal Learning Task}
+    \subsubsection{Stop-Signal Reaction Time Task}
+  \subsection{Discussion}
+  \subsection{Author Contributions}
+  \subsection{Acknowledgements}
+
+\section{Behaviour in the real world}
+  \subsection{Introduction} \label{hexxed_intro}
+    \subsubsection{Investigating complex skill learning}
+    \subsubsection{Studying behaviour in the wild}
+      \paragraph{Ethologically relevant tasks}
+      \paragraph{Set and setting}
+      \paragraph{Scalability}
+  \subsection{Materials and Methods}
+    \subsubsection{hexxed}
+
+To investigate how complex skill learning ensues, the right tool is needed. After exploring the landscape of possible tasks\textsuperscript{\ref{hexxed_intro}}, we developed a novel task: \textit{hexxed}.
+\textit{hexxed} is a puzzle-like task that challenges it's solvers to explore and solve complex problems. Solving \textit{hexxed} requires planning moves ahead in both space and time.
+
+        \paragraph{The task}
+
+While \textit{hexxed} takes the shape of a game, it is designed first-and-foremost as a Psychophysics-like task.
+
+When first presented with it, the players are immediately shown the first puzzle with no further instructions than the displayed on-screen: "controls: tap and swipe".
+
+In \textit{hexxed}, the goal is to rotate a triangle (which is the player's controllable component) around lobes of a hexagon and collect rewards. Rewards are administered when targets are collected. Targets can spawn in any of the lobes of the hexagon (with a minimum of 1 target in total and a maximum of 1 target per lobe).
+
+In \textit{hexxed}, time is discretized. For every action a player takes, time progresses one unit into the future. This means that hexxed has no inherent time-pressure to be solved and that it is the players who determine the pace at which they solve it.
+
+At any point, players can make one of two actions. 1) To tap on one of the lobes and 2) to swipe on one of the targets.
+
+Tapping on any of the lobes causes the triangle (i.e. the player) to move there. The triangle only moves one lobe at a time. If the player clicks the lobe adjacent to them, they move there and progress 1 unit of time. If the player clicks a lobe that is non-adjacent to their position, time progresses the corresponding distance (e.g. a player clicks the lobe on the opposite side of the hexagon - 3-away - and time progresses 3 units).
+Whenever time progresses, targets grow in size. Targets of size 1, are worth the least possible reward, whereas targets of size 6 are worth maximum reward. Targets of size 7 expire and are no longer visible or valuable to the player.
+Swiping on a target collects points corresponding to the target's size.
+
+\begin{figure}[h!]
+    \centering
+%    \includegraphics[width=0.8\textwidth]{figures/hex_schematic_1.png}
+    \caption{\label{fig:point_structure}Targets grow in size and value up until a threshold, in which they are no longer valuable. Player actions determine this growth.}
+\end{figure}
+
+The task is then to navigate the hexagon's lobes and collect targets as maximally large as possible.
+
+The task is designed as an np-complete problem. Np-completeness (or nondeterministic polynomial time completeness) refers to when the solution for any possible problem in a task can be verified quickly - in polynomial time - using a brute-force search (i.e. an algorithm that attempts all possible solutions). This is a crucial feature of \textit{hexxed}, as it allows us to arbitrarily manipulate the complexity of any puzzle while always knowing the optimal solution is within computational reach.
+
+Complexity in hexxed can be manipulated in two ways: 1) by changing the number of targets on screen and 2) by changing the order in which targets are spawned. A growing number of targets forces the player to move more around the hexagon to collect them, whereas the order in which targets are spawned influences how those movements are made.
+
+The task is comprised of 6 different levels of dificulty - corresponding to the number of targets displayed on screen for that level. In all the levels, the players are probed with all the possible puzzles (combinations of spawn locations and their rotational variants). To progress in the task, players must approximate optimality to a varying degree (e.g. for level 1, players must collect XXXXXX\% of possible points).
+
+        \paragraph{The game}
+
+\textit{hexxed} is materialized in the shape of a game. Unlike tipical lab-based research tasks, \textit{hexxed} was developed using a game engine. Game engines are a family of software that allows for quick and precise manipulation of both algorithmic logic and graphics. \textit{hexxed} was developed using \textit{Godot} \cite{godot}, an open-source game engine chosen for its open-ness and flexibility.
+All of \textit{hexxed}'s code is open-source and available under a Creative Commons license at
+
+
+        \paragraph{The database}
+
+
+        \paragraph{Optimality in hexxed}
+        \paragraph{Artificial Neural Networks solving hexxed}
+        \paragraph{Beyond this thesis}
+  \subsection{Results}
+    \subsubsection{Introduction}
+    \subsubsection{Human are Picky}
+    \subsubsection{Humans are Sticky}
+    \subsubsection{Humans are Leapy}
+  \subsection{Discussion}
+  \subsection{Author Contributions}
+  \subsection{Acknowledgements}
 
 \section{General Discussion}
-Brief summary of the main findings
-Opportunities for translation
-Concluding remarks
+  \subsection{Brief summary of the main findings}
+  \subsection{Opportunities for expansion}
+  \subsection{Concluding remarks}
 
 
-
-
-
-
-
-
-\begin{itemize}
-    \item The advent and development of the field of psychophisics drove a lot of behavioural psychologies' findings about human behaviour.
-    \item Complex tasks have historically been hard to tackle using the tools of psychophysics.
-    \item The capability to clearly highlight significant aspects of simple behaviours is the fields' greatest strength and simultaneously, it's greatest weakness.
-    \item The crux of the problem comes from the curse of dimensionality - the harder the problem, the larger the stimulus and action space the sparser the information and our ability to sample from it.
-    \item To address and systematically analyze more complex behaviours - playing chess, solving a puzzle, playing an atari videogame - the field has often resorted instead to so-called big data approaches (i.e. using artificial intelligence and machine learning techniques).
-    \item When addressing complex problems, some of these agents have proven to be able to solve them at super-human levels (e.g. alpha go)
-    \item At the extreme, it is as plausible that they perform better than humans because 1) they are (super)human-like as it is plausible that 2) they are completely non-human.
-    \item These ais are a black box - they are not psychophisical in nature
-    \item the space of agents grows hyper-exponentially with task complexity.
-    \item Performance for performance's sake, than, doesn't mean much. If a deep understanding of how all agents - human or not - is desired, the task must be able to capture fundamental features of performance.
-    \item We introduce hexxed - a psychophisics inspired complex behavioral task and large open-access dataset to investigate agents performing complex behaviours.
-    \item hexxed is:
-    \begin{itemize}
-        \item highly parametrizable
-        \item deterministic
-        \item allows for repeated sampling
-        \item highly structured stimulus and action spaces
-        which lead to:
-        \item comparable across agents
-        \item challenging (i.e. hard to solve)
-        \begin{itemize}
-            \item cognitively... not sensory
-        \end{itemize}
-    \end{itemize}
-\end{itemize}
-
-\section{Methods}
-
-\begin{itemize}
-    \item describe hexxed
-    \item describe dataset
-    \item describe agents
-\end{itemize}
-
-\section{Results}
-\begin{itemize}
-    \item Figures
-    \begin{enumerate}
-        \item task structure
-        \begin{itemize}
-            \item printscreen
-            \item hypercubes?
-            \item mdps?
-        \end{itemize}
-        \item summary statistics
-            \begin{itemize}
-            \item how many attempts per level
-            \item demographics
-            \item how many players per level
-            \item players over time
-            \end{itemize}
-        \item picky
-        \item sticky
-        \item epiphany
-    \end{enumerate}
-\end{itemize}
 
 \clearpage
 
@@ -237,52 +204,32 @@ Concluding remarks
 \subsection*{Task introduction}
 
 
-\subsubsection{lvl 1}
+\subsubsection*{lvl 1}
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/hex_schematic_1.png}
+%    \includegraphics[width=0.8\textwidth]{figures/hex_schematic_1.png}
     \caption{\label{fig:schematic}This frog was uploaded via the file-tree menu.}
 \end{figure}
 
-\subsubsection*{rest of levels}
 
 
 
-\subsection*{how to solve it and agents}
 
-\subsubsection*{framing the problem}
 
-mdps
 
-\subsubsection*{agents - description}
-\subsubsection*{agents - picky}
-\subsubsection*{agents - sticky}
 
-\subsection*{Performance/demographics}
-
-\subsection*{humans}
-
-\subsection*{epiphany}
 
 
 \clearpage
-
-\section{How to collaborate on this file}
-
-\subsection{Adding comments}
-
-Comments can be added by highlighting some text and clicking ``Add comment'' in the top right of the editor pane. To view existing comments, click on the Review menu in the toolbar above. To reply to a comment, click on the Reply button in the lower right corner of the comment. You can close the Review pane by clicking its name on the toolbar when you're done reviewing for the time being.
-
-
-\subsection{How to include Figures}
+\subsection*{How to include Figures}
 
 First you have to upload the image file from your computer using the upload link in the file-tree menu. Then use the includegraphics command to include it in your document. Use the figure environment and the caption command to add a number and a caption to your figure. See the code for Figure \ref{fig:schematic} in this section for an example.
 
 Note that your figure will automatically be placed in the most appropriate place for it, given the surrounding text and taking into account other figures or tables that may be close by. You can find out more about adding images to your documents in this help article on \href{https://www.overleaf.com/learn/how-to/Including_images_on_Overleaf}{including images on Overleaf}.
 
 
-\subsection{How to add Tables}
+\subsection*{How to add Tables}
 
 Use the table and tabular environments for basic tables --- see Table~\ref{tab:widgets}, for example. For more information, please see this help article on \href{https://www.overleaf.com/learn/latex/tables}{tables}.
 
@@ -298,7 +245,7 @@ Gadgets & 13
 
 
 
-\subsection{How to add Lists}
+\subsection*{How to add Lists}
 
 You can make lists with automatic numbering \dots
 
@@ -312,7 +259,7 @@ You can make lists with automatic numbering \dots
 \item and like this.
 \end{itemize}
 
-\subsection{How to write Mathematics}
+\subsection*{How to write Mathematics}
 
 \LaTeX{} is great at typesetting mathematics. Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let
 \[S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
@@ -320,13 +267,13 @@ You can make lists with automatic numbering \dots
 denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $\mathcal{N}(0, \sigma^2)$.
 
 
-\subsection{How to change the margins and paper size}
+\subsection*{How to change the margins and paper size}
 
 Usually the template you're using will have the page margins and paper size set correctly for that use-case. For example, if you're using a journal article template provided by the journal publisher, that template will be formatted according to their requirements. In these cases, it's best not to alter the margins directly.
 
 If however you're using a more general template, such as this one, and would like to alter the margins, a common way to do so is via the geometry package. You can find the geometry package loaded in the preamble at the top of this example file, and if you'd like to learn more about how to adjust the settings, please visit this help article on \href{https://www.overleaf.com/learn/latex/page_size_and_margins}{page size and margins}.
 
-\subsection{How to change the document language and spell check settings}
+\subsection*{How to change the document language and spell check settings}
 
 Overleaf supports many different languages, including multiple different languages within one document.
 
@@ -334,17 +281,20 @@ To configure the document language, simply edit the option provided to the babel
 
 To change the spell check language, simply open the Overleaf menu at the top left of the editor window, scroll down to the spell check setting, and adjust accordingly.
 
-\subsection{How to add Citations and a References List}
+\subsection*{How to add Citations and a References List}
 
-You can simply upload a \verb|.bib| file containing your BibTeX entries, created with a tool such as JabRef. You can then cite entries from it, like this: \cite{greenwade93}. Just remember to specify a bibliography style, as well as the filename of the \verb|.bib|. You can find a \href{https://www.overleaf.com/help/97-how-to-include-a-bibliography-using-bibtex}{video tutorial here} to learn more about BibTeX.
+You can simply upload a \verb|.bib| file containing your BibTeX entries, created with a tool such as JabRef. You can then cite entries from it, like this: \cite{DUMMY:1}. Just remember to specify a bibliography style, as well as the filename of the \verb|.bib|. You can find a \href{https://www.overleaf.com/help/97-how-to-include-a-bibliography-using-bibtex}{video tutorial here} to learn more about BibTeX.
 
 If you have an \href{https://www.overleaf.com/user/subscription/plans}{upgraded account}, you can also import your Mendeley or Zotero library directly as a \verb|.bib| file, via the upload menu in the file-tree.
 
-\subsection{Good luck!}
+\subsection*{Good luck!}
 
 We hope you find Overleaf useful, and do take a look at our \href{https://www.overleaf.com/learn}{help library} for more tutorials and user guides! Please also let us know if you have any feedback using the Contact Us link at the bottom of the Overleaf menu --- or use the contact form at \url{https://www.overleaf.com/contact}.
 
-\bibliographystyle{alpha}
-\bibliography{sample}
+
+\clearpage
+
+\bibliography{bibliography}
+
 
 \end{document}

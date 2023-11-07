@@ -14,6 +14,12 @@
 \usepackage[colorlinks=false]{hyperref}
 \usepackage{flafter}
 
+\usepackage{array}
+\usepackage{longtable}
+
+
+\usepackage[protrusion=true, expansion=true, final]{microtype}
+
 \bibliographystyle{apalike}
 
 \setcounter{secnumdepth}{4}
@@ -137,63 +143,224 @@
     \subsubsection{hexxed}
 
 To investigate how complex skill learning ensues, the right tool is needed. After exploring the landscape of possible tasks\textsuperscript{\ref{hexxed_intro}}, we developed a novel task: \textit{hexxed}.
-\textit{hexxed} is a puzzle-like task that challenges it's solvers to explore and solve complex problems. Solving \textit{hexxed} requires planning moves ahead in both space and time.
+\textit{hexxed} is a puzzle-like videogame task that challenges it's solvers to explore and solve complex problems. Solving \textit{hexxed} requires carefully planning moves ahead in both space and time.
 
-        \paragraph{The task}
+        \paragraph{The task}\label{the-task}
 
-While \textit{hexxed} takes the shape of a game, it is designed first-and-foremost as a Psychophysics-like task.
+          While \textit{hexxed} takes the shape of a game, it is designed first-and-foremost as a psychophysics task.
 
-When first presented with it, the players are immediately shown the first puzzle with no further instructions than the displayed on-screen: "controls: tap and swipe".
+          The game is interacted with by touching on a touch-sensitive device.
 
-In \textit{hexxed}, the goal is to rotate a triangle (which is the player's controllable component) around lobes of a hexagon and collect rewards. Rewards are administered when targets are collected. Targets can spawn in any of the lobes of the hexagon (with a minimum of 1 target in total and a maximum of 1 target per lobe).
+          When first presented with it, the players are immediately shown the first puzzle with no further instructions other than the displayed on-screen: "controls: tap and swipe".
 
-In \textit{hexxed}, time is discretized. For every action a player takes, time progresses one unit into the future. This means that hexxed has no inherent time-pressure to be solved and that it is the players who determine the pace at which they solve it.
+          In \textit{hexxed}, the goal is to rotate a triangle (which is the player's controllable component) around lobes of a hexagon and collect rewards. Rewards are administered when targets are collected. Targets can spawn in any of the lobes of the hexagon (with a minimum of 1 target in total and a maximum of 1 target per lobe).
 
-At any point, players can make one of two actions. 1) To tap on one of the lobes and 2) to swipe on one of the targets.
-
-Tapping on any of the lobes causes the triangle (i.e. the player) to move there. The triangle only moves one lobe at a time. If the player clicks the lobe adjacent to them, they move there and progress 1 unit of time. If the player clicks a lobe that is non-adjacent to their position, time progresses the corresponding distance (e.g. a player clicks the lobe on the opposite side of the hexagon - 3-away - and time progresses 3 units).
-Whenever time progresses, targets grow in size. Targets of size 1, are worth the least possible reward, whereas targets of size 6 are worth maximum reward. Targets of size 7 expire and are no longer visible or valuable to the player.
-Swiping on a target collects points corresponding to the target's size.
-
-\begin{figure}[h!]
-    \centering
-%    \includegraphics[width=0.8\textwidth]{figures/hex_schematic_1.png}
-    \caption{\label{fig:point_structure}Targets grow in size and value up until a threshold, in which they are no longer valuable. Player actions determine this growth.}
-\end{figure}
-
-The task is then to navigate the hexagon's lobes and collect targets as maximally large as possible.
-
-The task is designed as an np-complete problem. Np-completeness (or nondeterministic polynomial time completeness) refers to when the solution for any possible problem in a task can be verified quickly - in polynomial time - using a brute-force search (i.e. an algorithm that attempts all possible solutions). This is a crucial feature of \textit{hexxed}, as it allows us to arbitrarily manipulate the complexity of any puzzle while always knowing the optimal solution is within computational reach.
-
-Complexity in hexxed can be manipulated in two ways: 1) by changing the number of targets on screen and 2) by changing the order in which targets are spawned. A growing number of targets forces the player to move more around the hexagon to collect them, whereas the order in which targets are spawned influences how those movements are made.
-
-The task is comprised of 6 different levels of dificulty - corresponding to the number of targets displayed on screen for that level. In all the levels, the players are probed with all the possible puzzles (combinations of spawn locations and their rotational variants). To progress in the task, players must approximate optimality to a varying degree (e.g. for level 1, players must collect XXXXXX\% of possible points).
-
-        \paragraph{The game}
-
-\textit{hexxed} is materialized in the shape of a game. Unlike tipical lab-based research tasks, \textit{hexxed} was developed using a game engine. Game engines are a family of software that allows for quick and precise manipulation of both algorithmic logic and graphics. \textit{hexxed} was developed using \textit{Godot} \cite{godot}, an open-source game engine chosen for its open-ness and flexibility.
-All of \textit{hexxed}'s code is open-source and available under a Creative Commons license at
+          In \textit{hexxed}, time is discretized. For every action a player takes, time progresses one unit into the future. This means that hexxed has no inherent time-pressure to be solved and that it is the players who determine the pace at which they solve it.
 
 
-        \paragraph{The database}
+          At any point, players can make one of two actions. 1) To tap on one of the lobes and 2) to swipe on one of the targets.
+
+          Tapping on any of the lobes causes the triangle (i.e. the player) to move there. The triangle only moves one lobe at a time. If the player clicks the lobe adjacent to them, they move there and progress 1 unit of time. If the player clicks a lobe that is non-adjacent to their position, time progresses the corresponding distance (e.g. a player clicks the lobe on the opposite side of the hexagon - 3-away - and time progresses 3 units).
+          Whenever time progresses, targets grow in size. Targets of size 1, are worth the least possible reward, whereas targets of size 6 are worth maximum reward. Targets of size 7 expire and are no longer visible or valuable to the player.
+          Swiping on a target collects points corresponding to the target's size.
+
+          \begin{figure}[h!]
+              \centering
+          %    \includegraphics[width=0.8\textwidth]{figures/hex_schematic_1.png}
+              \caption{\label{fig:point_structure}Targets grow in size and value up until a threshold, in which they are no longer valuable. Player actions determine this growth.}
+          \end{figure}
+
+          The task is then to navigate the hexagon's lobes and collect targets as maximally large as possible.
+
+          The task is designed as an np-complete problem. Np-completeness (or nondeterministic polynomial time completeness) refers to when the solution for any possible problem in a task can be verified quickly - in polynomial time - using a brute-force search (i.e. an algorithm that attempts all possible solutions). This is a crucial feature of \textit{hexxed}, as it allows us to arbitrarily manipulate the complexity of any puzzle while always knowing the optimal solution is within computational reach.
+
+          Complexity in hexxed can be manipulated in two ways: 1) by changing the number of targets on screen and 2) by changing the order in which targets are spawned. A growing number of targets forces the player to move more around the hexagon to collect them, whereas the order in which targets are spawned influences how those movements are made.
+
+          The task is comprised of 6 different levels of difficulty - corresponding to the number of targets displayed on screen for that level. In all the levels, the players are probed with all the possible puzzles (combinations of spawn locations and their rotational variants). To progress in the task, players must approximate optimality to a varying degree (e.g. for level 1, players must collect XXXXXX\% of possible points).
+
+
+        \paragraph{Scoring}
+          Individual targets grow up to six times and are worth \(n^2\) points: from \(1^2\) - as they spawn - to \(6^2\) points - at their ripest. The exponential nature of target value places weight on collecting the target as large as possible. However - given that the game is self-paced -  any seven interactions with the screen  will exhaust a target and lead to 0 reward (see \ref{the-task} for the task design).
+
+        \paragraph{Action-sequences}
+          For analysis purposes, we wanted to understand what serial combinations of actions - or action sequences - the players used to solve hexxed. To do so, we number the 6 lobes of the hexagon from 0 to 5 clockwise. We number the lobe where the first target in a puzzle appears as 0. We then encode the sequence of touches or swipes (the two valid actions) on these lobes as a vector of actions. Touches are encoded as the number of the lobe that was pressed and swipes are encoded as the lobe number + 10.
+
+          In an example action sequence for level 1, a subject performed a tap on the lobe to the left of the lobe which had a target; then, the player touched on the lobe with the target for 5 times; finally, the player swiped on the lobe with the target to get maximal reward. This action sequence is encoded as [5,0,0,0,0,0,10].
 
 
         \paragraph{Optimality in hexxed}
-        \paragraph{Artificial Neural Networks solving hexxed}
+          Due to \textit{hexxed's} design, we are capable of calculating the optimal solution for any given puzzle.
+
+          To calculate the optimal course of actions, we trace which action-sequences lead to the maximum possible score for a given puzzle (see figure \ref{fig:mdp}).
+
+          Because of the nature of the game design, in some circumstances, several action-sequences may be equally optimal. As the puzzle complexity increases, however, the amount of optimal action-sequences becomes smaller.
+
+          For level 1, optimality is trivial since a single target can always be collected at maximum value: Any combination of moves that ends at the target lobe after 6 actions allows for maximal point collection.
+
+          For level 2, two targets are available for collection. However, depending on wether targets are in adjacent lobes or not, they may or not be both collectible at maximum size. This means that, on non-adjacent targets, the player must sacrifice points of the first target to collect the second at its ripest. When targets are \textit{n} lobes away from each other, the maximum possible score is to collect the first target at step \(6 -\textit{n}\) so that there are enough moves available to rotate \textit{n} lobes and collect the second target at its maximum value (e.g. for two targets that are 3 lobes away from each other, the maximum ripeness is of \((6-3)+6 = 9\) or \((6^2 - 3^2) + 6^2 = 63\) in points.
+
+          For levels 2 through 6, targets can be collected in two possible types of action-sequences: a) in order of target appearance or b) in order of target proximity.
+          As puzzle complexity increases to levels 3 and onward, collecting targets in their order of appearance is no longer the optimal strategy.
+
+          The way hexxed is designed, thus, forces players to revisit their optimal policies, making it a great candidate to investigate complex skill learning.
+
+        \paragraph{The game}
+
+          \textit{hexxed} is materialized in the shape of a game. Unlike typical lab-based research tasks, \textit{hexxed} was developed using a game engine. Game engines are a family of software that allows for quick and precise manipulation of both algorithmic logic and graphics. \textit{hexxed} was developed using \textit{Godot} \cite{godot}, an open-source game engine chosen for its open-ness and flexibility.
+
+          In the process of coding \textit{hexxed}, we leveraged its algorithmic nature and made it entirely generative - The game does not consist of static images and illustrations, instead, the graphics are generated on the device's graphics card. This allows for an extremely small executable size: the entire game is only ${\sim}3.5$mb in size. The game is available on both android and iOS devices and, due to its small size and speed, the game is available on an estimated 95\% of all smart devices.
+
+          All of \textit{hexxed}'s code is open-source and available under a Creative Commons license at \url{https://hexxed.io}.
+
+        \paragraph{Data collection and recruitment}
+
+        % mention press releases and scicom
+
+          The data for \textit{hexxed} was collected both in the lab and online.
+
+          In the lab, subjects were presented with the game on a large touch-sensitive screen in a quiet room. Participants were recruited from amongst the Champalimaud Research community and included undergraduate students, technicians, graduate students, and postgraduates. However, and unless specified, all of the \textit{hexxed} data presented in this work was collected online.
+
+          One of the challenges that online data collection poses is that of scalability and scope. By launching the task as a game, we predicted the collected data to arrive at unpredictable rates - anyone, anywhere, could play the game at any time. With the help of the science communication offices of both the Champalimaud Research and the University of California Berkeley, the game got significant media coverage, leading to a lot of participants.
+          For these reasons, we had to custom engineer data formatting, storage and transfer solutions.
+
+
+           Albeit in the shape of a game, \textit{hexxed} is still an experiment. The ethical and deontological requirements of the Champalimaud Research ethics committee thus had to be met (e.g. in compliance with GDPR, informed consent, data anonimity and ability to opt out, amongst other things, all had to be ensured). The full license agreement and privacy policy can be found at \url{https://hexxed.io}. The ethical approval and other ethics documentation can be made available upon request at \url{https://hexxed.io}.
+
+
+
+        \paragraph{Data Architecture}
+
+          To handle \textit{hexxed's} data, we designed a custom data format, embedded in a JSON format.
+          This file, generated by the \textit{hexxed} executable, logs all of the players interactions with the screen during a playthrough. For each screen interaction (i.e. a touch or a swipe), a list consisting of data associated with said interaction is created and appended to memory.
+          At the end of a playthrough (i.e. on ending/losing a level or when closing the game), all of the lists in memory are encoded as a JSON payload and sent to a secure server.
+          Upon arrival on the server-side, this payload is stored in an SQL database. This database contains all of the data for all the playthroughs for all the players.
+          An example of the payload is illustrated and documented in Supplementary Table \ref{table:payload}.
+
+
+
+    \paragraph{Data Processing and Analysis}
+      Due to the size and complexity of the collected data, we had to build a custom pipeline for processing and analysis. All of the python pipeline scripts and documentation can be found on \textit{hexxed's} github repository at \url{https://hexxed.io}.
+
+      After downloaded, the data is extracted from the JSON payload into a pandas dataframe. This process requires careful consideration, as it is easy to underestimate the needed computational resources when dealing with such a large dataset.
+
+      Firstly, raw data was saved in a compressed format, then, fast JSON parsing was the priority. Because of the payload structure, to extract the data into an analysis-friendly format we naively would have to iterate through thousands of rows, parsing each JSON string as appropriately \textit{typed} columns in a dataframe. Luckily, python and pandas allow for alternatives to this iterative process. Using the split-apply-combine \cite{wickham2011split} framework, and after arduous optimization steps, we transform our entire dataset into a large long-formatted pandas dataframe (i.e. a timeseries). Following the preprocessing steps, the data is now easily \textit{query-able} and manipulable.
+      Our final dataframe has a coarse-ness of one action per row - the highest granularity the raw data allows for. Using pandas groupby, it is easy to adjust on which variable we want to group this dataframe, allowing for efficient analysis of any type.
+
+      \begin{longtable}[l]{ | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | }
+
+        \hline
+        device-ID & session-start & time & sw-flip & sw-offset & sw-subwave-num & sw-number & mo-y & mo-x & mo-fake-release & mo-act-drag & mo-lobe & level & version & device-timezone & device-OS & time-diff & coord-diff & total-events & first & last & target-location & action-location & action-location-normalized & actions & actions-normalized & collect & false-collect & action-sequences & action-sequences-str & count \\
+       \hline
+       0 & 0012e848890bbcb5 & 522282 & 531464 & False & 4.000000 & 2.000000 & 1.000000 & -121.111099 & 196.539368 & 0.000000 & False & 5.000000 & 1.000000 & 2.000000 & {'bias': 0.0, 'name': 'WET'} & Android & -49938.000000 & 318.914062 & 3 & True & False & 4.000000 & 4.000000 & 0.000000 & 4.000000 & 0.000000 & False & False & [0.0, 3.0, 0.0] & [0.0, 3.0, 0.0] & 475 \\
+       1 & 0012e848890bbcb5 & 522282 & 533139 & False & 4.000000 & 2.000000 & 1.000000 & 82.777802 & -131.273987 & 0.000000 & False & 2.000000 & 1.000000 & 2.000000 & {'bias': 0.0, 'name': 'WET'} & Android & 1675.000000 & -531.702271 & 3 & False & False & 4.000000 & 1.000000 & 3.000000 & 1.000000 & 3.000000 & False & False & [0.0, 3.0, 0.0] & [0.0, 3.0, 0.0] & 475 \\
+       2 & 0012e848890bbcb5 & 522282 & 534881 & False & 4.000000 & 2.000000 & 1.000000 & -87.222214 & 103.195862 & 0.000000 & False & 5.000000 & 1.000000 & 2.000000 & {'bias': 0.0, 'name': 'WET'} & Android & 1742.000000 & 404.469849 & 3 & False & True & 4.000000 & 4.000000 & 0.000000 & 4.000000 & 0.000000 & False & False & [0.0, 3.0, 0.0] & [0.0, 3.0, 0.0] & 475 \\
+       3 & 0012e848890bbcb5 & 522282 & 540839 & False & 4.000000 & 5.000000 & 2.000000 & 127.222229 & 202.651123 & 0.000000 & False & 6.000000 & 1.000000 & 2.000000 & {'bias': 0.0, 'name': 'WET'} & Android & 5958.000000 & -114.989182 & 6 & True & False & 4.000000 & 5.000000 & 1.000000 & 5.000000 & 1.000000 & False & False & [1.0, 2.0, 3.0, 4.0, 5.0, 1.0] & [1.0, 2.0, 3.0, 4.0, 5.0, 1.0] & 146 \\
+      4 & 0012e848890bbcb5 & 522282 & 542457 & False & 4.000000 & 5.000000 & 2.000000 & 246.111145 & -10.149719 & 0.000000 & False & 1.000000 & 1.000000 & 2.000000 & {'bias': 0.0, 'name': 'WET'} & Android & 1618.000000 & -331.689758 & 6 & False & False & 4.000000 & 0.000000 & 2.000000 & 0.000000 & 2.000000 & False & False & [1.0, 2.0, 3.0, 4.0, 5.0, 1.0] & [1.0, 2.0, 3.0, 4.0, 5.0, 1.0] & 146 \\
+      \hline
+    \end{longtable}
+
+      While shortly described, this process was extremely challenging as the size and scope of our dataset is rare in behavioral sciences.
+
+      All data was analysed using python. All analysis scripts are available at \url{https://hexxed.io}
+
+
+
+
+
+        % \paragraph{Artificial Neural Networks solving hexxed}
+        % \paragraph{Action-sequence annotation}
+        %
+        %
+
         \paragraph{Beyond this thesis}
   \subsection{Results}
     \subsubsection{Introduction}
-    \subsubsection{Human are Picky}
+    \subsubsection{Humans are Picky}
+
+
+      \begin{figure}[h!]
+          \centering
+      %    \includegraphics[width=0.8\textwidth]{figures/hex_schematic_1.png}
+          \caption{\label{fig:mdp}mdp}
+      \end{figure}
+
     \subsubsection{Humans are Sticky}
     \subsubsection{Humans are Leapy}
   \subsection{Discussion}
   \subsection{Author Contributions}
-  \subsection{Acknowledgements}
+  \subsection{Acknowledgments}
 
 \section{General Discussion}
   \subsection{Brief summary of the main findings}
   \subsection{Opportunities for expansion}
   \subsection{Concluding remarks}
+
+\section{Supplementary}
+
+  \begin{center}
+  \setlength\tabcolsep{20pt}
+  \begin{longtable}[l]{ | m{8em} | m{1.6em}| m{18em} | m{10.5em} | }
+    \hline
+    variable name & size & description & example \\
+   \hline
+   drone-play & (1) & time at which the background drone music restarts the loop  & [374062] \\ \hline
+   mo-act-drag & (13) & 0 for tap, 1 for drag (swipe).   & [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1] \\ \hline
+   mo-fake-release & (13) & ??? multiple releases by a single press as registered by the device. & [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] \\ \hline
+   mo-lobe & (13) & lobe number (1-indexed) that was either touched or swiped, value is 0 if user touches/swipes outside the hexagon  & [2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4] \\ \hline
+   mo-press-time & (13) & time of user action relative to start of level (milliseconds)  & [365039, 365192, 365338, 365486, 365635, 366691, 368974, 369089, 369218, 369360, 369496, 369641, 371266] \\ \hline
+   mo-press-x & (13) & where you press relative to the center of the big hexagon  & [-96.825806, -101.270752, -87.935974, -83.491028, -90.158447, -168.500244, 7.074341, 22.075989, 19.297913, 22.631592, 20.409119, 19.853516, 0.406982] \\ \hline
+   mo-press-y & (13) & where you press relative to the center of the big hexagon  & [82.777802, 80.000031, 61.666687, 62.222229, 67.777802, 120.555573, -155, -156.666656, -155, -158.333328, -167.222214, -171.666656, -195] \\ \hline
+   mo-time & (13) & when you release  & [365058, 365225, 365387, 365525, 365671, 366832, 368991, 369122,/ 369272, 369396, 369545, 369694, 371364] \\ \hline
+   mo-x & (13) & where you release  & [-97.381409, -101.270752, -88.491577, -84.046631, -91.269653, 28.743347, 7.074341, 22.075989, 20.409119, 23.187195, 20.964722, 20.409119, -9.594116] \\ \hline
+   mo-y & (13) & where you release  & [83.333344, 80.000031, 62.777802, 62.777802, 68.333344, 21.666687, -155, -156.666656, -155, -158.333328, -166.666656, -171.111099, -62.222214] \\ \hline
+   mo-act-taken-act & (16) & actions from the vantage point of slider, +/-1 if slide is moving (clockwise/counterclockwise), 2 if slider is collecting, 0 if it's aggregating (tap in place). The other numbers in the example above can actually be anything, including 0, -1, 1, and 2. In order ot disambiguate these, look at mo-act-taken-pos, the entries that are -1 correspond to these random numbers here that indicate begin/end of a puzzle. & [50, 0, 0, 0, 0, 0, 2, -1962528752, 0, 0, 0, 0, 0, 0, 2, -1962528752] \\ \hline
+   mo-act-taken-pos & (16) & Each -1 "bookends" the start/end of a puzzle, other numbers refer to the lobes (0-indexed) & [-1, 1, 1, 1, 1, 1, 1, -1, 3, 3, 3, 3, 3, 3, 3, -1] \\ \hline
+   mo-act-taken-time & (17) & godot signal system logs these "taken" values into queue as soon as the slider movement is done (tween completion) e.g,  & [364621, 365338, 365652, 365952, 366254, 366565, 367116, 368208, 369289, 369598, 369905, 370218, 370532, 370835, 371668, 371976, 374062] \\ \hline
+   mo-move-pos-x & (24) & every time android sends a drag (swipe) signal it will write to these arrays. These include taps that are misundertsood as drags/swipes by android, but godot logic has a more stringent requirement to count an interaction as a swipe.  & [-97.381409, -88.491577, -88.491577, -84.046631, -91.269653, -91.269653, -167.944641, -166.277771, -161.277283, -152.38739, -133.49646, -101.270752, 28.743347, 19.853516, 20.409119, 23.187195, 20.964722, 20.409119, 0.406982, -0.148682, -1.259888, -4.037964, -9.038513, -9.594116] \\ \hline
+   mo-move-pos-y & (24)  & & [83.333344, 62.222229, 62.777802, 62.777802, 67.777802, 68.333344, 120.000031, 118.888916, 117.222229, 112.777802, 102.777802, 85.555573, 21.666687, -155, -155, -158.333328, -166.666656, -171.111099, -194.444443, -192.222214, -182.222214, -160, -76.111099, -62.222214] \\ \hline
+   mo-move-time & (24) & & [365057, 365371, 365387, 365525, 365670, 365670, 366725, 366743, 366761, 366778, 366796, 366814, 366832, 369254, 369271, 369395, 369529, 369694, 371282, 371298, 371315, 371331, 371363, 371364] \\ \hline
+   ba-ID & (2) & The size rank of the object collected biggest target=0, second biggest=1 and so on. & [0, 0] \\ \hline
+   ba-age & (2) & size at which object was collected, if you miss it it's indicated by a 7 -- the value is at least 1. & [5, 6] \\ \hline
+   ba-position & (2) & the lobe that the collected object was on (and by definition was collected from) & [1, 3] \\ \hline
+   ba-time & (2) & time of collection & [367116, 371651] \\ \hline
+   focus-in & (2) & when player switches back into the app & [379081, 386834]\\ \hline
+   focus-out & (2) & when player switches out of the app & [374954, 381247]\\ \hline
+   sw-time-end & (2) & time that subwave (puzzle) ended. & [367116, 371651] \\ \hline
+   sw-flip & (3) & whether flipped or not (after rotational offset) around the first piece. & [0, 1, 0] \\ \hline
+   sw-offset & (3) & rotational offset of objects (0-indexed) & [1, 3, 4] \\ \hline
+   sw-subwave-num & (3) & the puzzle id according to the spawn.txt (see section on spawn.txt below) & [0, 1, 5] \\ \hline
+   sw-time & (3) & start time of the subwave (puzzle) & [364339, 367914, 373764] \\ \hline
+   device-IP & (7) & & ['192.168.1.66', '2001:569:7ac6:6900:1457:626f:c220:f868', '2001:569:7ac6:6900:ee9b:f3ff:fe96:3eb5', 'fe80:0:0:0:ee9b:f3ff:fe96:3eb5', 'fe80:0:0:0:ec9b:f3ff:fe96:3eb5', '127.0.0.1', '0:0:0:0:0:0:0:1'] \\ \hline
+   level & (1) &  current level NOT 0-indexed. &  1 \\ \hline
+   version & (1) & & 1.08 \\ \hline
+   rand-pos & (1) & a/b testing: which category you were put into... &  2 \\ \hline
+   device-ID & (1) &  unique identifier of the physical device of the user (did not use to be accessible by older godot versions) & a3f1ef82e68aa9bb \\ \hline
+   device-OS & (1) & & Android \\ \hline
+   level-won & (1) &  only True if the session is saved upon successfull completion of the level. NOTE: if False, it does not mean that this payload was sent upon the user LOSING the level. Since they could have focused out: if focus-out is the last event of the game then that's a good indication for this scenario. The only way you can judge loss of level is if the total number of points earned falling below the threshold of points needed for successful completion & False \\ \hline
+   user-quit & (1) & if user pressed back. It does NOT register a quit if user focuses OUT and then closes the app. & False \\ \hline
+   device-dpi & (1) & & 420 \\ \hline
+   repeat-bad & (1) &  a/b testing variable : whether you present the same pattern if person fails it... currently disabled i.e. they don't see the same puzzle again. & 2 \\ \hline
+   device-name & (1) & & SM-N920W8 \\ \hline
+   total-saves & (1) &  number of times this user's files has been saved: cumulative across all levels; incremented for each focus-out event. &  13 \\ \hline
+   max-unlocked & (1) & maximum level unlocked PRIOR to this attempt, 0-indexed  & 1 \\ \hline
+   OS-start-time & (1) & & 364316 \\ \hline
+   device-ID-rand & (1) & random number assigned to user the first time they open the game after install used in conjunction with below in lieu of device-ID in older godot versions & 2846276096  \\ \hline
+   device-ID-time & (1) &  time at which the users opens the game for the first time after install: used in conjunction with above in lieu of device-ID in older godot versions & 1592595456 \\ \hline
+   failure-thresh & (1) &  level dependent, always 15 except last level, which is set to 5. & 15 \\ \hline
+   device-timezone & (1) & & {'bias': -420, 'name': 'PDT'} \\ \hline
+   device-kb-locale & (1) & & en-CA \\ \hline
+   device-current-time & (1) &  & {'day': 22, 'dst': True, 'hour': 14, 'year': 2020, 'month': 6, 'minute': 51, 'second': 40, 'weekday': 1} \\ \hline
+   device-screensize-x & (1) & & 1920 \\ \hline
+   device-screensize-y & (1) & & 1080 \\ \hline
+   device-video-driver & (1) & & 0 \\
+   \hline
+
+
+  \caption{An example of \textit{hexxed's} data structure as sent by the remote device in three columns: Column 1 - The variable name; Column 2 - How many times this variable was logged for this given example; Column 3 - Variable description; Column 4 - An example value for the variable}
+  \label{table:payload}
+  \end{longtable}
+  \end{center}
+
 
 
 
@@ -217,6 +384,11 @@ All of \textit{hexxed}'s code is open-source and available under a Creative Comm
 
 
 
+ca menu
+
+gestao de servicos
+
+alterar password
 
 
 

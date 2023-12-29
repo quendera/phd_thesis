@@ -13,12 +13,20 @@
 \usepackage{graphicx}
 \usepackage[colorlinks=false]{hyperref}
 \usepackage{flafter}
+\usepackage{hyperref}
 
 \usepackage{array}
 \usepackage{longtable}
 
 
+\usepackage{pdflscape} % rotating pages  - \begin{landscape}
+\usepackage{placeins} % keeping things in place - \FloatBarrier
+
+
 \usepackage[protrusion=true, expansion=true, final]{microtype}
+
+\usepackage[dvipsnames]{xcolor}
+
 
 \bibliographystyle{apalike}
 
@@ -34,7 +42,36 @@
 \date{\vspace{-5ex}}
 
 \begin{document}
+
+
+
+\hbadness=10000
+\hfuzz=10pt
+
+\newcount\hbadness
+\newdimen\hfuzz
+
+
 \maketitle
+
+\clearpage
+
+\subsection{Notes on versions}
+
+  \subsubsection{v0.1 - 28/12/2023}
+
+    \textbf{Changelog:} \\
+    - This version is an early draft for the methods and results for the hexxed chapter \ref{hexxed_intro}. \\
+
+    \textbf{Useful feedback:} \\
+    - Overall tone. \\
+    - On the methods section.
+
+
+
+
+
+
 
 \clearpage
 
@@ -164,7 +201,7 @@ To investigate how complex skill learning ensues, the right tool is needed. Afte
           Whenever time progresses, targets grow in size. Targets of size 1, are worth the least possible reward, whereas targets of size 6 are worth maximum reward. Targets of size 7 expire and are no longer visible or valuable to the player.
           Swiping on a target collects points corresponding to the target's size.
 
-          \begin{figure}[h!]
+          \begin{figure}[ht!]
               \centering
           %    \includegraphics[width=0.8\textwidth]{figures/hex_schematic_1.png}
               \caption{\label{fig:point_structure}Targets grow in size and value up until a threshold, in which they are no longer valuable. Player actions determine this growth.}
@@ -182,10 +219,10 @@ To investigate how complex skill learning ensues, the right tool is needed. Afte
         \paragraph{Scoring}
           Individual targets grow up to six times and are worth \(n^2\) points: from \(1^2\) - as they spawn - to \(6^2\) points - at their ripest. The exponential nature of target value places weight on collecting the target as large as possible. However - given that the game is self-paced -  any seven interactions with the screen  will exhaust a target and lead to 0 reward (see \ref{the-task} for the task design).
 
-        \paragraph{Action-sequences}
-          For analysis purposes, we wanted to understand what serial combinations of actions - or action sequences - the players used to solve hexxed. To do so, we number the 6 lobes of the hexagon from 0 to 5 clockwise. We number the lobe where the first target in a puzzle appears as 0. We then encode the sequence of touches or swipes (the two valid actions) on these lobes as a vector of actions. Touches are encoded as the number of the lobe that was pressed and swipes are encoded as the lobe number + 10.
+        \paragraph{Action-sequences}\label{action-sequences}
+          For analysis purposes, we wanted to understand what serial combinations of actions - or action sequences - the players used to solve hexxed. To do so, we number the 6 lobes of the hexagon from 0 to 5 clockwise. We number the lobe where the first target in a puzzle appears as 0. We then encode the sequence of touches or swipes (the two valid actions) on these lobes as a vector of actions. Touches are encoded as the number of the lobe that was pressed \textit{l} and swipes are encoded as the negative of said lobe number \textit{-l}.
 
-          In an example action sequence for level 1, a subject performed a tap on the lobe to the left of the lobe which had a target; then, the player touched on the lobe with the target for 5 times; finally, the player swiped on the lobe with the target to get maximal reward. This action sequence is encoded as [5,0,0,0,0,0,10].
+          In an example action sequence for level 1, a subject performed a tap on the lobe to the left of the lobe which had a target; then, the player touched on the lobe with the target for 5 times; finally, the player swiped on the lobe with the target to get maximal reward. This action sequence is encoded as [5,0,0,0,0,0,-0].
 
 
         \paragraph{Optimality in hexxed}
@@ -214,31 +251,31 @@ To investigate how complex skill learning ensues, the right tool is needed. Afte
 
         \paragraph{Data collection and recruitment}
 
-        % mention press releases and scicom
+        The data collection process for the \textit{hexxed} experiment encompassed both laboratory and online environments.
 
-          The data for \textit{hexxed} was collected both in the lab and online.
+        In the controlled laboratory setting, study participants engaged with the game on a spacious touch-sensitive screen located within a quiet, controlled environment. The participant pool consisted of individuals from the Champalimaud Research community, comprising undergraduate students, technicians, graduate students, and postgraduates. It is important to note that unless otherwise specified, the \textit{hexxed} dataset presented in this dissertation primarily stems from online data collection.
 
-          In the lab, subjects were presented with the game on a large touch-sensitive screen in a quiet room. Participants were recruited from amongst the Champalimaud Research community and included undergraduate students, technicians, graduate students, and postgraduates. However, and unless specified, all of the \textit{hexxed} data presented in this work was collected online.
+        Conducting data collection online introduced unique challenges, notably those related to scalability and the breadth of data collection. By framing the experiment as a game, we anticipated data to be generated at varying and unpredictable rates, as the game was accessible to anyone, anywhere, at any time. To maximize participation, we collaborated with the science communication offices of both Champalimaud Research and the University of California, Berkeley, resulting in extensive media coverage that attracted a substantial number of participants. Consequently, we had to develop tailored solutions for data formatting, storage, and transfer to effectively manage the influx of data.
 
-          One of the challenges that online data collection poses is that of scalability and scope. By launching the task as a game, we predicted the collected data to arrive at unpredictable rates - anyone, anywhere, could play the game at any time. With the help of the science communication offices of both the Champalimaud Research and the University of California Berkeley, the game got significant media coverage, leading to a lot of participants.
-          For these reasons, we had to custom engineer data formatting, storage and transfer solutions.
+        It is essential to emphasize that, despite its gamified presentation, \textit{hexxed} remains a scientific experiment. Therefore, we diligently adhered to the ethical and deontological guidelines set forth by the Champalimaud Research ethics committee. This encompassed ensuring compliance with the General Data Protection Regulation (GDPR), obtaining informed consent from participants, ensuring data anonymization, and providing participants with the option to opt out, among other ethical considerations. The comprehensive license agreement and privacy policy governing data usage for \textit{hexxed} can be accessed at the following URL: \url{https://hexxed.io}. Additionally, any ethical approval documentation and related ethics materials can be made available upon request through the same URL: \url{https://hexxed.io}.
 
-
-           Albeit in the shape of a game, \textit{hexxed} is still an experiment. The ethical and deontological requirements of the Champalimaud Research ethics committee thus had to be met (e.g. in compliance with GDPR, informed consent, data anonimity and ability to opt out, amongst other things, all had to be ensured). The full license agreement and privacy policy can be found at \url{https://hexxed.io}. The ethical approval and other ethics documentation can be made available upon request at \url{https://hexxed.io}.
 
 
 
         \paragraph{Data Architecture}
 
-          To handle \textit{hexxed's} data, we designed a custom data format, embedded in a JSON format.
-          This file, generated by the \textit{hexxed} executable, logs all of the players interactions with the screen during a playthrough. For each screen interaction (i.e. a touch or a swipe), a list consisting of data associated with said interaction is created and appended to memory.
-          At the end of a playthrough (i.e. on ending/losing a level or when closing the game), all of the lists in memory are encoded as a JSON payload and sent to a secure server.
-          Upon arrival on the server-side, this payload is stored in an SQL database. This database contains all of the data for all the playthroughs for all the players.
-          An example of the payload is illustrated and documented in Supplementary Table \ref{table:payload}.
+        To manage the data generated by \textit{hexxed}, we developed a customized data format implemented within a JSON structure. The data handling process involves the \textit{hexxed} executable, which generates a file that meticulously logs every interaction players have with the screen during a playthrough. Each interaction, encompassing actions such as touches or swipes, results in the creation of a list containing pertinent data related to that specific interaction. These lists are dynamically generated and continually appended to memory as the game progresses.
+
+        At the culmination of a playthrough, which occurs either when a player completes or fails a level or when they exit the game, all the accumulated lists stored in memory are encoded into a JSON payload. This payload is subsequently transmitted to a secure server designated for this purpose.
+
+        Upon receipt at the server-side, the incoming payload is archived within an SQL database specifically designed to store data from all playthroughs across all players. This database serves as a comprehensive repository containing data from all facets of the game.
+
+        For a detailed illustration and documentation of the payload structure, an example is provided in Supplementary Table \ref{table:payload}. This table offers insight into the format and contents of the JSON payload, aiding in the comprehension and analysis of the data collected during \textit{hexxed} playthroughs.
 
 
 
     \paragraph{Data Processing and Analysis}
+
       Due to the size and complexity of the collected data, we had to build a custom pipeline for processing and analysis. All of the python pipeline scripts and documentation can be found on \textit{hexxed's} github repository at \url{https://hexxed.io}.
 
       After downloaded, the data is extracted from the JSON payload into a pandas dataframe. This process requires careful consideration, as it is easy to underestimate the needed computational resources when dealing with such a large dataset.
@@ -246,7 +283,9 @@ To investigate how complex skill learning ensues, the right tool is needed. Afte
       Firstly, raw data was saved in a compressed format, then, fast JSON parsing was the priority. Because of the payload structure, to extract the data into an analysis-friendly format we naively would have to iterate through thousands of rows, parsing each JSON string as appropriately \textit{typed} columns in a dataframe. Luckily, python and pandas allow for alternatives to this iterative process. Using the split-apply-combine \cite{wickham2011split} framework, and after arduous optimization steps, we transform our entire dataset into a large long-formatted pandas dataframe (i.e. a timeseries). Following the preprocessing steps, the data is now easily \textit{query-able} and manipulable.
       Our final dataframe has a coarse-ness of one action per row - the highest granularity the raw data allows for. Using pandas groupby, it is easy to adjust on which variable we want to group this dataframe, allowing for efficient analysis of any type.
 
-      \begin{longtable}[l]{ | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | m{2em} | }
+
+\iffalse
+            \begin{longtable}[l]{ | m{5em} | m{10em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | }
 
         \hline
         device-ID & session-start & time & sw-flip & sw-offset & sw-subwave-num & sw-number & mo-y & mo-x & mo-fake-release & mo-act-drag & mo-lobe & level & version & device-timezone & device-OS & time-diff & coord-diff & total-events & first & last & target-location & action-location & action-location-normalized & actions & actions-normalized & collect & false-collect & action-sequences & action-sequences-str & count \\
@@ -258,34 +297,264 @@ To investigate how complex skill learning ensues, the right tool is needed. Afte
       4 & 0012e848890bbcb5 & 522282 & 542457 & False & 4.000000 & 5.000000 & 2.000000 & 246.111145 & -10.149719 & 0.000000 & False & 1.000000 & 1.000000 & 2.000000 & {'bias': 0.0, 'name': 'WET'} & Android & 1618.000000 & -331.689758 & 6 & False & False & 4.000000 & 0.000000 & 2.000000 & 0.000000 & 2.000000 & False & False & [1.0, 2.0, 3.0, 4.0, 5.0, 1.0] & [1.0, 2.0, 3.0, 4.0, 5.0, 1.0] & 146 \\
       \hline
     \end{longtable}
+\fi
+
+
+% Table Part 1
+\begin{longtable}[l]{ | m{5em} | m{8em} | m{4em} | m{4em} | m{4em} | m{8em} | }
+  \caption{Table Title for Part 1} \\
+  \hline
+  device-ID & session-start & time & sw-flip & sw-offset & sw-subwave-num \\
+  \hline
+  \endfirsthead
+
+  \multicolumn{6}{c}%
+  {{\tablename\ \thetable{} -- continued from previous page}} \\
+  \hline
+  device-ID & session-start & time & sw-flip & sw-offset & sw-subwave-num \\
+  \hline
+  \endhead
+
+  0 & 0012e848890bbcb5 & 522282 & 531464 & False & 4.000000 \\
+  1 & 0012e848890bbcb5 & 522282 & 533139 & False & 4.000000 \\
+  2 & 0012e848890bbcb5 & 522282 & 534881 & False & 4.000000 \\
+  3 & 0012e848890bbcb5 & 522282 & 540839 & False & 4.000000 \\
+  4 & 0012e848890bbcb5 & 522282 & 542457 & False & 4.000000 \\
+  \hline
+\end{longtable}
+
+
+% Table Part 2
+\begin{longtable}[l]{ | m{5em} | m{4em} | m{6em} | m{7em} | m{6em} | m{5em} | }
+
+  \hline
+  sw-number & mo-y & mo-x & mo-fake-release & mo-act-drag & mo-lobe \\
+  \hline
+  \endfirsthead
+
+  \multicolumn{6}{c}%
+  {{\tablename\ \thetable{} -- continued from previous page}} \\
+  \hline
+  sw-number & mo-y & mo-x & mo-fake-release & mo-act-drag & mo-lobe \\
+  \hline
+  \endhead
+
+  2.000000 & 1.000000 & -121.111099 & 196.539368 & 0.000000 & False \\
+  2.000000 & 1.000000 & 82.777802 & -131.273987 & 0.000000 & False \\
+  2.000000 & 1.000000 & -87.222214 & 103.195862 & 0.000000 & False \\
+  5.000000 & 2.000000 & 127.222229 & 202.651123 & 0.000000 & False \\
+  5.000000 & 2.000000 & 246.111145 & -10.149719 & 0.000000 & False \\
+  \hline
+\end{longtable}
+
+
+% Table Part 3
+\begin{longtable}[l]{ | m{5em} | m{5em} | m{9em} | m{5em} | m{7em} | m{6em} | }
+  \hline
+  level & version & device-timezone & device-OS & time-diff & coord-diff \\
+  \hline
+  \endfirsthead
+
+  \multicolumn{6}{c}%
+  {{\tablename\ \thetable{} -- continued from previous page}} \\
+  \hline
+  level & version & device-timezone & device-OS & time-diff & coord-diff \\
+  \hline
+  \endhead
+
+  5.000000 & 1.000000 & {'bias': 0.0, 'name': 'WET'} & Android & -49938.000000 & 318.914062 \\
+  2.000000 & 1.000000 & {'bias': 0.0, 'name': 'WET'} & Android & 1675.000000 & -531.702271 \\
+  5.000000 & 1.000000 & {'bias': 0.0, 'name': 'WET'} & Android & 1742.000000 & 404.469849 \\
+  6.000000 & 1.000000 & {'bias': 0.0, 'name': 'WET'} & Android & 5958.000000 & -114.989182 \\
+  1.000000 & 1.000000 & {'bias': 0.0, 'name': 'WET'} & Android & 1618.000000 & -331.689758 \\
+  \hline
+\end{longtable}
+
+
 
       While shortly described, this process was extremely challenging as the size and scope of our dataset is rare in behavioral sciences.
 
-      All data was analysed using python. All analysis scripts are available at \url{https://hexxed.io}
+      All data was analyzed using python. All analysis scripts are available at \url{https://hexxed.io}
 
 
+      \paragraph{Artificial agents solving hexxed}
+        As part of our research and leveraging the careful task design, we were able to ask artificial agents to solve our task. To facilitate this, a collaborator of our team encoded the task within a GYM environment. GYM is a library that offers a standardized API for communication between reinforcement learning agents and various environments.
+        Several agents were exposed and trained in our task: \textit{1 Layer Linear, 3-Layer ReLU, 1 Conv. Layer + 3-Layer ReLU})
+        Performance from all agents was similar. Marginally, the best performing agent was the \textit{1 Convolution Layer + 3-Layer ReLU}, thus, the results shown in this work will be from this agent.
 
 
-
-        % \paragraph{Artificial Neural Networks solving hexxed}
-        % \paragraph{Action-sequence annotation}
         %
         %
 
-        \paragraph{Beyond this thesis}
+        \paragraph{Beyond this thesis} \textcolor{red}{currently in bullet points only}
+
+          - The specific implementations of the agents \\
+          - All levels above 1 \\
+          - Lab collected data \\
+
+
+
   \subsection{Results}
+    \textcolor{red}{add the agents plots and text/narrative}
     \subsubsection{Introduction}
-    \subsubsection{Humans are Picky}
+      \textit{hexxed} was designed to explore complexity in learning and, as such, learning comprises a large part of this work. In fact, the scope of this thesis will solely be on the phase where subjects learn the rules of the game - level 1.
+
+      \textcolor{red}{explain the role of the plots of the agents}
 
 
-      \begin{figure}[h!]
+
+    \FloatBarrier
+    \subsubsection{"Picky" - Humans explore the space of possible rewards unevenly}\label{picky}
+      \textit{hexxed's} dataset is vast. Let us start with a low level observation: the first ever interaction with the task.
+
+      As the game provides the player with little to no instructions (see \ref{the-task}), how and where the players interact with the screen can give insight on whether, in broad strokes, the game is intuitive or, at the very least, interpretable.
+
+      \begin{figure}[ht!]
           \centering
-      %    \includegraphics[width=0.8\textwidth]{figures/hex_schematic_1.png}
-          \caption{\label{fig:mdp}mdp}
+          \includegraphics[width=0.8\textwidth]{figures/first_touch.png}
+          \caption{\label{fig:first_touch} "First touch" - A heat-map of the participants' first ever touch coordinates on the screen, superimposed with a screenshot of the game. Player touches are largely centered around the gray bar on the bottom. Unbeknownst to the player, this bar is an indicator that a target will appear on that lobe. }
       \end{figure}
 
-    \subsubsection{Humans are Sticky}
-    \subsubsection{Humans are Leapy}
+      In Figure \ref{fig:first_touch}, the first ever interaction with the game is shown. Players seem to have a common \textit{prior} that they ought to press the hexagon on the lobe that is highlighted. That lobe is where a target becomes available for collection, thus, pressing it is a sensible option.
+
+      Due to the sheer dimension of the dataset, we will focus on the first level of the task for the rest of this work. In level 1, only one target is available for collection (see \ref{the-task}).
+
+      \begin{figure}[ht!]
+          \centering
+          \includegraphics[width=0.4\textwidth]{figures/mdp.png}
+          \caption{\label{fig:mdp} A visualization of level 1 in the shape of a Markov Decision Problem. From the initial node, each player action propagates them 1 step rightwards. Lines show possible transitions. The orange colored circles denote reward availability and magnitude (light hue = larger reward). The black circle symbolizes a reward of 0. }
+      \end{figure}
+      Our task can be formalized as a Markov Decision Problem (MDP). In Figure \ref{fig:mdp}, we show an example visualization of said MDP for puzzles in level 1.
+
+      As players explore level 1, they eventually collect points. In Figure \ref{fig:rewards}, we show the probability of our subjects, on a given trial, getting any of the seven possible reward sizes.
+      Rewards of 0 are the most common - this reflects that failures are the most common outcome in the task.
+      Looking at the remaining reward sizes, the second most common collected reward is the maximum reward - a requirement for optimal level completion.
+      The only other reward size that is differently explored is the smallest reward possible.
+      %In Figure \ref{fig:rewards}, the same plot is shown for the agents that performed our task.
+      %In contrast with humans, the artificial agents show a more even exploration of the space of possible rewards. 
+
+      \begin{figure}[ht!]
+          \centering
+          \includegraphics[width=0.8\textwidth]{figures/rewards.png}
+          \caption{\label{fig:rewards} The probability of getting rewards for all possible reward sizes. }
+      \end{figure}
+
+
+      As continuous choices are made, specific strategies or ways of playing emerge. In Figure \ref{fig:sankey}, a flattened version of the MDP of Figure \ref{fig:mdp} is populated with the action-transitions made by our subjects. The path closest to rewards is overrepresented and. As seen in Figure \ref{fig:rewards}, states that lead to rewards of 0, 1 and optimal are the most commonly visited.
+
+      Our subjects explore the space of possible rewards unevenly.
+
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=0.95\textwidth]{figures/sankey.png}
+        \caption{\label{fig:sankey} Action transitions in level 1 puzzles in a flattened version of \ref{fig:mdp}. All subjects start on the leftmost node and traverse the plot rightwards. From the initial state, line widths represent the probability of transitions to subsequent nodes and node widths, their occupancy. Rewards are available on the nodes on the top row, growing in value from left to right. The rightmost node represents a reward of 0.}
+    \end{figure}
+
+
+    \FloatBarrier
+    \subsubsection{"Sticky" - Humans are persistent in their learning strategies}
+
+    After looking at the landscape of action-transitions in a trial/puzzle, we now investigate what are the dynamics  across trials. In Figure \ref{fig:rewards_heatmap}, we plot the conditional probability of getting reward \textit{r} in trial \textit{t} given the reward in the previous trial \textit{t-1}. We observe that the edges of the diagonal seem overrepresented. This is consistent with the points raised on \ref{picky}. Rewards of 0 (i.e. failures) lead to revisiting failures, whereas optimal rewards lead to optimal rewards once more. The center of the heat-map is more fuzzy.
+    Intermediate rewards suggest intermediate sub-optimal strategies where perhaps subjects have already learned the basic controls of the game, however, are still not capable of solving it optimally.
+
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=0.7\textwidth]{figures/rewards_heatmap.png}
+        \caption{\label{fig:rewards_heatmap} The probability of getting a reward \textit{r} on trial \textit{t} conditional on the reward of the previous trial \textit{t-1}: $ P(r_t|r_{t-1}) $. Darker colors indicate higher probability. Normalized by reward size (columns). }
+    \end{figure}
+
+
+    In order to progress in the game, sequences of actions are made. Our players performed 14158 unique action sequences. In Table \ref{tab:action_sequences}, the 20 most common are shown - the encoding is explained on section \ref{action-sequences}.
+
+    \begin{table}[ht]
+    \centering
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    \textbf{Action\_Sequence} & \textbf{Frequency} & \textbf{Rank} \\
+    \hline
+    [-0.0] & 9805 & 1.0  \\
+    \hline
+    [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.0] & 7507 & 2.0  \\
+    \hline
+    [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] & 2978 & 3.0  \\
+    \hline
+    [0.0, -0.0] & 2752 & 4.0  \\
+    \hline
+    [1.0, 2.0, 3.0, 4.0, 5.0, 0.0, -0.0] & 819 & 5.0  \\
+    \hline
+    [3.0, 0.0, 3.0] & 582 & 6.0  \\
+    \hline
+    [5.0, 4.0, 3.0, 2.0, 1.0, 0.0, -0.0] & 535 & 7.0  \\
+    \hline
+    [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 0.0] & 460 & 8.0  \\
+    \hline
+    [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] & 439 & 9.0  \\
+    \hline
+    [0.0, 3.0, 0.0] & 438 & 10.0  \\
+    \hline
+    [0.0, 0.0, 0.0, 0.0, 0.0, -0.0] & 437 & 11.0  \\
+    \hline
+    [-3.0, -0.0] & 406 & 12.0  \\
+    \hline
+    [0.0, 0.0, -0.0] & 406 & 12.0  \\
+    \hline
+    [1.0, 2.0, 3.0, 4.0, 5.0, 0.0, 0.0] & 318 & 13.0  \\
+    \hline
+    [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0] & 302 & 14.0 \\
+    \hline
+    [0.0, 5.0, 4.0, 3.0, 2.0, 1.0, 0.0] & 301 & 15.0  \\
+    \hline
+    [3.0, -0.0] & 279 & 16.0  \\
+    \hline
+    [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.0] & 273 & 17.0  \\
+    \hline
+    [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] & 269 & 18.0  \\
+    \hline
+    [3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0] & 263 & 19.0 \\
+    \hline
+    [1.0, 2.0, 3.0, 4.0, 5.0, 0.0, 1.0] & 254 & 20.0  \\
+    \hline
+    \end{tabular}
+    \caption{The top 20 action sequences and respective frequencies of occurrence - in total occurrences across all players. There are a total of 14158 unique action sequences.}
+    \label{tab:action_sequences}
+    \end{table}
+
+    We see that the most common action is a single swipe on the correct lobe - which leads to a reward of 1. The second most common is one of the optimal solutions - tapping only the lobe where reward is available and swiping at the last possible moment. The third does not include swipes, and thus leads to a reward of 0. The fifth and seventh represent, respectively, navigating the hexagon clockwise and counterclockwise before swiping at the last possible step - both leading to optimal reward.
+
+    Now it is possible to look at the action sequence transitions from sequence \textit{s} on trial \textit{t} from the sequence done on the previous trial \textit{t-1}.
+    Again, the diagonal appears to be overrepresented. This signifies that players often repeat the same action sequence they performed before. This is especially the case for optimal solutions (e.g. sequences 2, 5 and 7), where it makes most sense to keep repeating ones current action sequence. Another feature is the asymmetry between the lower and upper sides of the diagonal. Action sequences are most commonly taken from least common to most common, perhaps signifying some conversion towards learning.
+
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=1\textwidth]{figures/sequences_heatmap.png}
+        \caption{\label{fig:sequences_heatmap} The probability of performing the action sequence \textit{s} on trial \textit{t} conditional on the sequence done on the previous trial \textit{t-1}: $ P(s_t|s_{t-1}) $. The top 19 sequences are displayed and the remaining thousands are grouped as "other". Sequences are ordered by their frequency of occurrence in the data. Darker colors indicate higher probability. Normalized by sequence (columns). }
+    \end{figure}
+
+
+    Our subjects are persistent in which actions they perform, both when looking at which reward size they explore throughout learning as well as when looking at specific action sequences.
+
+    \FloatBarrier
+
+
+
+    \subsubsection{"Leapy"}
+
+    We finally zoom-out and observe the entire progression of a player throughout a level. In Figure \ref{fig:leapy}, each individual player is represented by a randomly colored line. To complete level 1, subjects must collect a certain amount of reward (see \ref{the-task}). Here, this threshold is represented by the dashed line. In these traces we observe a pattern of low performance on a number of sessions followed by a rapid leap that leads to success. In the top panel, a histogram of when players reached the reward threshold. We see an early centered yet long tailed distribution that contrasts with \textcolor{red}{the agents'}.
+
+
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=1\textwidth]{figures/bins_leapy.png}
+        \includegraphics[width=1\textwidth]{figures/leapy.png}
+
+        \caption{\label{fig:leapy}
+        Bottom panel: Raw traces of reward progression across level attempts during learning (i.e. until the level is complete for the first time). In order to complete a level, subjects must reach a fixed reward threshold, here represented as a dashed line - see \ref{the-task}. Hue is randomly assigned for easier visual discrimination across individual traces.
+        Top panel: Summary visualization of the bottom panel. A histogram of how many players reached/crossed the reward threshold across levels. }
+    \end{figure}
+
+
+
+
   \subsection{Discussion}
   \subsection{Author Contributions}
   \subsection{Acknowledgments}
@@ -297,171 +566,88 @@ To investigate how complex skill learning ensues, the right tool is needed. Afte
 
 \section{Supplementary}
 
-  \begin{center}
-  \setlength\tabcolsep{20pt}
-  \begin{longtable}[l]{ | m{8em} | m{1.6em}| m{18em} | m{10.5em} | }
+
+
+    \begin{landscape}
+    %\begin{center}
+    \setlength\tabcolsep{20pt}
+
+    \begin{small}
+    \begin{longtable}{|p{8em}|p{1.6em}|p{24em}|p{20em}|}
+
     \hline
-    variable name & size & description & example \\
-   \hline
-   drone-play & (1) & time at which the background drone music restarts the loop  & [374062] \\ \hline
-   mo-act-drag & (13) & 0 for tap, 1 for drag (swipe).   & [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1] \\ \hline
-   mo-fake-release & (13) & ??? multiple releases by a single press as registered by the device. & [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] \\ \hline
-   mo-lobe & (13) & lobe number (1-indexed) that was either touched or swiped, value is 0 if user touches/swipes outside the hexagon  & [2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4] \\ \hline
-   mo-press-time & (13) & time of user action relative to start of level (milliseconds)  & [365039, 365192, 365338, 365486, 365635, 366691, 368974, 369089, 369218, 369360, 369496, 369641, 371266] \\ \hline
-   mo-press-x & (13) & where you press relative to the center of the big hexagon  & [-96.825806, -101.270752, -87.935974, -83.491028, -90.158447, -168.500244, 7.074341, 22.075989, 19.297913, 22.631592, 20.409119, 19.853516, 0.406982] \\ \hline
-   mo-press-y & (13) & where you press relative to the center of the big hexagon  & [82.777802, 80.000031, 61.666687, 62.222229, 67.777802, 120.555573, -155, -156.666656, -155, -158.333328, -167.222214, -171.666656, -195] \\ \hline
-   mo-time & (13) & when you release  & [365058, 365225, 365387, 365525, 365671, 366832, 368991, 369122,/ 369272, 369396, 369545, 369694, 371364] \\ \hline
-   mo-x & (13) & where you release  & [-97.381409, -101.270752, -88.491577, -84.046631, -91.269653, 28.743347, 7.074341, 22.075989, 20.409119, 23.187195, 20.964722, 20.409119, -9.594116] \\ \hline
-   mo-y & (13) & where you release  & [83.333344, 80.000031, 62.777802, 62.777802, 68.333344, 21.666687, -155, -156.666656, -155, -158.333328, -166.666656, -171.111099, -62.222214] \\ \hline
-   mo-act-taken-act & (16) & actions from the vantage point of slider, +/-1 if slide is moving (clockwise/counterclockwise), 2 if slider is collecting, 0 if it's aggregating (tap in place). The other numbers in the example above can actually be anything, including 0, -1, 1, and 2. In order ot disambiguate these, look at mo-act-taken-pos, the entries that are -1 correspond to these random numbers here that indicate begin/end of a puzzle. & [50, 0, 0, 0, 0, 0, 2, -1962528752, 0, 0, 0, 0, 0, 0, 2, -1962528752] \\ \hline
-   mo-act-taken-pos & (16) & Each -1 "bookends" the start/end of a puzzle, other numbers refer to the lobes (0-indexed) & [-1, 1, 1, 1, 1, 1, 1, -1, 3, 3, 3, 3, 3, 3, 3, -1] \\ \hline
-   mo-act-taken-time & (17) & godot signal system logs these "taken" values into queue as soon as the slider movement is done (tween completion) e.g,  & [364621, 365338, 365652, 365952, 366254, 366565, 367116, 368208, 369289, 369598, 369905, 370218, 370532, 370835, 371668, 371976, 374062] \\ \hline
-   mo-move-pos-x & (24) & every time android sends a drag (swipe) signal it will write to these arrays. These include taps that are misundertsood as drags/swipes by android, but godot logic has a more stringent requirement to count an interaction as a swipe.  & [-97.381409, -88.491577, -88.491577, -84.046631, -91.269653, -91.269653, -167.944641, -166.277771, -161.277283, -152.38739, -133.49646, -101.270752, 28.743347, 19.853516, 20.409119, 23.187195, 20.964722, 20.409119, 0.406982, -0.148682, -1.259888, -4.037964, -9.038513, -9.594116] \\ \hline
-   mo-move-pos-y & (24)  & & [83.333344, 62.222229, 62.777802, 62.777802, 67.777802, 68.333344, 120.000031, 118.888916, 117.222229, 112.777802, 102.777802, 85.555573, 21.666687, -155, -155, -158.333328, -166.666656, -171.111099, -194.444443, -192.222214, -182.222214, -160, -76.111099, -62.222214] \\ \hline
-   mo-move-time & (24) & & [365057, 365371, 365387, 365525, 365670, 365670, 366725, 366743, 366761, 366778, 366796, 366814, 366832, 369254, 369271, 369395, 369529, 369694, 371282, 371298, 371315, 371331, 371363, 371364] \\ \hline
-   ba-ID & (2) & The size rank of the object collected biggest target=0, second biggest=1 and so on. & [0, 0] \\ \hline
-   ba-age & (2) & size at which object was collected, if you miss it it's indicated by a 7 -- the value is at least 1. & [5, 6] \\ \hline
-   ba-position & (2) & the lobe that the collected object was on (and by definition was collected from) & [1, 3] \\ \hline
-   ba-time & (2) & time of collection & [367116, 371651] \\ \hline
-   focus-in & (2) & when player switches back into the app & [379081, 386834]\\ \hline
-   focus-out & (2) & when player switches out of the app & [374954, 381247]\\ \hline
-   sw-time-end & (2) & time that subwave (puzzle) ended. & [367116, 371651] \\ \hline
-   sw-flip & (3) & whether flipped or not (after rotational offset) around the first piece. & [0, 1, 0] \\ \hline
-   sw-offset & (3) & rotational offset of objects (0-indexed) & [1, 3, 4] \\ \hline
-   sw-subwave-num & (3) & the puzzle id according to the spawn.txt (see section on spawn.txt below) & [0, 1, 5] \\ \hline
-   sw-time & (3) & start time of the subwave (puzzle) & [364339, 367914, 373764] \\ \hline
-   device-IP & (7) & & ['192.168.1.66', '2001:569:7ac6:6900:1457:626f:c220:f868', '2001:569:7ac6:6900:ee9b:f3ff:fe96:3eb5', 'fe80:0:0:0:ee9b:f3ff:fe96:3eb5', 'fe80:0:0:0:ec9b:f3ff:fe96:3eb5', '127.0.0.1', '0:0:0:0:0:0:0:1'] \\ \hline
-   level & (1) &  current level NOT 0-indexed. &  1 \\ \hline
-   version & (1) & & 1.08 \\ \hline
-   rand-pos & (1) & a/b testing: which category you were put into... &  2 \\ \hline
-   device-ID & (1) &  unique identifier of the physical device of the user (did not use to be accessible by older godot versions) & a3f1ef82e68aa9bb \\ \hline
-   device-OS & (1) & & Android \\ \hline
-   level-won & (1) &  only True if the session is saved upon successfull completion of the level. NOTE: if False, it does not mean that this payload was sent upon the user LOSING the level. Since they could have focused out: if focus-out is the last event of the game then that's a good indication for this scenario. The only way you can judge loss of level is if the total number of points earned falling below the threshold of points needed for successful completion & False \\ \hline
-   user-quit & (1) & if user pressed back. It does NOT register a quit if user focuses OUT and then closes the app. & False \\ \hline
-   device-dpi & (1) & & 420 \\ \hline
-   repeat-bad & (1) &  a/b testing variable : whether you present the same pattern if person fails it... currently disabled i.e. they don't see the same puzzle again. & 2 \\ \hline
-   device-name & (1) & & SM-N920W8 \\ \hline
-   total-saves & (1) &  number of times this user's files has been saved: cumulative across all levels; incremented for each focus-out event. &  13 \\ \hline
-   max-unlocked & (1) & maximum level unlocked PRIOR to this attempt, 0-indexed  & 1 \\ \hline
-   OS-start-time & (1) & & 364316 \\ \hline
-   device-ID-rand & (1) & random number assigned to user the first time they open the game after install used in conjunction with below in lieu of device-ID in older godot versions & 2846276096  \\ \hline
-   device-ID-time & (1) &  time at which the users opens the game for the first time after install: used in conjunction with above in lieu of device-ID in older godot versions & 1592595456 \\ \hline
-   failure-thresh & (1) &  level dependent, always 15 except last level, which is set to 5. & 15 \\ \hline
-   device-timezone & (1) & & {'bias': -420, 'name': 'PDT'} \\ \hline
-   device-kb-locale & (1) & & en-CA \\ \hline
-   device-current-time & (1) &  & {'day': 22, 'dst': True, 'hour': 14, 'year': 2020, 'month': 6, 'minute': 51, 'second': 40, 'weekday': 1} \\ \hline
-   device-screensize-x & (1) & & 1920 \\ \hline
-   device-screensize-y & (1) & & 1080 \\ \hline
-   device-video-driver & (1) & & 0 \\
-   \hline
+    \textbf{Variable Name} & \textbf{Size} & \textbf{Description} & \textbf{Example} \\
+    \hline
+    \endhead
+
+%    \begin{longtable}[l]{ | m{10em} | m{1.6em} | m{25em} | m{16em} | }
+
+    \hline
+    drone-play & (1) & time at which the background drone music restarts the loop & [374062] \\ \hline
+    mo-act-drag & (13) & 0 for tap, 1 for drag (swipe). & [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1] \\ \hline
+    mo-fake-release & (13) & ??? multiple releases by a single press as registered by the device. & [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] \\ \hline
+    mo-lobe & (13) & lobe number (1-indexed) that was either touched or swiped, value is 0 if user touches/swipes outside the hexagon & [2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4] \\ \hline
+    mo-press-time & (13) & time of user action relative to start of level (milliseconds) & [365039, 365192, 365338, 365486, 365635, 366691, 368974, 369089, 369218, 369360, 369496, 369641, 371266] \\ \hline
+    mo-press-x & (13) & where you press relative to the center of the big hexagon & [-96.825806, -101.270752, -87.935974, -83.491028, -90.158447, -168.500244, 7.074341, 22.075989, 19.297913, 22.631592, 20.409119, 19.853516, 0.406982] \\ \hline
+    mo-press-y & (13) & where you press relative to the center of the big hexagon & [82.777802, 80.000031, 61.666687, 62.222229, 67.777802, 120.555573, -155, -156.666656, -155, -158.333328, -167.222214, -171.666656, -195] \\ \hline
+    mo-time & (13) & when you release & [365058, 365225, 365387, 365525, 365671, 366832, 368991, 369122, 369272, 369396, 369545, 369694, 371364] \\ \hline
+    mo-x & (13) & where you release & [-97.381409, -101.270752, -88.491577, -84.046631, -91.269653, 28.743347, 7.074341, 22.075989, 20.409119, 23.187195, 20.964722, 20.409119, -9.594116] \\ \hline
+    mo-y & (13) & where you release & [83.333344, 80.000031, 62.777802, 62.777802, 68.333344, 21.666687, -155, -156.666656, -155, -158.333328, -166.666656, -171.111099, -62.222214] \\ \hline
+    mo-act-taken-act & (16) & actions from the vantage point of slider, +/-1 if slide is moving (clockwise/counterclockwise), 2 if slider is collecting, 0 if it's aggregating (tap in place). The other numbers in the example above can actually be anything, including 0, -1, 1, and 2. In order to disambiguate these, look at mo-act-taken-pos, the entries that are -1 correspond to these random numbers here that indicate begin/end of a puzzle. & [50, 0, 0, 0, 0, 0, 2, -1962528752, 0, 0, 0, 0, 0, 0, 2, -1962528752] \\ \hline
+    mo-act-taken-pos & (16) & Each -1 "bookends" the start/end of a puzzle, other numbers refer to the lobes (0-indexed) & [-1, 1, 1, 1, 1, 1, 1, -1, 3, 3, 3, 3, 3, 3, 3, -1] \\ \hline
+    mo-act-taken-time & (17) & godot signal system logs these "taken" values into a queue as soon as the slider movement is done (tween completion), e.g., & [364621, 365338, 365652, 365952, 366254, 366565, 367116, 368208, 369289, 369598, 369905, 370218, 370532, 370835, 371668, 371976, 374062] \\ \hline
+    mo-move-pos-x & (24) & every time Android sends a drag (swipe) signal, it will write to these arrays. These include taps that are misunderstood as drags/swipes by Android, but Godot logic has a more stringent requirement to count an interaction as a swipe. & [-97.381409, -88.491577, -88.491577, -84.046631, -91.269653, -91.269653, -167.944641, -166.277771, -161.277283, -152.38739, -133.49646, -101.270752, 28.743347, 19.853516, 20.409119, 23.187195, 20.964722, 20.409119, 0.406982, -0.148682, -1.259888, -4.037964, -9.038513, -9.594116] \\ \hline
+    mo-move-pos-y & (24) & & [83.333344, 62.222229, 62.777802, 62.777802, 67.777802, 68.333344, 120.000031, 118.888916, 117.222229, 112.777802, 102.777802, 85.555573, 21.666687, -155, -155, -158.333328, -166.666656, -171.111099, -194.444443, -192.222214, -182.222214, -160, -76.111099, -62.222214] \\ \hline
+    mo-move-time & (24) & & [365057, 365371, 365387, 365525, 365670, 365670, 366725, 366743, 366761, 366778, 366796, 366814, 366832, 369254, 369271, 369395, 369529, 369694, 371282, 371298, 371315, 371331, 371363, 371364] \\ \hline
+    ba-ID & (2) & The size rank of the object collected, biggest target=0, second biggest=1, and so on. & [0, 0] \\ \hline
+    ba-age & (2) & size at which the object was collected, if you miss it, it's indicated by a 7 -- the value is at least 1. & [5, 6] \\ \hline
+    ba-position & (2) & the lobe that the collected object was on (and by definition was collected from) & [1, 3] \\ \hline
+    ba-time & (2) & time of collection & [367116, 371651] \\ \hline
+    focus-in & (2) & when the player switches back into the app & [379081, 386834] \\ \hline
+    focus-out & (2) & when the player switches out of the app & [374954, 381247] \\ \hline
+    sw-time-end & (2) & time that subwave (puzzle) ended. & [367116, 371651] \\ \hline
+    sw-flip & (3) & whether flipped or not (after rotational offset) around the first piece. & [0, 1, 0] \\ \hline
+    sw-offset & (3) & rotational offset of objects (0-indexed) & [1, 3, 4] \\ \hline
+    sw-subwave-num & (3) & the puzzle id according to the spawn.txt (see section on spawn.txt below) & [0, 1, 5] \\ \hline
+    sw-time & (3) & start time of the subwave (puzzle) & [364339, 367914, 373764] \\ \hline
+    device-IP & (7) & & ['192.168.1.66',
+     '2001:569:7ac6:6900:1457:626f:c220:f868',
+    '2001:569:7ac6:6900:ee9b:f3ff:fe96:3eb5',
+     'fe80:0:0:0:ee9b:f3ff:fe96:3eb5',
+     'fe80:0:0:0:ec9b:f3ff:fe96:3eb5',
+     '127.0.0.1',
+     '0:0:0:0:0:0:0:1'] \\ \hline
+    level & (1) & current level NOT 0-indexed. & 1 \\ \hline
+    version & (1) & & 1.08 \\ \hline
+    rand-pos & (1) & a/b testing: which category you were put into... & 2 \\ \hline
+    device-ID & (1) & unique identifier of the physical device of the user (did not used to be accessible by older Godot versions) & a3f1ef82e68aa9bb \\ \hline
+    device-OS & (1) & & Android \\ \hline
+    level-won & (1) & only True if the session is saved upon successful completion of the level. NOTE: if False, it does not mean that this payload was sent upon the user LOSING the level. Since they could have focused out: if focus-out is the last event of the game then that's a good indication for this scenario. The only way you can judge loss of level is if the total number of points earned falls below the threshold of points needed for successful completion & False \\ \hline
+    user-quit & (1) & if the user pressed back. It does NOT register a quit if the user focuses OUT and then closes the app. & False \\ \hline
+    device-dpi & (1) & & 420 \\ \hline
+    repeat-bad & (1) & a/b testing variable: whether you present the same pattern if a person fails it... currently disabled i.e. they don't see the same puzzle again. & 2 \\ \hline
+    device-name & (1) & & SM-N920W8 \\ \hline
+    total-saves & (1) & number of times this user's files have been saved: cumulative across all levels; incremented for each focus-out event. & 13 \\ \hline
+    max-unlocked & (1) & maximum level unlocked PRIOR to this attempt, 0-indexed & 1 \\ \hline
+    OS-start-time & (1) & & 364316 \\ \hline
+    device-ID-rand & (1) & random number assigned to the user the first time they open the game after install used in conjunction with below in lieu of device-ID in older Godot versions & 2846276096 \\ \hline
+    device-ID-time & (1) & time at which the user opens the game for the first time after install: used in conjunction with above in lieu of device-ID in older Godot versions & 1592595456 \\ \hline
+    failure-thresh & (1) & level dependent, always 15 except last level, which is set to 5. & 15 \\ \hline
+    device-timezone & (1) & & {'bias': -420, 'name': 'PDT'} \\ \hline
+    device-kb-locale & (1) & & en-CA \\ \hline
+    device-current-time & (1) & & {'day': 22, 'dst': True, 'hour': 14, 'year': 2020, 'month': 6, 'minute': 51, 'second': 40, 'weekday': 1} \\ \hline
+    device-screensize-x & (1) & & 1920 \\ \hline
+    device-screensize-y & (1) & & 1080 \\ \hline
+    device-video-driver & (1) & & 0 \\
+    \hline
+    \caption{An example of \textit{hexxed's} data structure as sent by the remote device in four columns: Column 1 - The variable name; Column 2 - How many times this variable was logged for this given example; Column 3 - Variable description; Column 4 - An example value for the variable}
+    \label{table:payload}
+    \end{longtable}
+    %\end{center}
+    \end{small}
+    \end{landscape}
 
 
-  \caption{An example of \textit{hexxed's} data structure as sent by the remote device in three columns: Column 1 - The variable name; Column 2 - How many times this variable was logged for this given example; Column 3 - Variable description; Column 4 - An example value for the variable}
-  \label{table:payload}
-  \end{longtable}
-  \end{center}
-
-
-
-
-\clearpage
-
-\section*{Figures}
-
-\subsection*{Task introduction}
-
-
-\subsubsection*{lvl 1}
-
-\begin{figure}[h!]
-    \centering
-%    \includegraphics[width=0.8\textwidth]{figures/hex_schematic_1.png}
-    \caption{\label{fig:schematic}This frog was uploaded via the file-tree menu.}
-\end{figure}
-
-
-
-
-
-
-ca menu
-
-gestao de servicos
-
-alterar password
-
-
-
-
-\clearpage
-\subsection*{How to include Figures}
-
-First you have to upload the image file from your computer using the upload link in the file-tree menu. Then use the includegraphics command to include it in your document. Use the figure environment and the caption command to add a number and a caption to your figure. See the code for Figure \ref{fig:schematic} in this section for an example.
-
-Note that your figure will automatically be placed in the most appropriate place for it, given the surrounding text and taking into account other figures or tables that may be close by. You can find out more about adding images to your documents in this help article on \href{https://www.overleaf.com/learn/how-to/Including_images_on_Overleaf}{including images on Overleaf}.
-
-
-\subsection*{How to add Tables}
-
-Use the table and tabular environments for basic tables --- see Table~\ref{tab:widgets}, for example. For more information, please see this help article on \href{https://www.overleaf.com/learn/latex/tables}{tables}.
-
-\begin{table}
-\centering
-\begin{tabular}{l|r}
-Item & Quantity \\\hline
-Widgets & 42 \\
-Gadgets & 13
-\end{tabular}
-\caption{\label{tab:widgets}An example table.}
-\end{table}
-
-
-
-\subsection*{How to add Lists}
-
-You can make lists with automatic numbering \dots
-
-\begin{enumerate}
-\item Like this,
-\item and like this.
-\end{enumerate}
-\dots or bullet points \dots
-\begin{itemize}
-\item Like this,
-\item and like this.
-\end{itemize}
-
-\subsection*{How to write Mathematics}
-
-\LaTeX{} is great at typesetting mathematics. Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let
-\[S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
-      = \frac{1}{n}\sum_{i}^{n} X_i\]
-denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $\mathcal{N}(0, \sigma^2)$.
-
-
-\subsection*{How to change the margins and paper size}
-
-Usually the template you're using will have the page margins and paper size set correctly for that use-case. For example, if you're using a journal article template provided by the journal publisher, that template will be formatted according to their requirements. In these cases, it's best not to alter the margins directly.
-
-If however you're using a more general template, such as this one, and would like to alter the margins, a common way to do so is via the geometry package. You can find the geometry package loaded in the preamble at the top of this example file, and if you'd like to learn more about how to adjust the settings, please visit this help article on \href{https://www.overleaf.com/learn/latex/page_size_and_margins}{page size and margins}.
-
-\subsection*{How to change the document language and spell check settings}
-
-Overleaf supports many different languages, including multiple different languages within one document.
-
-To configure the document language, simply edit the option provided to the babel package in the preamble at the top of this example project. To learn more about the different options, please visit this help article on \href{https://www.overleaf.com/learn/latex/International_language_support}{international language support}.
-
-To change the spell check language, simply open the Overleaf menu at the top left of the editor window, scroll down to the spell check setting, and adjust accordingly.
-
-\subsection*{How to add Citations and a References List}
-
-You can simply upload a \verb|.bib| file containing your BibTeX entries, created with a tool such as JabRef. You can then cite entries from it, like this: \cite{DUMMY:1}. Just remember to specify a bibliography style, as well as the filename of the \verb|.bib|. You can find a \href{https://www.overleaf.com/help/97-how-to-include-a-bibliography-using-bibtex}{video tutorial here} to learn more about BibTeX.
-
-If you have an \href{https://www.overleaf.com/user/subscription/plans}{upgraded account}, you can also import your Mendeley or Zotero library directly as a \verb|.bib| file, via the upload menu in the file-tree.
-
-\subsection*{Good luck!}
-
-We hope you find Overleaf useful, and do take a look at our \href{https://www.overleaf.com/learn}{help library} for more tutorials and user guides! Please also let us know if you have any feedback using the Contact Us link at the bottom of the Overleaf menu --- or use the contact form at \url{https://www.overleaf.com/contact}.
 
 
 \clearpage

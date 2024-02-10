@@ -58,6 +58,16 @@
 
 \subsection{Notes on versions}
 
+
+\subsubsection{v0.1 - 28/12/2023}
+
+\textbf{Changelog:} \\
+- This version is an early draft for the methods and results for the hexxed chapter \ref{hexxed_intro}. \\
+
+\textbf{Useful feedback:} \\
+- Overall tone. \\
+- On the methods section.
+
 \subsubsection{v0.1 - 28/12/2023}
 
 \textbf{Changelog:} \\
@@ -136,7 +146,9 @@
 \paragraph{Model Based vs. Model Free learning}
 \subsubsection{Designing experiments across species}
 \subsection{Materials and Methods}
-\subsubsection{Describing the task}
+\subsubsection{The "Flipping" task}
+In natural foraging behaviors, animals are faced with a constant dilemma: whether to stay and exploit resources at their present location or , with associated costs, to venture out and explore alternative, potentially more beneficial sites. When viewed through the lens of optimal decision-making, the key question is to determine the most advantageous moment to abandon the current site in favor of the next. To gather insight on this process, a simple behavioral task was developed in mice \cite{vertechi2020inference}. In it, at any given moment, rewards are available at one of two foraging sites. For each exploration on the rewarded site, rewards are administered following a probability P(reward). Simultaneously, for each exploration, rewards change site availability following a probability of transition P(transition). Crucially, these are not explicitly available to the agent - they  must be inferred. Rewarded trials occur when foraging on an active site where P(reward) was triggered. Unrewarded trials, however, aren't as clear. One must estimate, for any given trial - taking into account the task history - wether an exploration was unrewarded because rewards are currently available only on the other site or wether an exploration was just "unlucky" and did not trigger P(reward).
+
 \paragraph{Foraging Task}
 \subsubsection{Describing the experiments}
 \paragraph{Human vs. Mouse}
@@ -172,11 +184,14 @@
 \section{Behaviour in the real world}
 \subsection{Introduction} \label{hexxed_intro}
 \paragraph{The rise of AI}
-From arcade classic Space Invaders to one of the most complex games ever played in Go, there has been a noticeable shift in prowess between human players and artificial intelligence. Today, machines reign supreme in tasks we deemed human exclusive only a few decades ago. This shift can be primarily attributed to advancements in neural network algorithms. In 1997, Gary Kasparov - the best of human chess players - was defeated using the brute-force algorithm Deep Blue \cite{hsu2002behind}. Albeit incredibly powerful, this algorithm depended on very specific hardware and software configurations to be good at the game. Deep Blue was exclusively good at the game of chess. It contained a tree of millions of possible chess plays, a database of the most common openings and endgames and the aid of human engineers to steer it in the right direction. The definitive domination over humans in this type of tasks only came with the dawn of Machine Learning and neural networks. Neural networks are a type of algorithms inspired by the neuron-based, layered way in which biological brains compute problems. Due to their architecture, they are capable of learning from data. During training, they adjust their internal parameters (weights and biases) to adjust to the problem at hand. This training involves using large amounts of data to improve the network's performance at a given task, whether it's recognizing images, understanding language, or playing complex games. These algorithms are capable of generalizing: they adjust to both the task at hand and, even with incomplete data (contrarily to brute-force algorithms), are able to infer what to do in a never before seen problem of the same kind.
+From arcade classic Space Invaders to one of the most complex games ever played in Go, there has been a noticeable shift in prowess between human players and artificial intelligence (AI). Today, machines reign supreme in tasks we deemed human exclusive only a few decades ago. This shift can be primarily attributed to advancements in neural network algorithms. In 1997, Gary Kasparov - the best of human chess players - was defeated using the brute-force algorithm Deep Blue \cite{hsu2002behind}. Albeit incredibly powerful, this algorithm depended on very specific hardware and software configurations to be good at the game. Deep Blue was exclusively good at the game of chess. It contained a tree of millions of possible chess plays, a database of the most common openings and endgames and the aid of human engineers to steer it in the right direction. The definitive domination over humans in this type of tasks only came with the dawn of Machine Learning and artificial neural networks (ANNs). Neural networks are a type of algorithms inspired by the neuron-based, layered way in which biological brains compute problems. Due to their architecture, they are capable of learning from data. During training, they adjust their internal parameters (weights and biases) to adjust to the problem at hand. This training involves using large amounts of data to improve the network's performance at a given task, whether it's recognizing images, understanding language, or playing complex games. These algorithms are capable of generalizing: they adjust to both the task at hand and, even with incomplete data (contrarily to brute-force algorithms), are able to infer what to do in a never before seen problem of the same kind.
 
 \paragraph{Investigating complex skill learning}
 Despite this, one aspect where humans continue to hold a significant edge is in the speed at which we acquire and refine our skills \cite{tsividis2017human} \cite{lake2017building}. Lake and colleagues pose that the differences in learning may be due to the different learning apparatuses. Complex skill learning, can be formalized as a journey through a vast space of potential strategies. It is by traversing this complex strategy space that agents eventually land on critical points that lead to task performance - i.e. they learn. While designed as reward-based gradient descent for artificial agents \cite{mnih2015human}, the exact nature of how humans navigate this space remains uncovered. One position is that it follows a similar process. Alternatively, some pose this process is influenced by rational inference and priors \cite{tsividis2017human} or other processes \cite{DBLP:journals/corr/abs-1803-05252}.
 Given the wealth of theories, a significant challenge in this field of research remains that games serve as excellent benchmarks for assessing intelligent search strategies and decision-making processes yet, they are not inherently designed to reverse-engineer complex skill learning. If we are to draw parallelism between different types of learning in different agents, we ought to investigate tasks that are designed to investigate underlying cognitive processes - i.e. learning.
+
+\paragraph{Is it smarter than a third grader?}
+To answer any questions about how intelligent an agent is, we must first begin to agree on a definition of intelligence. AI's definition has often landed on benchmarking measures of skill \cite{chollet2019measure}. Skill is heavily dependent on priors. With unlimited experience, one could train a system to become of an arbitrary skill level. Cognitive sciences have long gravitated towards definitions that more closely relate to one's capacity to generalize: and that is indeed the promise of ANNs. The ideal intelligent machine is such that, when faced with the same stimuli a human has experienced in a task, produces a trajectory through policy space that matches that of the humans \cite{van2019tasks}.
 
 \paragraph{Not too simple, not too complex}
 On the opposite end of the spectrum of complexity, the tools of psychophysics have been instrumental in many of the great findings in cognitive psychology. The field of psychophysics examines the fundamental relationships between physical stimuli and their cognitive-behavioral reactions. One family of widely studied tasks in this domain is that of alternative forced choice (AFC) tasks. Not unlike the tasks presented in the previous chapters of this work, subjects are oft asked to make actions in which some outcomes lead to reward. For example, in a simple sensory discrimination task, a subject may be asked wether they see blue color on a screen. Plotting responses against the intensity of blue hue generates a so called psychometric curve. In it, we would see that the proportion of correct detections would increase with hue. This observation allows us to draw a direct relationship between the task and behaviour.
@@ -184,20 +199,15 @@ With complex tasks, this relationship is much harder to establish. Moving a rook
 
 The dichotomy presented has led to a great divide in the complexity of tasks studied by the fields of AI and of Cognitive Sciences. A way to quantify complexity in a task is by observing the dimensions of its state-space - that is, the number of possible different states that an agent can reach in any possible sequence of actions.
 
-Decision trees - i.e. schematic representations of the state-space - are a powerful way to model planning tasks \cite{van2019tasks}. While admittedly reductionist, as it ignores things like task difficulty and wether there is uncertainty in the task, by calculating the dimensions of a decision tree we can derive a measure of task complexity.
+Decision trees - i.e. schematic representations of the state-space - are a powerful way to model planning tasks \cite{van2019tasks}. While admittedly reductionist - as it ignores things like task difficulty and wether there is uncertainty in the task - by calculating the dimensions of a decision tree we can derive a measure of task complexity. van Opheusden and Ji Ma (2019) compare several families of tasks as to their state-space complexities. They posit that there is a big gap in task complexity between the two fields and leave us, cognitive scientists, with the challenge to venture away from simplicity and embrace complexity in order to align human and machine intelligence.
 
+\paragraph{Embracing complexity}
+To bridge this gap, we have developed a novel game specifically tailored to explore and illuminate the mechanisms of human skill learning. This game, unlike traditional ones, is uniquely engineered to delve into the depths of how humans learn, adapt, and master various strategies and skills. It's not just a platform for challenging human intellect against artificial intelligence but a tool to dissect and understand their behaviour as well. Our game aims to provide valuable insights into skill acquisition, offering novel a perspective on how humans adapt and excel in complex decision-making environments.
 
-van Opheusden and Ji Ma (2019) compare several families of tasks as to their state-space complexities. They pose that
-
-melanie mitchel: AI a guide for thinking humans - part 4
-on the measure of intelligence - chollet
 filter new kids for g's lab
 
 
-To bridge this gap, we have developed a novel game specifically tailored to explore and illuminate the mechanisms of human skill learning. This game, unlike traditional ones, is uniquely engineered to delve into the depths of how humans learn, adapt, and master various strategies and skills. It's not just a platform for challenging human intellect against artificial intelligence but a meticulously crafted tool to dissect and understand the underlying processes of human learning. Our game aims to provide valuable insights into the cognitive journey of skill acquisition, offering a new perspective on how humans rapidly adapt and excel in strategic environments. Through this game, we hope to shed light on the enigmatic processes that enable humans to quickly and efficiently become skilled, thereby contributing to the broader understanding of human cognition and learning strategies as explored in the field of behavioral and brain sciences.
-\paragraph{Ethologically relevant tasks}
-\paragraph{Set and setting}
-\paragraph{Scalability}
+
 \subsection{Materials and Methods}
 \subsubsection{hexxed}
 
@@ -226,7 +236,7 @@ Swiping on a target collects points corresponding to the target's size.
 
 \begin{figure}[ht!]
   \centering
-  %    \includegraphics[width=0.8\textwidth]{figures/hex_schematic_1.png}
+      \includegraphics[width=0.95\textwidth]{figures/schematic_rewards.png}
   \caption{\label{fig:point_structure}Targets grow in size and value up until a threshold, in which they are no longer valuable. Player actions determine this growth.}
 \end{figure}
 

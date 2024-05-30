@@ -146,16 +146,41 @@
 \paragraph{Model Based vs. Model Free learning}
 \subsubsection{Designing experiments across species}
 \subsection{Materials and Methods}
-\subsubsection{The "Flipping" task}
-In natural foraging behaviors, animals are faced with a constant dilemma: whether to stay and exploit resources at their present location or , with associated costs, to venture out and explore alternative, potentially more beneficial sites. When viewed through the lens of optimal decision-making, the key question is to determine the most advantageous moment to abandon the current site in favor of the next. To gather insight on this process, a simple behavioral task was developed in mice \cite{vertechi2020inference}. In it, at any given moment, rewards are available at one of two foraging sites. For each exploration on the rewarded site, rewards are administered following a probability P(reward). Simultaneously, for each exploration, rewards change site availability following a probability of transition P(transition). Crucially, these are not explicitly available to the agent - they  must be inferred. Rewarded trials occur when foraging on an active site where P(reward) was triggered. Unrewarded trials, however, aren't as clear. One must estimate, for any given trial - taking into account the task history - wether an exploration was unrewarded because rewards are currently available only on the other site or wether an exploration was just "unlucky" and did not trigger P(reward).
+\subsubsection{The "Hidden-State" task}
+In natural foraging behaviors, animals are faced with a constant dilemma: whether to stay and exploit resources at their present location or , with associated costs, to venture out and explore alternative, potentially more beneficial sites. When viewed through the lens of optimal decision-making, the key question is to determine the most advantageous moment to abandon the current site in favor of the next. To gather insight on this process, a simple behavioral task was developed in mice \cite{vertechi2020inference}. In it, at any given moment, rewards are available at one of two distant foraging sites. For each exploration on the rewarded site, rewards are administered following a probability P(reward). Simultaneously, for each exploration, rewards change site availability following a probability of transition P(transition). Crucially, these are not explicitly available to the agent - they  must be inferred. Rewarded trials occur when foraging on an active site where P(reward) was triggered. Unrewarded trials, however, aren't as clear. One must estimate, for any given trial - taking into account the task history - wether an exploration was unrewarded because rewards are currently available only on another site or wether an exploration was just "unlucky" (i.e. did not trigger P(reward)).
+Subjects are thus tasked with inferring a hidden state - reward availability - from a sequence of rewards and failures.
 
-\paragraph{Foraging Task}
+\paragraph{Adapting the task to humans}
+To allow for behavioral comparison across-species, the task was adapted to humans. We developed a video-game like task where subjects were instructed to control a character on a touch-screen device. This character was tasked with finding and hitting a "monster". This "hidden-state monster" hid in one of two walls (foraging sites), separated by a costly to travel on path. Hitting the monster is analogous to getting a reward - awarded in game points. The cost of traversal was manipulated by making the path slower or faster to travel across. P(reward) and P(transition) were kept equivalent to the mouse counterpart.
+
+\paragraph{How to solve it} There are several ways in which to integrate rewards and failures towards a decision. In a stimulus-bound process, the value of a site is directly related to the rewards on that site, decreases with rewards on the other side and decays to 0 with failures. An alternative process is that of using inference to solve the task: an agent that is aware of the fact that a hidden state determines reward availability can use rewards and failures differently to determine wether the current site is ripe or not.
+Both stimulus bound and inference models predict that the probability of leaving a site increases with failures, however, the way rewards are represented is quite different \cite{vertechi2020inference}. In a stimulus bound process, accruing rewards on a given side would increase the value of said side and thus increase the likelihood of remaining. In an inference based process, rewards reset the probability of leaving a site to 0, as it provides the agent with certainty about the hidden state.
+
 \subsubsection{Describing the experiments}
-\paragraph{Human vs. Mouse}
-\paragraph{Humans across time}
-\paragraph{Humans across changes in task}
+Human participants were invited to participate in this research study. Their participation varied across several experiments.
+\paragraph{Human vs. Mouse} In the data used to compare directly to mice, humans were invited for a single visit to the lab. In it, they experienced the task a total of 4 times. P(reward) and P(transition) were manipulated in the following protocols:
+
+\begin{tabular}{|c|c|c|}
+\hline
+& Probability of reward & Probability of transition \\
+\hline
+Medium & 90 & 30 \\
+\hline
+Easy & 90 & 90 \\
+\hline
+Hard & 30 & 30 \\
+\hline
+\end{tabular}
+
+All the visits started with the medium protocol and randomly interleaved the easy and hard protocols (e.g. Medium - Easy - Medium - Hard).
+
+
+\paragraph{Humans across time} In another experiment, human subjects were once again invited to the lab. In this experiment, participants were invited to two separate visits in time.The goal was to assess whether the task findings were consistent across time. For this experiment, and following our initial findings of how fast humans learn the task, a harder protocol of P(reward) = 45 and P(transition) = 15 was adopted.Participants once again interleaved the medium protocol with the new protocol.
+
+
 \subsection{Results}
 \subsubsection{Behaviour is maintained across species}
+
 \subsubsection{Behaviour is maintained across changes in the task}
 \subsubsection{Behaviour is maintained across sessions}
 \subsection{Discussion}
@@ -203,8 +228,6 @@ Decision trees - i.e. schematic representations of the state-space - are a power
 
 \paragraph{Embracing complexity}
 To bridge this gap, we have developed a novel game specifically tailored to explore and illuminate the mechanisms of human skill learning. This game, unlike traditional ones, is uniquely engineered to delve into the depths of how humans learn, adapt, and master various strategies and skills. It's not just a platform for challenging human intellect against artificial intelligence but a tool to dissect and understand their behaviour as well. Our game aims to provide valuable insights into skill acquisition, offering novel a perspective on how humans adapt and excel in complex decision-making environments.
-
-filter new kids for g's lab
 
 
 

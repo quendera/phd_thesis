@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[11pt]{article}
 
 % Language setting
 % Replace `english' with e.g. `spanish' to change the document language
@@ -32,7 +32,7 @@
 
 \setcounter{secnumdepth}{4}
 
-
+\linespread{1.5}
 
 
 \title{Demixing Complex Human Behaviour}
@@ -68,15 +68,6 @@
 - Overall tone. \\
 - On the methods section.
 
-\subsubsection{v0.1 - 28/12/2023}
-
-\textbf{Changelog:} \\
-- This version is an early draft for the methods and results for the hexxed chapter \ref{hexxed_intro}. \\
-
-\textbf{Useful feedback:} \\
-- Overall tone. \\
-- On the methods section.
-
 
 
 
@@ -93,12 +84,16 @@
 \clearpage
 
 \section*{Acknowledgements}
+
 \clearpage
 
 \begin{abstract}
   an abstract
 \end{abstract}
 \clearpage
+
+
+
 
 \section*{Thesis Overview}
 \clearpage
@@ -107,7 +102,10 @@
 \tableofcontents
 \clearpage
 
-\section*{List of Figures}
+\listoffigures
+\clearpage
+
+\listoftables
 \clearpage
 
 \section*{Glossary}
@@ -119,10 +117,35 @@
 
 \section{General Introduction}
 \subsection{Introduction}
-\subsection{Decision Making}
+Human behaviour has long been one of the most studied phenomena in nature. Ever since the dawn of psychophysics in the 1860s \cite{fechner1948elements}, there have been countless studies and even fields of research attempting to make sense of what and how we do things. These efforts are often focused on specific tasks: on the one extreme, tasks developed to study specific behaviours (i.e. a forced choice Decision Making task), and on the other, more naturalistic tasks like learning how to walk or read. How can we make sense of behaviour is way too broad of a question to focus on. Instead, in this work, I will focus on a battery of tasks - from the very simple to the complex, from learning to learned, from the lab to the clinic - and attempt to shine some light on what human behaviour can look like in them.
+\subsection{Decision Making and Psychophysics}
+One of the prominent fields of research of Behavioral Sciences is that of Decision Making. Here, scientists adventure to model, create and test environments that operate under specific constraints. These task constraints constitute the tools with which we can ask questions about specific behaviours. As an example, a two alternative forced-choice task may ask participants to tell wether a a cloud of moving dots is moving rightwards or leftwards \cite{newsome1989neuronal}. As one approximates a dot motion coherence of 50\%, so should the accuracy of responses diminish. In this very simple case, by looking at the psychometric curve of response accuracy given the stimulus orientation, one can begin to answer the fundamental question of psychophysics: what is the relationship between stimuli and perception.
 \subsubsection{How do we make decisions}
-\subsubsection{How do we learn to make them}
+After defining our task, the readout of a decision is most often behavioural: a movement, a verbal answer, the press of a button. What leads to these behaviours is one of the most prolific areas of the study of Decision Making.
+\paragraph{Neural basis of Decision Making}\label{neural_basis}
+A multitude of brain regions are involved in Decision Making. Depending on the task, certain sensory organs and corresponding cortical areas are recruited. Furthermore, the Anterior Cingulate Cortex (ACC), Orbitofrontal Cortex (OFC) and the Ventromedial Pre-frontal Cortex (VmPFC) are all regions known to be involved in Decision Making. The OFC appears crucial for hidden state representation, and hence for inference-based decisions \cite{rolls2004functions} \cite{vertechi2020inference}. For example, in both primates and rats, the inhibition or lesion of the OFC seems to impair performance in reversal learning tasks \cite{wilson2014orbitofrontal}. The ACC, on the other hand, is thought to be involved in integrating value \cite{williams2004human}. The VmPFC seems critical for the representation of both reward and value \cite{hiser2018multifaceted}.
+Most studies thus tend to focus on these (and adjacent) regions as they attempt to highlight the underlying circuitry in Decision Making.
+\paragraph{Modeling the problem}
+To make sense of both behavioural and neural findings, one can opt to normatively formalize the problem (i.e. model them). Modeling a Decision Making task requires a deep understanding of its environment. Often, when modeling a task, it's crucial to consider what an optimal agent would behave like.
+
+In realistic scenarios, subject behaviour is often sub-optimal. An ideal model is such that, by manipulating its parameters, one is able to replicate both optimal and sub-optimal (i.e. subjects') behaviour. Once again taking our random moving dots task as an example, one can model an optimal agent with a simple sigmoid/logistic function and account for human error by tuning the steepness of its curve.
+While such elegant models are a rare sight to behold, the idea of conceptualizing a problem mathematically is one of the most powerful ways one has to make predictions about behaviour and an essential component in most contemporary scientific studies.
+
+
+\subsubsection{How do we learn to make decisions}
+The decision-making process often starts with sensory input from the environment, such as visual, auditory, or tactile information. Sensory receptors collect this data and transmit it to the brain. \cite{mesulam1998sensation}
+The brain's sensory cortices (e.g., the visual cortex for visual information) process this raw data into a coherent perceptual experience. This involves integration and interpretation of sensory input to form a meaningful context.
+Upon reaching the cortex, the information is evaluated by the prefrontal areas (see \ref{neural_basis}).
+
+ Recruiting the Basal Ganglia and the Dopaminergic system - where action selection and reward prediction errors are computed respectively - our brains then use Reinforcement Learning (RL) mechanisms to adapt and refine Decision Making over time \cite{schultz1997neural}.
+
+Then, memory comes into play. Areas like the hippocampus and the entorhinal cortex contribute to memory consolidation \cite{squire1991medial}.
+
+It is by analyzing the current state of the environment and taking into account its pasts states that one learns and decides how to solve a task.
+
 \paragraph{We don’t all learn the same}
+However known these neural systems are, there is always variance in observed behaviour. Learning differences may be due to different factors: Genetic, Neurobiological, Emotional, Neuroplasticity, etc. \cite{zatorre2012plasticity} \cite{ericsson1993role}. Learning differences may be one of the explanatory causes for the behavioural variability that is very often observed on any particular task.
+
 \subsection{Variability}
 \subsubsection{Inter and Intra-Subject variability}
 \subsubsection{Sources of variability}
@@ -130,6 +153,7 @@
 \subsubsection{The clinic as a fertile ground for studying variability}
 \subsubsection{Discerning a signal amongst noise}
 \subsection{Complexity}
+As we distance ourselves from discrimination tasks, both the underlying neural mechanisms needed to produce an answer and plausible models of the data become ever more complex. While a simple sigmoid suffices to model behaviour in the random moving dots task and information from neurons in the visual cortex alone is enough to solve it \cite{newsome1989neuronal}, this is not the case for the large majority of tasks. Coming up with tasks that are simple to model and solve and yet complex enough to elicit interesting responses is thus one of the greater challenges in the study of Decision Making.
 \subsubsection{What does it mean to be complex}
 \subsubsection{Curse of dimensionality}
 \subsubsection{Tackling complexity}
@@ -142,9 +166,11 @@
 
 \section{Behaviour in the lab}
 \subsection{Introduction}
+
 \subsubsection{Decision Making}
 \paragraph{Model Based vs. Model Free learning}
 \subsubsection{Designing experiments across species}
+
 \subsection{Materials and Methods}
 \subsubsection{The "Hidden-State" task}
 In natural foraging behaviors, animals are faced with a constant dilemma: whether to stay and exploit resources at their present location or , with associated costs, to venture out and explore alternative, potentially more beneficial sites. When viewed through the lens of optimal decision-making, the key question is to determine the most advantageous moment to abandon the current site in favor of the next. To gather insight on this process, a simple behavioral task was developed in mice \cite{vertechi2020inference}. In it, at any given moment, rewards are available at one of two distant foraging sites. For each exploration on the rewarded site, rewards are administered following a probability P(reward). Simultaneously, for each exploration, rewards change site availability following a probability of transition P(transition). Crucially, these are not explicitly available to the agent - they  must be inferred. Rewarded trials occur when foraging on an active site where P(reward) was triggered. Unrewarded trials, however, aren't as clear. One must estimate, for any given trial - taking into account the task history - wether an exploration was unrewarded because rewards are currently available only on another site or wether an exploration was just "unlucky" (i.e. did not trigger P(reward)).
@@ -158,7 +184,7 @@ Both stimulus bound and inference models predict that the probability of leaving
 
 \subsubsection{Describing the experiments}
 Human participants were invited to participate in this research study. Their participation varied across several experiments.
-\paragraph{Human vs. Mouse} In the data used to compare directly to mice, humans were invited for a single visit to the lab. In it, they experienced the task a total of 4 times. P(reward) and P(transition) were manipulated in the following protocols:
+\paragraph{Human vs. Mouse} In the data used to compare directly to mice, participants were invited for a single visit to the lab. After informed consent, they were presented with the experimental protocol. In it, they experienced the task a total of 4 times. P(reward) and P(transition) were manipulated in the following protocols:
 
 \begin{tabular}{|c|c|c|}
 \hline
@@ -175,13 +201,22 @@ Hard & 30 & 30 \\
 All the visits started with the medium protocol and randomly interleaved the easy and hard protocols (e.g. Medium - Easy - Medium - Hard).
 
 
-\paragraph{Humans across time} In another experiment, human subjects were once again invited to the lab. In this experiment, participants were invited to two separate visits in time.The goal was to assess whether the task findings were consistent across time. For this experiment, and following our initial findings of how fast humans learn the task, a harder protocol of P(reward) = 45 and P(transition) = 15 was adopted.Participants once again interleaved the medium protocol with the new protocol.
+\paragraph{Humans across time} In another experiment, human subjects were once again invited to the lab. In this experiment, participants were invited to two separate visits in time. The goal was to assess whether the task findings were consistent across time. For this experiment, and following our initial findings of how fast humans learn the task, a harder protocol of P(reward) = 45 and P(transition) = 15 was adopted. Participants interleaved the medium protocol with the new protocol.
 
 
 \subsection{Results}
-\subsubsection{Behaviour is maintained across species}
 
 \subsubsection{Behaviour is maintained across changes in the task}
+
+\begin{figure}[ht!]
+  \centering
+      \includegraphics[width=0.5\textwidth]{figures/flip/protocolXmean.png}
+
+        Targets grow in size and value up until a threshold, in which they are no longer valuable. Player actions determine this growth.
+  \caption{\label{fig:point_structure}Target value schematic}
+
+\end{figure}
+
 \subsubsection{Behaviour is maintained across sessions}
 \subsection{Discussion}
 \subsection{Author Contributions}
@@ -192,16 +227,45 @@ All the visits started with the medium protocol and randomly interleaved the eas
 \subsubsection{Why translational research?}
 \paragraph{Obsessive Compulsive Disorder and task performance}
 \subsection{Materials and Methods}
-\subsubsection{The tasks}
-\paragraph{Foraging Task}
-\paragraph{Reversal Learning Task}
-\paragraph{Stop-Signal Reaction Time Task}
-\subsubsection{The experiments}
+\subsubsection{The experiment}
+\paragraph{The subjects}
+
+
 \paragraph{Obsessive Compulsive Disorder}
+Our clinical cohort consisted of patients diagnosed with Obsessive Compulsive Disorder (OCD). These patients were recruited as a part of a larger comprehensive study on OCD and markers of diagnosis - Neurocomp. This study was approved by the FChampalimaud ethics committee and conducted in the Neuro Psychiatry Unit under the supervision of Dr. Albino Oliveira-Maia. Patients were referred to our research team by their physicians and controls were recruited to match them in demographics. In this study, participants underwent several experiments: one of which, a battery of behavioural tasks on which we will focus on in this work.
+\subsubsection{The tasks}
+For this protocol, three different tasks were selected. Two for historical correlations with OCD and one for it's novelty.
+\paragraph{Reversal Learning Task}
+Firstly, a classical reversal learning was adapted from the work of \cite{remijnse2006reduced}. Here, a deficit in reversal learning and aberrant OFC-striatal and dorsal prefrontal activity was correlated with the diagnosis of OCD.
+
+In each trial, the task consisted of 2 stimuli images presented at either side of a screen. The images had randomized locations and were shown for a maximum time of 3000 milliseconds. Participants selected one of the images by pressing the right or left keys on a keyboard. On a correct response, rewards - an increase in points - were administered 80 percent of the time. For the remainder 20 or for spontaneous errors (SE), a punishment - decrease in points - was administered. A correct response with a rewarded outcome was named a Correct Response (CR). A response that albeit correct was probabilistically attributed a punishment was named a Probabilistic Error (PE). PE's could lead to either a shift or a non-shift in the choice: Probabilistic Error Shift (PES) or Probabilistic Error No Shift (PENS).
+
+Criterion for the trigger of a reversal happened stochastically after 6 to 10 consecutive correct responses. After reversal, a response that persisted on the pre-reversal stimulus was deemed a Preceding Reversal Error (PRE). The last response before an error was named a Final Reversal Error (FRE).
+
+Trials ended with a 2000 millisecond feedback window where the outcome was displayed, followed by a fixation cross of 1000ms and a subsequent trial.
+
+Subjects were instructed to accrue as many points as possible. Speed was not encouraged.
+
+A neutral baseline trial (BL) was also presented randomly interleaved with the probing trials. This trial consisted of two images of a ball and a pencil. Here subjects were instructed to always select the option "pencil". In these trials, a neutral feedback was given.
+
+\paragraph{Stop-Signal Reaction Time Task}
+Secondly, a stop-signal reaction time task (SSRTT) was adapted from \cite{aron2003stop}. In this family of tasks, Participants are asked to make speedy answers on go trials and withhold from responses on no-go trials.
+In the SSRTT, most trials are go trials. However, in a fraction of trials, a tone will be played. When the tone is played, participants should withhold their response.
+
+In this version of the task, an arrow to the left or to the right was presented. The order in which right- and left-pointing arrows were presented was randomized to ensure an unbiased distribution. Subjects were instructed to press the correspondent key on a physical keyboard. In 25\% of the trials, chosen at random, the audible stop signal was played shortly after the arrow was shown. The interval between the initial presentation of the arrow and the subsequent stop signal tone is known as the stop-signal delay (SSD).
+
+To keep the task challenging, the inter-stimulus interval (the time between successive stimuli) and the SSD were dynamically adjusted based on each participant's performance. This adjustment aimed to ensure that participants were able to successfully inhibit their responses on half of the stop trials, striking a balance between success and failure rates. This adjustment was done using a staircase-like process.
+
+From the data, we calculated the stop-signal reaction time (SSRT) for each participant. The SSRT represents the processing time required to inhibit a strong motor response. This was determined by subtracting the average SSD from the median reaction time observed in trials without the stop signal. This metric quantifies how quickly and effectively participants can stop themselves from responding when prompted by the stop signal.
+
+\paragraph{The "Hidden-State" task}
+
 \subsection{Results}
-\subsubsection{Foraging Task}
 \subsubsection{Reversal Learning Task}
+
 \subsubsection{Stop-Signal Reaction Time Task}
+\subsubsection{The "Hidden-State" task}
+
 \subsection{Discussion}
 \subsection{Author Contributions}
 \subsection{Acknowledgements}
@@ -260,7 +324,9 @@ Swiping on a target collects points corresponding to the target's size.
 \begin{figure}[ht!]
   \centering
       \includegraphics[width=0.95\textwidth]{figures/schematic_rewards.png}
-  \caption{\label{fig:point_structure}Targets grow in size and value up until a threshold, in which they are no longer valuable. Player actions determine this growth.}
+        Targets grow in size and value up until a threshold, in which they are no longer valuable. Player actions determine this growth.
+  \caption{\label{fig:point_structure}Target value schematic}
+
 \end{figure}
 
 The task is then to navigate the hexagon's lobes and collect targets as large as possible.

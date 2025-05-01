@@ -5,8 +5,12 @@
 \usepackage[english]{babel}
 
 % Set page size and margins
-% Replace `letterpaper' with `a4paper' for UK/EU standard size
-\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+% Replace `letterpaper' with `a4paper' for UK/EU standard size ,marginparwidth=1.75cm
+\usepackage[b5paper,top=2.5cm,bottom=3cm,left=3.5cm,right=2.5cm]{geometry}
+
+
+\usepackage{url} % For better line breaking
+\sloppy % Allow LaTeX to be less strict about line breaks
 
 % Useful packages
 \usepackage{amsmath}
@@ -17,6 +21,9 @@
 
 \usepackage{array}
 \usepackage{longtable}
+\usepackage{rotating}
+\usepackage{ragged2e} % For better text justification
+
 
 
 \usepackage{pdflscape} % rotating pages  - \begin{landscape}
@@ -28,6 +35,17 @@
 \usepackage[dvipsnames]{xcolor}
 
 
+\usepackage{titling}
+
+\usepackage{pagecolor}
+
+\usepackage{xcolor}
+\usepackage{caption}
+
+\definecolor{dark-grey}{RGB}{47,47,47}
+
+
+
 \bibliographystyle{apalike}
 
 \setcounter{secnumdepth}{4}
@@ -35,11 +53,13 @@
 \linespread{1.5}
 
 
-\title{Demixing Complex Human Behaviour}
+\title{Dissecting Complex Human Behaviour:}
 
 \author{T. Quendera}
 
-\date{\vspace{-5ex}}
+
+
+\date{\vspace{-5ex} Oeiras, 2025}
 
 \begin{document}
 
@@ -52,43 +72,139 @@
 \newdimen\hfuzz
 
 
-\maketitle
+
+
+\begin{titlingpage} %This starts the title page
+
+\newpagecolor{dark-grey}
+
+\color{white}
+
+\noindent
+\includegraphics[height=1cm]{figures/nova-itqb-logo.pdf}
+
+
+\vspace{1cm}
+
+\noindent
+\textbf{\LARGE \thetitle } \\
+{\LARGE From the lab, through the clinic and beyond}
+
+\vspace{0.3cm}
+\noindent
+\textbf{\large \theauthor}
+
+\vspace{0.5cm}
+\begin{center}
+  \includegraphics[height=10cm]{figures/cover.jpeg}
+\end{center}
+
+\vspace{0.2cm}
+\noindent
+{\large Dissertation presented to obtain the \textbf{PhD degree in Neuroscience} \\
+INDP - Champalimaud Research\\}
+
+
+\noindent
+\thedate
+
+
+
+\end{titlingpage}
+
+\newpagecolor{none}
+
+
+
+%\maketitle
+
+
 
 \clearpage
 
-\subsection{Notes on versions}
 
 
-\subsubsection{v0.1 - 28/12/2023}
+\section*{}
+{\huge \textbf{Dissecting Complex Human Behaviour:} \\ From the lab, through the clinic and beyond}
 
-\textbf{Changelog:} \\
-- This version is an early draft for the methods and results for the hexxed chapter \ref{hexxed_intro}. \\
+\vspace{5cm}
+\noindent
+{\Large Dissertation presented to obtain the \textbf{PhD degree in Neuroscience} \\}
+{\large INDP - Champalimaud Research | Instituto de Tecnologia Quimica e Biologica | Universidade Nova de Lisboa\\}
 
-\textbf{Useful feedback:} \\
-- Overall tone. \\
-- On the methods section.
+\vspace{2cm}
+\noindent
+{\large Research work coordinated by:}
 
+\vspace{0.5cm}
 
+\includegraphics[height=1.5cm]{figures/fchampalimaud.png}
 
+\vspace{1.5cm}
 
-
+\noindent
+\thedate
 
 
 \clearpage
-
-
-
-
 
 \section*{Author Contributions and Financial Support}
+All analysis and discussion work is authored by T. Quendera. All data collection and experimental design was done by T. Quendera and collaborators. Each section details specific author contributions. All the work was supervised jointly by Albino Oliveira-Maia, Gautam Agarwal and Zachary F. Mainen.
 \clearpage
 
 \section*{Acknowledgements}
 
+I have to start by thanking casa da mata: Bru, Carolina, Inês, Gonçalo and Nata. Together you have built and rebuilt numerous times the notion of what I call home. You have taught me what it means to be safe. You have endured my horrible sleep habits (and other habits as well). Thank you.
+
+I would like to thank Gonçalo in particular for the infinite discussions over the content of this thesis, for his companionship and love that I carry with me each day.
+
+I would like to thank Elisa for being a safe haven and being loving even in my lowest moments while writing this work.
+
+I want to thank Teo, for always believing I could do it, for being the reason I don't often have.
+
+I have to thank Aino (tuut), for shining a bright light in my path every day.
+
+I want to thank Mariana for making me laugh, constantly, until my stomach hurts, so many times.
+
+I want to thank esquilo for being my partner in crime in so many adventures.
+
+I have to thank Isaque for inspiring me so many times with his work and completely insane ideas that match mine so beautifully.
+
+I would like to thank my family: Carolina - for being always there for me -, Papá e Cláudia - por acreditarem sempre em mim, todos os dias -,  Mamã - por todo o apoio - , Charneca - por me teres feito gostar de ciência, Avô e Avós e Benvinda por serem o colo quando precisei dele.
+
+I want to think my friends, who diligently dragged me out of the computer every sunday to play some DnD.
+
+I have a special thank you to nbcode and kaptcha, with whom I've created such beautiful worlds that helped this one stay afloat.
+
+I want to thank my therapist and psychiatrist(s) for the help when all else failed.
+
+I want to thank all of those that crossed my path in the past 6 years and helped this work become a reality in one way or another.
+
+I wish to thank all the queer and dirty dancefloors that I wildly danced on for helping me shape who I am.
+
+I want to thank the INDP class of 2018 and all of the CNP for all the moments I could have never even dreamed of a decade ago.
+
+I want to thank the Mainen Lab and the NPU for being always there for the ride.
+
+I want to express a deep thank you to my supervisors Zach and Albino that supported me throughout this entire process, highs and lows alike.
+
+Finally, I would like to thank and dedicate this work to Gautam. It was almost a decade ago that he put me under his wing and introduced me to this crazy world that is scientific research. Together we have crafted universes out of thin air in what physics may describe as impossible, but I describe as friendship.
+
+I love you all.
+
+
+
 \clearpage
 
 \begin{abstract}
-  an abstract
+  Behaviour is a quintessential phenomena in living entities. In this thesis, we deeply explore several facets of human behaviour, starting from the most simple and controlled lab environment, passing through the clinic and ending on an exploration of "behaviour in the wild".
+
+  In the first chapter we adapt a task from rodents to human participants. To do so, we shape it as a videogame. In this game, subjects must accrue evidence about the state of the environment by exploiting it and decide when it's ripeness is undesireable and explore. We find that not only we are able to replicate the rodent behaviour but also that humans learn faster. We also find that the crucial measure of this task is persistent across several visits from the same participant to the lab.
+
+  In the second chapter, we employ a battery of three tasks to a clinical population: a Reversal Learning Task, a Stop-Signal Reaction Time task and the Foraging Task from chapter 1. Participants with a diagnosis of Obsessive Compulsive Disorder were recruited together with matched healthy controls for this experiment. We found that none of the proposed tasks were sensitive to our population. Nonetheless, we found that all the results seem to trend in the direction we hypothesized based on previous literature.
+
+  In the third and final chapter, we tackle more complex behaviour. Intelligence can be viewed as the ability to efficiently find effective solutions within a large space of possibilities. To identify the unique ingredients of human intelligence, we need cognitive tasks that are sufficiently complex to challenge intelligent agents while being simple enough to yield generalizable models of intelligent behavior. We developed such a task in the form of a video game that has been played by over 10,000 users. We find three ingredients that distinguish human learning – humans are 1) “picky” - they use a highly restricted subset of the available action sequences; 2) “sticky” – they attempt even unrewarding solutions repeatedly before discarding them; “leapy” - arrive at the optimal policy suddenly and unpredictably with a “leap of insight”. Our data suggest a “top-down” learning process by which humans converge on common explanatory solutions which they replace only upon collecting sufficient evidence to the contrary.
+
 \end{abstract}
 \clearpage
 
@@ -96,6 +212,16 @@
 
 
 \section*{Thesis Overview}
+This thesis is divided into three chapters, each delving further away from the wet bench and into the wild.
+
+In the first chapter, a simple task is adapted from a rodent experiment into humans.
+
+In the second, a battery of tasks was ran on a population constituted of healthy and Obsessive Compulsive Disorder (OCD) patients, looking at differences across these two groups.
+
+In the third and final chapter, a task was developed and launched as a videogame which thousands of participants attempted to solve - their complex behaviours here described in detail.
+
+This thesis is an exploration in human behaviour and what behaviours emerge when they (we) are faced with carefully designed task environments.
+
 \clearpage
 
 % table of contents
@@ -108,7 +234,33 @@
 \listoftables
 \clearpage
 
-\section*{Glossary}
+\section*{Glossary and Acronyms}
+
+.
+
+\begin{description}
+    \item[\textbf{ACC}] Anterior Cingulate Cortex
+    \item[\textbf{AFC}] Alternative Forced-Choice Task
+    \item[\textbf{AI}] Artificial Intelligence
+    \item[\textbf{fMRI}] Functional Magnetic Resonance Imaging
+    \item[\textbf{LLMs}] Large Language Models
+    \item[\textbf{MDP}] Markov Decision Process
+    \item[\textbf{ML}] Machine Learning
+    \item[\textbf{NN}] Neural Network
+    \item[\textbf{OCD}] Obsessive Compulsive Disorder
+    \item[\textbf{OFC}] Orbitofrontal Cortex
+    \item[\textbf{PCA}] Principal Component Analysis
+    \item[\textbf{RL}] Reinforcement Learning
+    \item[\textbf{SSD}] Stop-Signal Delays
+    \item[\textbf{SSE}] Stop-Signal Errors
+    \item[\textbf{SSRT}] Stop-Signal Reaction Time
+    \item[\textbf{SSRTT}] Stop-Signal Reaction Time Task
+    \item[\textbf{TMS}] Transcranial Magnetic Stimulation
+    \item[\textbf{VmPFC}] Ventromedial Prefrontal Cortex
+\end{description}
+
+
+
 \clearpage
 
 
@@ -117,7 +269,7 @@
 
 \section{General Introduction}
 \subsection{Introduction}
-Human behaviour has long been one of the most studied phenomena in nature. Ever since the dawn of psychophysics in the 1860s \cite{fechner1948elements}, there have been countless studies and even fields of research attempting to make sense of what and how we do things. These efforts are often focused on specific tasks: on the one extreme, tasks developed to study specific behaviours (i.e. a forced choice Decision Making task), and on the other, more naturalistic tasks like learning how to walk or read. How can we make sense of behaviour is way too broad of a question to focus on. Instead, in this work, I will focus on a battery of tasks - from the very simple to the complex, from learning to learned, from the lab to the clinic - and attempt to shine some light on what human behaviour can look like in them.
+Human behaviour has long been one of the most studied phenomena in nature. Even before the dawn of psychophysics in the 1860s \cite{fechner1948elements}, there have been countless studies and even fields of research attempting to make sense of what and how we do things. These efforts are often focused on specific tasks: on the one extreme, tasks developed to study specific behaviours (i.e. a forced choice Decision Making task (AFC)), and on the other, more naturalistic tasks like learning how to walk or read. How can we make sense of behaviour is way too broad of a question to focus on. Instead, in this work, I will focus on a battery of tasks - from the very simple to the complex, from learning to learned, from the lab to the clinic - and attempt to shine some light on what human behaviour can look like in them.
 \subsection{Decision Making and Psychophysics}
 One of the prominent fields of research of Behavioral Sciences is that of Decision Making. Here, scientists adventure to model, create and test environments that operate under specific constraints. These task constraints constitute the tools with which we can ask questions about specific behaviours. As an example, a two alternative forced-choice task may ask participants to tell wether a a cloud of moving dots is moving rightwards or leftwards \cite{newsome1989neuronal}. As one approximates a dot motion coherence of 50\%, so should the accuracy of responses diminish. In this very simple case, by looking at the psychometric curve of response accuracy given the stimulus orientation, one can begin to answer the fundamental question of psychophysics: what is the relationship between stimuli and perception.
 \subsubsection{How do we make decisions}
@@ -141,35 +293,111 @@ Upon reaching the cortex, the information is evaluated by the prefrontal areas (
 
 Then, memory comes into play. Areas like the hippocampus and the entorhinal cortex contribute to memory consolidation \cite{squire1991medial}.
 
-It is by analyzing the current state of the environment and taking into account its pasts states that one learns and decides how to solve a task.
+This description is equal parts incomplete as it is reductionist.
 
 \paragraph{We don’t all learn the same}
 However known these neural systems are, there is always variance in observed behaviour. Learning differences may be due to different factors: Genetic, Neurobiological, Emotional, Neuroplasticity, etc. \cite{zatorre2012plasticity} \cite{ericsson1993role}. Learning differences may be one of the explanatory causes for the behavioural variability that is very often observed on any particular task.
+Recent discoveries like the complete neural connectome for several animal species, have highlighted what we suspected long ago: there are many a paths through which information flows in the brain \cite{asahina2022editorial}. Conversely, it is increasingly accepted that even the simplest of neural circuits can lead to a variety of behavioural outputs \cite{cruz2022action}.
+Simultaneously, environmental changes in behaviour can significantly alter behaviour. As an example, zebrafish alter their turning behaviour based on the temperature of the water in which they grew in \cite{hageter2021environmental}. Social interactions and hierarchies can also change behaviour, as it has been demonstrated across different mammalian species (e.g. in rodents \cite{faure2022social}).
 
-\subsection{Variability}
-\subsubsection{Inter and Intra-Subject variability}
-\subsubsection{Sources of variability}
-\paragraph{Different sources, different signals}
-\subsubsection{The clinic as a fertile ground for studying variability}
-\subsubsection{Discerning a signal amongst noise}
+Ultimately - and given your specific genome, neural circuitry, development circumstances, social interactions, etc. - it is by analyzing the current state of the environment and taking into account its pasts states that one learns and decides on how to solve a task.
+
+\paragraph{Inter and Intra-Subject variability}
+While it may seem like a trivial affair, distinguishing inter and intra-individual variability requires a large amount of data - and repeated measures - from a given individual. What are individual behavioral differences and what are differences across individuals is a question that is relevant in any study. Big Data approaches have recently been found useful to address this type of problem.
+
 \subsection{Complexity}
 As we distance ourselves from discrimination tasks, both the underlying neural mechanisms needed to produce an answer and plausible models of the data become ever more complex. While a simple sigmoid suffices to model behaviour in the random moving dots task and information from neurons in the visual cortex alone is enough to solve it \cite{newsome1989neuronal}, this is not the case for the large majority of tasks. Coming up with tasks that are simple to model and solve and yet complex enough to elicit interesting responses is thus one of the greater challenges in the study of Decision Making.
+
 \subsubsection{What does it mean to be complex}
-\subsubsection{Curse of dimensionality}
-\subsubsection{Tackling complexity}
-\paragraph{Learning from Psychophysics}
-\paragraph{Extending from Psychophysics}
-\paragraph{Modelling complexity}
+One definition of complexity is how large the dimensionality of a problems' state-space is. Van Opheusden and Ma (2019), have attempted to quantify a battery of problems in terms of their complexity. In their study, they confirmed something that has long been hinted at: Neuroscience tends to stick to low-complexity problems. In contrast, the field of Artificial Intelligence (AI) - full to the brim with data - tends to focus on extremely complex tasks. This begs the question as to what lives in the middle ground, and why are we not exploring it.
+\paragraph{The curse of dimensionality}
+With increasingly complex questions, so does the amount of data required to answer them increase. This, in other words, is the problem that Bellman \cite{bellman1957dynamic} highlighted and named \textit{the curse of dimensionality}.
+In it, it is stated that, as the dimensionality of a problem increase, data points become ever more sparse, making it difficult to discern meaningful relationships. To thoroughly sample a larger space, exponential amounts of data are required. This is an especially relevant problem in the fields of AI and Machine Learning (ML).
+
+This curse is not without its cure. Reducing the dimensionality of the dataset is the solution scientists have found to deal with the problem. Be-it by manually feature extracting important factors before analysis or by utilizing dimensionality reduction techniques (e.g. Principal Component Analysis (PCA)).
+\paragraph{Discerning a signal amongst noise}
+This is however easier said than done. Manually extracting the relevant features requires the analyst to make assumptions about the dataset. Determining what is signal and what is noise is an extremely important decision. Dimensionality reduction techniques aren't necessarily an instantaneous solution either: 1) the linear combinations of the original dataset often lead to a loss of data; and 2) it becomes difficult to determine which features are the most significant in the dataset.
+
 \subsubsection{Why studying complexity matters}
-\paragraph{“AI”}
+Handling complex datasets seems to be easier said than done, so why is there even an attempt to do so?
+
+Firstly, some problems are inherently complex. In fact, most naturalistic behaviours are. One of the most explored fields is that of language. While heavily theorized on, it was in fact in the last decades that language studies datasets have had a resurgence. Statistical language modelling - or the capability to generate language from observed data - saw it's first steps in the 1980's. Quickly, scientists ran into the curse of dimensionality. However, and synchronously, a new technology grew - the Internet. Developers from Google were quick to understand that this "dataset" was unrivaled and that leveraging it was the way forward. Indeed, in 2018, they launched BERT - a flagship model that learns to represent text as a sequence of vectors probabilistically similar to the previous. Today, with the rise of the GPT-family models, Large Language Models (LLMs) have quickly become ubiquitous. These models rely on dozens of billion parameters and leverage the latest advances in neural network algorithms to generate text in natural language. Natural Language Processing has dramatically been improved and its methods radically altered by the availability of this corpus of data and algorithms \cite{guo2025deepseek}.
+
+Other notable examples of success due to large datasets are that of Stockfish and Dall-e (an algorithm that solves the game of chess and an image generation algorithm respectively). These are, however, not the standard for psychology .
+
+\paragraph{Learning from Psychophysics}
+As highlighted before, in psychophysics, simple tasks are boiled down to an (or several) essential measurements that succinctly describe behaviour. This powerful approach allows for comparisons in and across subjects.
+
+Suffice to say, this methodology does not come without some qualms:
+
+1. It is often hard to reduce a behavioural phenomena that may be extremely complex to a single measurement.
+
+2. Psychophysics tasks often require large repetitions of trials in cumbersome settings, which can lead to fatigue.
+
+3. Sensory adaptation can occur through exposition to a task, making measurements unreliable.
+
+4. Individuals may behave in drastically different ways, impeding generalizable measures.
+
+5. Individuals may have different perceptions even when present with the same stimulus, which can lead to radically different answers.
+
+All of these must be taken into account when investigating behaviour and applying these tools. Our ambition is to be rigorous and extend these tools to increasingly complex datasets without falling into its pitfalls.
+
+\paragraph{Extending from Psychophysics}
+One way to extend these tools to account for more complex tasks is to start simple. In a game of chess, one might be compelled to understand how to win. Instead, we propose starting with the first move.
+This approach comes with several advantages.
+
+1. It maximizes data: all games start on the first move.
+
+2. It ensures comparability across subjects.
+
+3. It ensures the root of the behavioral tree is explored before dwelling into the branches: no assumptions are made about the more complex aspects of the data.
+
+Following this approach, we can slowly navigate the layers of complexity of any given task.
+
 \paragraph{Do we have the tools and the means?}
+An approach like the proposed may seem unrealistic, depending on the task. A critic might even say that learning about the first move would lead nowhere, if the goal is to understand chess.
+The single most crucial point thus becomes choosing our research question. We must be aware of the limitations of our approach and design/choose tasks that thrive in them.
+
+\paragraph{Modelling complexity}
+One of the tools at our disposal is to compare our investigations with models. Starting with the simplest possible - 0th order model - and growing our models in complexity as needed. In a game of chess, we can imagine that the simplest possible model for the first move is to play a random piece. It should be immediately apparent why this approach is not as simple as it seems. All tasks have rules, and accounting for them is needed. One cannot simply move any chess pieces (e.g. bishops don't go through pawns.)
+Building the environment first is the needed missing step. We must create an environment to test our models on that follows exactly the rules of our task.
+That means our task must be computationally formalized, and while most things are, usually it does not come without its challenges (e.g. the rules of chess alone require between two to three thousand lines of code.)
+
+\subsubsection{In this thesis...}
+In this thesis we will be exploring multiple tasks, of differing levels of complexity. While all of them are ran in humans, they all require specific methodologies to analyze. It is because of this that we chose to go from the more simple to the more complex. Beginning with the lab environment and ending in the real world. We hope to have selected the right tools for the job at hand.
+
+\clearpage
 
 \section{Behaviour in the lab}
 \subsection{Introduction}
-
 \subsubsection{Decision Making}
-\paragraph{Model Based vs. Model Free learning}
+
+Foraging is a fundamental behavior observed across species, involving complex decision-making processes that balance the exploitation of known resources with the exploration of new opportunities. Animals, including humans, must continually assess whether to persist in a given location or shift to another in search of better rewards. This trade-off, often framed as the exploration-exploitation dilemma, has been extensively studied in behavioral ecology, neuroscience, and psychology \cite{cohen2007should, hills2015exploration}.
+
+\paragraph{Inference Based vs. Stimulus Bound Behaviour}
+
+While some decision-making models propose that foraging behavior is driven by direct reinforcement from past rewards , others suggest that individuals use inference-based strategies to estimate the underlying availability of resources \cite{behrens2007learning}.
+
+Recent studies on rodent foraging behavior suggest that animals infer hidden states of resource availability rather than merely responding to reinforcement contingencies \cite{vertechi2020inference}. However, it remains unclear whether humans engage in similar inference-based decision-making when faced with analogous foraging challenges. To investigate this, we adapted a rodent foraging task to a human experimental framework, allowing for cross-species comparisons and a deeper understanding of the cognitive mechanisms underlying foraging decisions.
+
+To systematically explore these questions, we conducted two experiments. The first experiment examined how changes in task difficulty influenced foraging behavior by varying reward and transition probabilities. The second experiment investigated the stability of foraging strategies over time by inviting participants for multiple sessions. This allowed us to assess whether human decision-making in this task is consistent across time, an essential consideration for understanding the reliability of foraging strategies \cite{daw2006cortical}.
+
+Our findings contribute to cross-species decision-making by elucidating how humans integrate uncertainty, past experiences, and task constraints when making foraging decisions. Understanding these mechanisms has implications for fields ranging from behavioral economics to artificial intelligence, where optimal decision-making under uncertainty is a crucial challenge \cite{gershman2018deconstructing, sutton1998reinforcement}.
+
+The remainder of this chapter details our experimental design, behavioral results, and a discussion of the implications of our findings for theories of decision-making and foraging behavior.
+
 \subsubsection{Designing experiments across species}
+
+The integration of human and rodent research in neuroscience is crucial for understanding fundamental brain mechanisms and translating findings into clinical applications. Rodents, particularly mice and rats, provide a controlled experimental framework for investigating neural circuits, genetics, and behavior at a level of detail not feasible in human studies. Their well-mapped neuroanatomy and genetic tractability allows researchers to manipulate specific neural pathways and assess causal relationships between brain activity and behavior \cite{gomez2019life}.
+
+However, translating rodent findings to humans requires careful validation, as behavioral and cognitive processes can differ across species \cite{charvet2025translating}. Comparative approaches, such as cross-species tasks assessing decision-making or learning, help bridge this gap by identifying conserved mechanisms while accounting for species-specific adaptations \cite{vertechi2020inference}.
+
+This synergy between rodent and human research is particularly valuable in areas like neuropsychiatric disorders, where preclinical models inform treatment strategies, but human validation remains essential for clinical relevance.
+
+By leveraging both human cognitive complexity and rodent experimental precision, neuroscience can more effectively unravel the principles governing brain function and behavior \cite{krakauer2017neuroscience}.
+
+In an attempt to do so, in this chapter we adapted a rodent foraging task to humans, carefully checking if the same predictions and findings held true across species.
+
 
 \subsection{Materials and Methods}
 \subsubsection{The "Hidden-State" task}
@@ -182,57 +410,238 @@ To allow for behavioral comparison across-species, the task was adapted to human
 \paragraph{How to solve it} There are several ways in which to integrate rewards and failures towards a decision. In a stimulus-bound process, the value of a site is directly related to the rewards on that site, decreases with rewards on the other side and decays to 0 with failures. An alternative process is that of using inference to solve the task: an agent that is aware of the fact that a hidden state determines reward availability can use rewards and failures differently to determine wether the current site is ripe or not.
 Both stimulus bound and inference models predict that the probability of leaving a site increases with failures, however, the way rewards are represented is quite different \cite{vertechi2020inference}. In a stimulus bound process, accruing rewards on a given side would increase the value of said side and thus increase the likelihood of remaining. In an inference based process, rewards reset the probability of leaving a site to 0, as it provides the agent with certainty about the hidden state.
 
+
 \subsubsection{Describing the experiments}
 Human participants were invited to participate in this research study. Their participation varied across several experiments.
-\paragraph{Human vs. Mouse} In the data used to compare directly to mice, participants were invited for a single visit to the lab. After informed consent, they were presented with the experimental protocol. In it, they experienced the task a total of 4 times. P(reward) and P(transition) were manipulated in the following protocols:
+\paragraph{Human vs. Mouse} In the data used to compare directly to mice, participants were invited for a single visit to the lab. In this work, we will use this dataset independently of the rodent data to look at how changes in the task modulate human behaviour. For a comprehensive comparative study refer to \cite{vertechi2020inference}.
 
-\begin{tabular}{|c|c|c|}
-\hline
-& Probability of reward & Probability of transition \\
-\hline
-Medium & 90 & 30 \\
-\hline
-Easy & 90 & 90 \\
-\hline
-Hard & 30 & 30 \\
-\hline
-\end{tabular}
+After informed consent, participants were presented with the experimental protocol. In it, they experienced the task a total of 4 times. P(reward) and P(transition) were manipulated in the following protocols:
+
+\begin{center}
+  \begin{tabular}{|c|c|c|}
+  \hline
+  & Probability of reward & Probability of transition \\
+  \hline
+  Medium & 90 & 30 \\
+  \hline
+  Easy & 90 & 90 \\
+  \hline
+  Hard & 30 & 30 \\
+  \hline
+  \end{tabular}
+  \captionof{table}{Protocols and respective settings}\label{table_all}
+\end{center}
+
 
 All the visits started with the medium protocol and randomly interleaved the easy and hard protocols (e.g. Medium - Easy - Medium - Hard).
 
 
-\paragraph{Humans across time} In another experiment, human subjects were once again invited to the lab. In this experiment, participants were invited to two separate visits in time. The goal was to assess whether the task findings were consistent across time. For this experiment, and following our initial findings of how fast humans learn the task, a harder protocol of P(reward) = 45 and P(transition) = 15 was adopted. Participants interleaved the medium protocol with the new protocol.
+\paragraph{Humans across time} In another experiment, human subjects were once again invited to the lab. In this experiment, participants were invited to two separate visits in time. The goal was to assess whether the task findings were consistent across time. For this experiment, and following our initial findings of how fast humans learn the task, a protocol of P(reward) = 45 and P(transition) = 15 was adopted. This protocol is not necessarily harder, as it retains the same ratio of P(reward) and P(transition). Nonetheless, it should require more attempts after last reward. Participants interleaved the medium protocol with the new protocol.
+
+\begin{center}
+  \begin{tabular}{|c|c|c|}
+  \hline
+  & Probability of reward & Probability of transition \\
+  \hline
+  Medium & 90 & 30 \\
+  \hline
+  New & 45 & 15 \\
+  \hline
+  \end{tabular}
+  \captionof{table}{Medium and New protocol settings}\label{table_new}
+\end{center}
 
 
 \subsection{Results}
 
 \subsubsection{Behaviour is maintained across changes in the task}
+As demonstrated in \cite{vertechi2020inference}, changes in protocol were reflected in consistent behavioural changes.
+
+This task investigates if participants solve it in an inference-based or stimulus bound fashion. To investigate whether that was the case, we look at reward history. In a stimulus bound process, accruing rewards on a given side would increase the value of said side and thus increase the likelihood of remaining. In an inference based process, rewards reset the probability of leaving a site to 0, as it provides the agent with certainty about the hidden state. In an inference based process, the number of attempts on a given side after the last reward was administered should thus not be reliant on the reward history. In Figure \ref{fig:gentle} we demonstrate that, independently of protocol, the total number of rewards has no effect on the amount of attempts after the last reward.
+
+
+\begin{figure}[ht!]
+  \centering
+      \includegraphics[width=0.5\textwidth]{figures/flip/gentle.png}
+
+        The mean attempts after last reward (line) and 95\% confidence interval (shaded), per protocol, given the number of total rewards acquired.
+  \caption{\label{fig:gentle}Attempts after last reward are independent from rewards}
+
+\end{figure}
+
+Next, we investigated whether this task was sensitive to changes in protocol. For all three protocols, in figure \ref{fig:protocols}, we show the mean attempts after the last reward was administered and respective 95\% confidence intervals error. What is immediately salient is that the number of attempts after the last reward scales with the difficulty of the task - the harder the protocol, the more evidence do our participants procure. That is congruent with our hypothesis that human subjects use an inference-based process to solve this task.
+
 
 \begin{figure}[ht!]
   \centering
       \includegraphics[width=0.5\textwidth]{figures/flip/protocolXmean.png}
 
-        Targets grow in size and value up until a threshold, in which they are no longer valuable. Player actions determine this growth.
-  \caption{\label{fig:point_structure}Target value schematic}
+        In colors, the mean attempts after last reward (in order, hard, medium and easy protocols). In a black line, the 95\% confidence intervals for each respective protocol.
+  \caption{\label{fig:protocols}Attempts after last reward for all protocols}
+
+\end{figure}
+
+In figure \ref{fig:learning}, you can observe the adaptation of players to the protocols. As subjects always start with the 'Medium' protocol, it's value of attempts after last reward is unstable for the first trials, yet, coalesces to a stable value quickly. In contrast, because both the 'Easy' and 'Hard' protocols succeed the 'Medium' one, their value of mean attempts after last reward begin where the 'Medium' protocol is stable. These are hints that not only our subjects adapt to different protocols but also that their adaptations make sense given the experimental design. Figure \ref{fig:learning} also hints that subjects learn fast - a feature highlighted in the original manuscript as exclusively human \cite{vertechi2020inference}.
+
+
+\begin{figure}[ht!]
+  \centering
+      \includegraphics[width=0.5\textwidth]{figures/flip/streaks.png}
+
+        The attempts after last reward as trial number increases, divided by protocol.
+  \caption{\label{fig:learning}Attempts after last reward over trials}
+
+\end{figure}
+
+One other manipulation of task parameters was done on the time to travel between reward locations. To do so, the speed of traversing between locations was diminished in some trials, interleaved with regular speed trials. As illustrated on figure \ref{fig:barrier}, we found that decreasing the speed of traversal led to an increase in the number of attempts after the last reward.
+
+\begin{figure}[ht!]
+  \centering
+      \includegraphics[width=0.5\textwidth]{figures/flip/barrier.png}
+
+        The attempts after last reward per protocol with or without a speed impairment (shaded).
+  \caption{\label{fig:barrier}Traversing speed impacts the attempts after last reward}
 
 \end{figure}
 
 \subsubsection{Behaviour is maintained across sessions}
+
+In the second experiment, subjects were invited to two visits. In each of the visits they were presented with two protocols - "medium" and "new" - in a randomized order. Because the ratio between the probability of rewards and of site availability is maintained, the protocol should be of similar dificulty. However, due to less rewards being available with lower probabilities - in the novel scenario -, the amount of attempts after last reward increases. In figure \ref{fig:new}, we plot the average attempts after last reward for both protocols for both sessions combined.
+
+\begin{figure}[ht!]
+  \centering
+      \includegraphics[width=0.5\textwidth]{figures/flip/new.png}
+
+        The attempts after last reward per protocol and independently of session. Compared to the baseline protocol, the new protocol produces more attempts after last reward. Black line signifies the 95\% confidence interval.
+  \caption{\label{fig:new}The new protocol produces more attempts after last reward}
+
+\end{figure}
+
+The novelty of this experiment was the introduction of a follow up session. In Figure \ref{fig:sessions} we see the average attempts after last reward for both protocols and both sessions. Confirmed by Figure \ref{fig:across_sessions}, the mean attempts after the last reward was maintained across both sessions in the same individuals. An Intra-Class Correlation analysis (table \ref{ICC}) demonstrated a good reliability of the measure across the two visits. In the bland-altman plot in Figure \ref{fig:bland_altman}, the average difference in attempts after the last reward across the two visits is shown. In it, we can visualize whether there is systematic bias (consistent difference between the two visits) and whether the agreement between the two visits changes across the range of measurements. The measurement stays largely inside bounds. Other than that, some spread can also be observed, indicative of heteroscedasticity: A trend in the data seems to indicate that with larger average attempts after last reward values across both visits, the measure reliability decreases.
+
+
+\begin{figure}[ht!]
+  \centering
+      \includegraphics[width=0.5\textwidth]{figures/flip/sessions.png}
+
+        The average difference in attempts after last reward across the two visits.
+  \caption{\label{fig:sessions}The average difference in attempts after last reward across the two visits}
+
+\end{figure}
+
+\begin{figure}[ht!]
+  \centering
+      \includegraphics[width=0.9\textwidth]{figures/flip/ICC.png}
+
+      \caption{\label{fig:across_sessions}The average difference in attempts after last reward across the two visits}
+
+      On the left panel, the medium protocol and on the rightmost, the new protocol. Colors are different participants, columns are visits.
+
+\end{figure}
+
+
+\begin{center}
+  \begin{tabular}{|c|c|}
+  \hline
+  ICC & p-value \\
+  \hline
+  0.833536 & 1.219174e-08 	 \\
+  \hline
+  \end{tabular}
+  \captionof{table}{Intraclass correlation analysis}\label{ICC}
+\end{center}
+
+
+
+\begin{figure}[ht!]
+  \centering
+      \includegraphics[width=0.6\textwidth]{figures/flip/bland_altman_all.png}
+
+      \caption{\label{fig:bland_altman}The average difference in attempts after last reward across the two visits.}
+
+        Bland-altman plot for the attempts after last reward across the two visits. A horizontal line is drawn at the mean of the differences. This line represents the average bias between the two visits. Two additional horizontal lines are drawn at mean difference ± 1.96 standard deviations. These are the limits of agreement and represent the range within which 95\% of the differences between the two methods are expected to lie. A trend of heteroscedasticity can be observed - the differences between the visits becomes larger as the magnitude of the attempts after last reward  increases.
+
+\end{figure}
+
+\clearpage
+
+
 \subsection{Discussion}
+
+This first chapter aimed to investigate whether human participants solve a foraging task using an inference-based or stimulus-bound decision-making process. By adapting a behavioral paradigm originally designed for mice, we examined how human participants responded to changes in reward probability, transition probability, and traversal costs. Our results suggest that participants employ an inference-based strategy, adjusting their behavior according to the task demands and maintaining stable performance across different protocols and experimental sessions.
+
+\subsubsection{Inference-based decision-making in human foraging}
+The findings align with previous research \cite{vertechi2020inference} demonstrating that humans use inference-based strategies to estimate reward availability. This is evident in the fact that, regardless of the total number of rewards obtained, participants did not increase their persistence on a given site. Instead, their probability of leaving a site was reset after receiving a reward, supporting the notion that rewards serve as confirmatory evidence of the hidden state rather than directly reinforcing a given location. This contrasts with a stimulus-bound strategy, where the value of a location would increase with the accumulation of rewards, leading to site persistence.
+
+As the difficulty of the protocol increased, the number of attempts after the last reward also increased. This further supports the inference-based decision-making framework. Participants required more evidence before switching sites when the task was more uncertain, which suggests they were actively inferring the hidden state rather than simply reacting to immediate rewards and failures in a stimulus-bound fashion.
+
+\subsubsection{Task sensitivity and behavioral adaptation}
+The results indicate that human participants adapt flexibly to task changes. The different protocols elicited systematic variations in behavior, with participants making more attempts after the last reward in harder protocols. This aligns with the hypothesis that participants adjust their exploration-exploitation trade-off based on task demands. Moreover, the learning curves suggest that participants rapidly adapted to new conditions, particularly as they transitioned from the medium protocol to either the easy or hard protocols. This highlights the flexibility of human decision-making and the ability to integrate prior experience into ongoing behavior.
+
+The effect of traversal cost on decision-making further supports this notion. When movement between foraging sites was slowed down, participants increased their persistence at a given location before switching. This finding suggests that participants integrate costs into their decision-making process, optimizing their strategy based on both reward probabilities and movement constraints. Such behavior is consistent with an optimal foraging framework, in which organisms seek to maximize reward while minimizing costs.
+
+\subsubsection{Stability of behavior across sessions}
+The second experiment clarifies that participants' decision-making strategies remain stable over time. The number of attempts after the last reward remained consistent across sessions, and the intraclass correlation analysis confirmed strong reliability of this measure. The Bland-Altman analysis further suggested that individual differences in behavior were maintained across visits, with minimal systematic bias. However, some heteroscedasticity was observed, indicating that reliability decreased slightly for individuals who had higher values of attempts after the last reward.
+
+This consistency over time underscores the robustness of the inference-based approach and suggests that individuals develop and retain an internal model of task dynamics that guides their decisions across sessions.
+
+\subsubsection{Conclusion}
+
+The consistency of behavior across different conditions suggests that these strategies are flexible and context-dependent. Understanding how humans balance exploration and exploitation has implications for fields such as behavioral economics, neuroscience, and artificial intelligence, particularly in the development of models that seek to mimic human decision-making.
+
+The demonstrated behavioral patterns indicate that decisions are based on inference rather than simple reinforcement learning. Participants flexibly adapted their behavior to task demands and maintained stable decision-making strategies across multiple sessions. These findings contribute to our understanding of human exploration-exploitation trade-offs and offer a framework for future studies on the cognitive mechanisms of decision-making in uncertain environments like the one shown in the following chapter.
+
+
 \subsection{Author Contributions}
+
+\begin{itemize}
+    \item Rodent task design by P. Vertechi, D. Sarra and E. Lottem.
+    \item Human adaptation of the task by T. Quendera and P. Vertechi.
+    \item Running the experiment by T. Quendera and C. Seybert.
+    \item Coding of the task, analysis and discussion by T. Quendera.
+\end{itemize}
+
 \subsection{Acknowledgements}
+
+I would like to acknowledge the incredible work done by my colleagues in the rodent team that enabled me to produce such clean results. A special shout-out to Pietro Vertechi for being the best guide and tutor that I could have hoped for when adapting the task to humans. Without the patience and guidance of all the rodent team this translational work would not have been possible. Thank you to the Mainen Lab, especially Z. Mainen in supporting this research and guiding me through it.
+
+A special thank you to the Neuropsychiatry unit team for running the experiment when I could not for the longitudinal phase of this project. The work hours they put into supporting this project are invaluable and the major reason why it even exists. Thank you to C. Seybert, G. Cotovio and A. Oliveira-Maia and all the NPU for the guidance and help throughout this project.
+
 
 \section{Behaviour in the clinic}
 \subsection{Introduction}
-\subsubsection{Why translational research?}
-\paragraph{Obsessive Compulsive Disorder and task performance}
+
+\subsubsection{Obsessive Compulsive Disorder}
+
+While well characterized psychiatrically, the pathophisiology of Obsessive Compulsive Disorder (OCD) is one that needs further investigation. In fact, mental disorders as a whole persist as one of the leading contributors to global disease burden, with no significant decline observed in recent decades \cite{gbd2022global}. Among these, Obsessive Compulsive Disorder stands out as a debilitating psychiatric condition characterized by early onset, chronic progression, and frequent comorbidity with both physical and psychiatric comorbidities \cite{katschnig2006quality}. OCD is associated with profound impairments in daily functioning and quality of life, compounded by societal stigma and systemic barriers to care. Despite advances in evidence-based pharmacological and behavioral therapies, treatment resistance and poor adherence remain significant challenges \cite{kellner2010drug}. To address these gaps, novel preventive and therapeutic strategies are urgently needed, requiring deeper insights into the disorder’s underlying mechanisms \cite{m2018promising}.
+
+\subsubsection{Behaviour Matters}
+Just like Neuroscience, Psychiatry also needs behaviour \cite{krakauer2017neuroscience}. There has been a notable growth in research of the behavioural underpinnings of psychiatric disorders. A lot of it in reaction to the availability of more and more sophisticated methods of analysis \cite{montague2012computational}. The field of Computational Psychiatry has tackled many a diagnosis in attempts to unravel the computational basis of diagnoses. While it is the case, the adoption of those findings into clinical practice is sparse and not widely regarded as relevant \cite{hitchcock2022computational}.
+
+We argue, however, that without behaviour, we cannot truly understand the computational mechanisms underlying a diagnosis, which leads to a poor understanding and, if not careful, to a poor treatment of said disorder.
+Paired with other novel techniques like Functional Magnetic Ressonance Imaging (fMRI), Transcranial Magnetic Stimulation (TMS), and many others, careful behaviour analysis remains one of the unexplored dimensions in mental health disorders.
+Due to its very characterized phenomena, diagnosis and symptomatology, OCD is a prime candidate disorder to perform this sort of investigation on.
+
+\subsubsection{Obsessive Compulsive Disorder and task performance}
+Some authors have expertly tackled this challenge.
+
+When investigating the role of Reversal Learning in OCD, authors find conflicting results. While some report a difference in performance between healthy and OCD patients and in activity in the OFC \cite{remijnse2006reduced}, others find differences only in more subtle metrics and when looking at symptom severity \cite{valerius2008reversal}.
+
+The more commonly used task in OCD research is, however, the Stop Signal Reaction Time Task (SSRTT). In a recent review, authors found that Stop Signal Reaction Time (SSRT) was significantly increased in most studies with patients with an OCD diagnosis \cite{mar2022obsessive}. They did not find significant differences in reaction times across groups. OCD has also been linked with dysfunction in frontal areas of the cortex like the Orbitofrontal Cortex (OFC) and the medial Prefrontal Cortex (mPFC) \cite{aron2003stop}.
+
+When developing the battery of tasks for this experiment, we also considered the "Hidden State Task", as it not only allows for cross-species work with rodents, but also has been found to be sensitive to disruptions in the OFC \cite{vertechi2020inference}.
+
 \subsection{Materials and Methods}
 \subsubsection{The experiment}
+The work in this chapter was developed under a larger protocol to assess novel diagnostics in Obsessive Compulsive Disorder. For this experiment, three tasks were selected due to their relevance with the clinical sample.
+
 \paragraph{The subjects}
+A sample of matched participants for sociodemographic characteristics - age, sex and education -  was collected. A total of 200 participants were recruited (100 healthy and 100 diagnosed with OCD according to DSM-V criteria). Participants were screened in a battery of tests, most relevantly on Yale-Brown Obsessive Compulsive Scale (YBOCS-II) \cite{goodman1991yale}. Patients and controls were included if they were between 18 and 65 years old, were fluent Portuguese speakers and did not meet any of the following exclusion criteria: any acute medical illness, history of substance abuse or dependence (other than nicotine) in the last 12 months, neurodevelopmental disorders, dementia or any form of cognitive impairment, active neurological disease, illiteracy or inability to understand the study’s instructions, and inability to provide informed consent.
 
+For each of the tasks, some participants were excluded, either due to technical issues with the data collection or because they did not meet the inclusion criteria for the larger protocol.
 
-\paragraph{Obsessive Compulsive Disorder}
-Our clinical cohort consisted of patients diagnosed with Obsessive Compulsive Disorder (OCD). These patients were recruited as a part of a larger comprehensive study on OCD and markers of diagnosis - Neurocomp. This study was approved by the FChampalimaud ethics committee and conducted in the Neuro Psychiatry Unit under the supervision of Dr. Albino Oliveira-Maia. Patients were referred to our research team by their physicians and controls were recruited to match them in demographics. In this study, participants underwent several experiments: one of which, a battery of behavioural tasks on which we will focus on in this work.
+Our clinical cohort consisted of patients diagnosed with Obsessive Compulsive Disorder (OCD) according to the DSM-V criteria. These patients were recruited as a part of a larger comprehensive study on OCD and markers of diagnosis - Neurocomp. This study was approved by the FChampalimaud ethics committee and conducted in the Neuro Psychiatry Unit of the Champalimaud Research.
+
 \subsubsection{The tasks}
 For this protocol, three different tasks were selected. Two for historical correlations with OCD and one for it's novelty.
 \paragraph{Reversal Learning Task}
@@ -248,6 +657,8 @@ Subjects were instructed to accrue as many points as possible. Speed was not enc
 
 A neutral baseline trial (BL) was also presented randomly interleaved with the probing trials. This trial consisted of two images of a ball and a pencil. Here subjects were instructed to always select the option "pencil". In these trials, a neutral feedback was given.
 
+Subjects were excluded if they did not meet a certain performance level (a minimum of 5000 points), or if they, on average, answered wrongly on BL trials. A total of 15 subjects (8 healthy and 7 ocd) did not meet the criteria.
+
 \paragraph{Stop-Signal Reaction Time Task}
 Secondly, a stop-signal reaction time task (SSRTT) was adapted from \cite{aron2003stop}. In this family of tasks, Participants are asked to make speedy answers on go trials and withhold from responses on no-go trials.
 In the SSRTT, most trials are go trials. However, in a fraction of trials, a tone will be played. When the tone is played, participants should withhold their response.
@@ -259,34 +670,224 @@ To keep the task challenging, the inter-stimulus interval (the time between succ
 From the data, we calculated the stop-signal reaction time (SSRT) for each participant. The SSRT represents the processing time required to inhibit a strong motor response. This was determined by subtracting the average SSD from the median reaction time observed in trials without the stop signal. This metric quantifies how quickly and effectively participants can stop themselves from responding when prompted by the stop signal.
 
 \paragraph{The "Hidden-State" task}
+Finally, the hidden-state task was used. This task was developed and elaborated on the first chapter of this thesis. Please refer to that chapter for task methodology as it is unchanged. The chosen protocol for this experiment was the "New Protocol" with a probability of reward of 45\% and a probability of transitioning states of 15\% (Table \ref{table_new}).
+
+
+
 
 \subsection{Results}
 \subsubsection{Reversal Learning Task}
+For the Reversal Learning Task, 139 subjects are included, 69 control subjects and 70 subjects diagnosed with OCD. The analysis are shown in comparison between these two groups as our main goal was to utilize such tasks to distinguish between them.
+
+The number of correct responses (Fig. \ref{fig:r_correct}), while slightly larger on the OCD group, is not significantly different from the control group.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/ocd/r/r_correct.png}
+
+  \caption{\label{fig:r_correct} "Number of Correct Responses in the Reversal Learning Task"}
+
+  The number of correct responses is shown for both the control (green) and OCD (orange) groups. n=139(69/70), the error bar represents the 95\% confidence interval. p=1.559e-01
+\end{figure}
+
+ The same can be said for the score obtained in the task for the 2 groups. The OCD group showed marginally non-significantly larger scores (Fig. \ref{fig:r_score}).
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/ocd/r/r_score.png}
+
+  \caption{\label{fig:r_score} "Score in the Reversal Learning Task"}
+
+  The score for both the control (green) and OCD (orange) groups. n=139(69/70), the error bar represents the 95\% confidence interval. p=1.813e-01
+\end{figure}
+
+The crucial measure reported in this task is the Reversal Latency. The Reversal Latency is calculated by counting the number of trials in which a participant, after a reversal in the task contingencies, continues to insist before adapting to the new task parameters. In our sample, the two groups were not significantly different from each other (Fig. \ref{fig:r_reversal}). We observed a larger spread in the data for the healthy participants and a non-significantly larger Reversal Latency.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/ocd/r/r_reversal.png}
+
+  \caption{\label{fig:r_reversal} "Reversal Latency in the Reversal Learning Task"}
+
+  The Reversal Latency for both the control (green) and OCD (orange) groups. n=139(69/70), the error bar represents the 95\% confidence interval. p=7.417e-02
+\end{figure}
+
+
+
+\clearpage
 
 \subsubsection{Stop-Signal Reaction Time Task}
+In the Stop-Signal Reaction Time Task, we started by analyzing its prime metric, the Stop-Signal Reaction Time. This is calculated using a race model, which posits a competition between the "go" process (executing a response) and the "stop" process (inhibiting it). Two primary methods are commonly employed: The mean method and the integration method (based on the distribution of the data) \cite{verbruggen2019consensus}. By calculating the SSRT using the mean method we get Figure \ref{fig:s_ssrt} and through the integration method we get Figure \ref{fig:s_ssrt_dist}.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/ocd/s/s_ssrt.png}
+
+  \caption{\label{fig:s_ssrt} "Stop-Signal Reaction Time  - mean method"}
+
+  The Stop-Signal Reaction Time  - mean method - for both the control (green) and OCD (orange) groups. n=150(88/62), the error bar represents the 95\% confidence interval. p=2.094e-01
+\end{figure}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/ocd/s/s_ssrt_dist.png}
+
+  \caption{\label{fig:s_ssrt_dist} "Stop-Signal Reaction Time - integration method"}
+
+  The Stop-Signal Reaction Time  - integration method - for both the control (green) and OCD (orange) groups. n=150(88/62), the error bar represents the 95\% confidence interval. p=7.777e-02
+\end{figure}
+
+Another of the reported measures in some studies, is the prevalence of more errors in patients diagnosed with OCD. In our sample, we did not find a difference in the number of errors made across the two groups (Figure \ref{fig:s_sse}).
+
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/ocd/s/s_sse.png}
+
+  \caption{\label{fig:s_sse} "Stop-Signal Errors"}
+
+  The percentage of Stop-Signal Errors for both the control (green) and OCD (orange) groups. n=150(88/62), the error bar represents the 95\% confidence interval. p=1.279e-01
+\end{figure}
+
+Next, we assessed whether the overall reaction times were different across the two groups. We found no significant differences in the reaction times (Figure \ref{fig:s_rt}). One interesting feature is when looking at the distribution of these reaction times over trials. What we find, in Figure \ref{fig:s_rt_dist}, is that these reaction times seem to never stop increasing.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/ocd/s/s_rt.png}
+
+  \caption{\label{fig:s_rt} "Reaction Times in the SSRTT"}
+
+  The Reaction Times for both the control (green) and OCD (orange) groups. n=150(88/62), the error bar represents the 95\% confidence interval. p=5.886e-02
+\end{figure}
+
+
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/ocd/s/s_rt_overtime.png}
+
+  \caption{\label{fig:s_rt_dist} "Reaction Times in the SSRTT over trials"}
+
+  The evolution of Reaction Times for both the control (green) and OCD (orange) groups. n=150(88/62), the shaded area represents the 95\% confidence interval. p=5.886e-02
+\end{figure}
+
+Verbruggen and Colleagues (2019), warn us that the SSRT is not an accurate metric if the pre-requisites for the race model are not met. To investigate this, we looked at whether the Stop-Signal Delays (SSD) for our participants plateaued at the limits of their reaction times. What we see in Figure \ref{fig:s_ssd} instead is that, albeit not different across groups, the SSDs do not stop growing, meaning that the assumptions for our race model are not met.
+
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/ocd/s/s_ssd.png}
+
+  \caption{\label{fig:s_ssd} "The Stop-Signal Delay in the SSRTT over trials"}
+
+  The evolution of the Stop-Signal Delay for both the control (green) and OCD (orange) groups. n=150(88/62), the shaded area represents the 95\% confidence interval. p=5.497e-02
+\end{figure}
+
+To account for this, by looking at the distributions of each individual and selecting only those that approached flatness, we selected only participants whose SSD plateaued. Nonetheless, this selection was not enough to find differences across the two groups (Figure \ref{fig:s_flat}).
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/ocd/s/s_flat.png}
+
+  \caption{\label{fig:s_flat} "The SSRT in the SSRTT for plateaued SSDs only"}
+
+  The Stop Signal Reaction Time for both the control (green) and OCD (orange) groups only in the participants whose SSD eventually became stable. n=39(24/15), the shaded area represents the 95\% confidence interval. p=5.272e-01
+\end{figure}
+
+
+
+
+\clearpage
+
 \subsubsection{The "Hidden-State" task}
 
+We started by looking at the Attempts After Last Reward. We found that this metric did not change significantly between the two groups (Figure \ref{fig:f_after_last}).
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/ocd/f/after_last.png}
+
+  \caption{\label{fig:f_after_last} "The Attempts After Last Reward for Healthy controls and OCD"}
+
+  The Attempts After Last Reward for both the control (green) and OCD (orange) groups. n=150(71/79), the black bar represents the 95\% confidence interval. p=1.097e-01
+\end{figure}
+
+Lastly, in Figure \ref{fig:f_flat}, we looked at whether our participants still performed an inference-based process by looking at the slope of the interaction between the number of attempts after the last reward and the total number of rewards. What we found was that the 2 groups retained a flat slope, indicating that they are not performing in a stimulus-bound manner.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/ocd/f/flat.png}
+
+  \caption{\label{fig:f_flat} "The Attempts After Last Reward over the Number of Rewards"}
+
+  The Attempts After Last Reward over the different number of rewards received for both the control (green) and OCD (orange) groups. n=150(71/79), the shaded area represents the 95\% confidence interval.
+\end{figure}
+
+
+
 \subsection{Discussion}
+
+We aimed to investigate behavioral differences between individuals with OCD and healthy controls across three tasks: Reversal Learning, Stop-Signal Reaction Rime, and a novel "hidden-state" task. We assessed their utility in elucidating computational mechanisms underlying OCD. Contrary to our hypotheses, no significant group differences emerged in any of the metrics we evaluated across tasks. These findings raise questions about the sensitivity of these paradigms in capturing OCD-related behavioral phenotypes and highlight challenges in translating experimental tasks to clinical populations.
+
+\subsubsection{Reversal Learning: Reconciling Mixed Findings}
+
+The absence of significant differences in reversal latency, correct responses, or task scores aligns with some prior studies that report subtle or null effects in OCD populations \cite{valerius2008reversal}. However, this contrasts with work linking OCD to reduced reversal learning efficiency and aberrant orbitofrontal-striatal activity \cite{remijnse2006reduced}. Several factors may explain this discrepancy:
+
+    Symptom heterogeneity: OCD is a heterogeneous disorder, and the lack of stratification by symptom dimensions (e.g., contamination vs. symmetry) may have obscured subgroup-specific deficits.
+
+    Task design: The probabilistic punishment structure (20\% punishment on correct trials) might have introduced noise, diluting reversal-related signals. Future studies could employ deterministic reversals or trial-by-trial computational modeling to isolate decision-making processes.
+
+    Compensation mechanisms: Medicated patients or those with chronic OCD may develop compensatory strategies, masking deficits observable in early-stage or untreated cohorts.
+
+\subsubsection{SSRTT: Stopping to reassess}
+
+The SSRTT results mirror recent meta-analysis findings of inconsistent SSRT differences in OCD \cite{mar2022obsessive}. Notably, the dynamic adjustment of stop-signal delays (SSD) failed to plateau in many participants, violating the race model’s assumptions \cite{verbruggen2019consensus}. This suggests that the task’s adaptive algorithm may not have stabilized sufficiently, potentially invalidating SSRT estimates. Even after restricting analyses to participants with plateaued SSDs, group differences remained absent, raising flags about the task’s validity for OCD.
+
+Verbruggen et. al (2019) warn us that some rules are meant to be followed. One of them, the importance of stressing the participants about answering as fast as possible, was not present in our study. What was also not present was a training stage where participants got to learn the mechanics of the task beforehand. These two omissions may have been crucial for the negative results we present here.
+
+\subsubsection{Hidden-State Task: Unexplored Dimensions}
+
+The hidden-state task, designed to probe inference-based decision-making, also failed to differentiate between groups.  Vertechi and colleagues (2020) performed optogenetic transient innactivation of the OFC in mice and found significant disruptions in both the slope and average number of attempts after the last reward. The flat slope in Figure \ref{fig:f_flat} suggests that both groups engaged in similar strategies. This hints that the reported OFC dysfunction in OCD humans is not to be taken at face value and must be carefully interpreted when performing translational research.
+
+
+\subsubsection{Conclusion}
+
+While the negative results challenge the utility of these tasks in their current form, they highlight the complexity of linking behavioral assays to heterogeneous psychiatric constructs. Computational psychiatry must grapple with the tension between mechanistic specificity and clinical practicality. Despite these challenges, rigorously validated behavioral paradigms remain indispensable for bridging the gap between neural circuitry and lived experience in psychiatric disorders and these results should not dissuade the reader that this approach is noble.
+
 \subsection{Author Contributions}
+
+\begin{itemize}
+    \item Task design, implementation, analysis and discussion by T. Quendera.
+    \item Running the experiment by T. Quendera and A. Maia, N. Descalço e C. Fonseca
+    \item Project supervision by J. Oliveira, B. Barahona-Corrêa and Albino O. Maia
+\end{itemize}
+
 \subsection{Acknowledgements}
+I would like to thank the Neurocomp team for the efforts put into collecting this extensive dataset and all the help and advice along the way. It was truly a wonder to work with such a dedicated team.
+
+\clearpage
 
 \section{Behaviour in the real world}
 \subsection{Introduction} \label{hexxed_intro}
+From the clinic, we venture further and into the real world. In this chapter we explore a more complex task that was run outside the lab, its advantages and pitfalls alike.
+
+
 \paragraph{The rise of AI}
-From arcade classic Space Invaders to one of the most complex games ever played in Go, there has been a noticeable shift in prowess between human players and artificial intelligence (AI). Today, machines reign supreme in tasks we deemed human exclusive only a few decades ago. This shift can be primarily attributed to advancements in neural network algorithms. In 1997, Gary Kasparov - the best of human chess players - was defeated using the brute-force algorithm Deep Blue \cite{hsu2002behind}. Albeit incredibly powerful, this algorithm depended on very specific hardware and software configurations to be good at the game. Deep Blue was exclusively good at the game of chess. It contained a tree of millions of possible chess plays, a database of the most common openings and endgames and the aid of human engineers to steer it in the right direction. The definitive domination over humans in this type of tasks only came with the dawn of Machine Learning and artificial neural networks (ANNs). Neural networks are a type of algorithms inspired by the neuron-based, layered way in which biological brains compute problems. Due to their architecture, they are capable of learning from data. During training, they adjust their internal parameters (weights and biases) to adjust to the problem at hand. This training involves using large amounts of data to improve the network's performance at a given task, whether it's recognizing images, understanding language, or playing complex games. These algorithms are capable of generalizing: they adjust to both the task at hand and, even with incomplete data (contrarily to brute-force algorithms), are able to infer what to do in a never before seen problem of the same kind.
+
+From arcade classic Space Invaders to one of the most complex games ever played in Go, there has been a noticeable shift in prowess between human players and artificial intelligence (AI). Today, machines reign supreme in tasks we deemed human exclusive only a few decades ago. This shift can be primarily attributed to advancements in artificial intelligence algorithms. In 1997, Gary Kasparov - the best of human chess players - was defeated using the brute-force algorithm Deep Blue \cite{hsu2002behind}. Albeit incredibly powerful, this algorithm depended on very specific hardware and software configurations to be good at the game. Deep Blue was exclusively good at the game of chess. It contained a tree of millions of possible chess plays, a database of the most common openings and endgames and the aid of human engineers to steer it in the right direction. The definitive domination over humans in this type of tasks only came with the development of Machine Learning and artificial neural networks (ANNs). Neural networks are a type of algorithms inspired by the neuron-based, layered way in which biological brains compute problems. Due to their architecture, they are capable of learning from data. During training, they adjust their internal parameters (weights and biases) to adjust to the problem at hand. This training involves using large amounts of data to improve the network's performance at a given task, whether it's recognizing images, understanding language, or playing complex games. These algorithms are capable of generalizing: they adjust to both the task at hand and, even with incomplete data (contrarily to brute-force algorithms), are able to infer what to do in a never before seen problem of the same kind.
 
 \paragraph{Investigating complex skill learning}
-Despite this, one aspect where humans continue to hold a significant edge is in the speed at which we acquire and refine our skills \cite{tsividis2017human} \cite{lake2017building}. Lake and colleagues pose that the differences in learning may be due to the different learning apparatuses. Complex skill learning, can be formalized as a journey through a vast space of potential strategies. It is by traversing this complex strategy space that agents eventually land on critical points that lead to task performance - i.e. they learn. While designed as reward-based gradient descent for artificial agents \cite{mnih2015human}, the exact nature of how humans navigate this space remains uncovered. One position is that it follows a similar process. Alternatively, some pose this process is influenced by rational inference and priors \cite{tsividis2017human} or other processes \cite{DBLP:journals/corr/abs-1803-05252}.
+Despite this, one aspect where humans continue to hold a significant edge is in the speed at which we acquire and refine our skills \cite{tsividis2017human} \cite{lake2017building}. Lake and colleagues pose that the differences in learning may be due to the different learning apparatuses. Complex skill learning, can be formalized as a journey through a vast space of potential strategies. It is by traversing this complex strategy space that agents eventually land on critical points that lead to task performance - i.e. they learn \cite{ullman2012theory}. While designed as reward-based gradient descent for artificial agents \cite{mnih2015human}, the exact nature of how humans navigate this space remains uncovered. One position is that it follows a similar process. Alternatively, some pose this process is influenced by rational inference and priors \cite{tsividis2017human} \cite{DBLP:journals/corr/abs-1803-05252}.
 Given the wealth of theories, a significant challenge in this field of research remains that games serve as excellent benchmarks for assessing intelligent search strategies and decision-making processes yet, they are not inherently designed to reverse-engineer complex skill learning. If we are to draw parallelism between different types of learning in different agents, we ought to investigate tasks that are designed to investigate underlying cognitive processes - i.e. learning.
 
 \paragraph{Is it smarter than a third grader?}
 To answer any questions about how intelligent an agent is, we must first begin to agree on a definition of intelligence. AI's definition has often landed on benchmarking measures of skill \cite{chollet2019measure}. Skill is heavily dependent on priors. With unlimited experience, one could train a system to become of an arbitrary skill level. Cognitive sciences have long gravitated towards definitions that more closely relate to one's capacity to generalize: and that is indeed the promise of ANNs. The ideal intelligent machine is such that, when faced with the same stimuli a human has experienced in a task, produces a trajectory through policy space that matches that of the humans \cite{van2019tasks}.
 
 \paragraph{Not too simple, not too complex}
-On the opposite end of the spectrum of complexity, the tools of psychophysics have been instrumental in many of the great findings in cognitive psychology. The field of psychophysics examines the fundamental relationships between physical stimuli and their cognitive-behavioral reactions. One family of widely studied tasks in this domain is that of alternative forced choice (AFC) tasks. Not unlike the tasks presented in the previous chapters of this work, subjects are oft asked to make actions in which some outcomes lead to reward. For example, in a simple sensory discrimination task, a subject may be asked wether they see blue color on a screen. Plotting responses against the intensity of blue hue generates a so called psychometric curve. In it, we would see that the proportion of correct detections would increase with hue. This observation allows us to draw a direct relationship between the task and behaviour.
+On the opposite end of the spectrum of complexity, the tools of psychophysics have been instrumental in many of the great findings in cognitive psychology. The field of psychophysics examines the fundamental relationships between physical stimuli and their cognitive-behavioral reactions. One family of widely studied tasks in this domain is that of alternative forced choice (AFC) tasks. Not unlike the tasks presented in the previous chapters of this work, subjects are oft asked to make actions in which some outcomes lead to reward. For example, in a simple sensory discrimination task, a subject may be asked wether they see blue color on a screen. Plotting responses against the intensity of blue hue generates a so called psychometric curve. In it, we would see that the proportion of correct detections would decrease with the ambiguity of the hue. This observation allows us to draw a direct relationship between the task and behaviour.
 With complex tasks, this relationship is much harder to establish. Moving a rook or a knight in a game of chess is not easily relatable to any task parameter.
 
-The dichotomy presented has led to a great divide in the complexity of tasks studied by the fields of AI and of Cognitive Sciences. A way to quantify complexity in a task is by observing the dimensions of its state-space - that is, the number of possible different states that an agent can reach in any possible sequence of actions.
+The dichotomy presented has led to a great divide in the complexity of tasks studied by the fields of AI and of Cognitive Sciences. A way to quantify complexity in a task is by observing the number of nodes of its state-space - that is, the number of possible different states that an agent can reach in any possible sequence of actions.
 
 Decision trees - i.e. schematic representations of the state-space - are a powerful way to model planning tasks \cite{van2019tasks}. While admittedly reductionist - as it ignores things like task difficulty and wether there is uncertainty in the task - by calculating the dimensions of a decision tree we can derive a measure of task complexity. van Opheusden and Ji Ma (2019) compare several families of tasks as to their state-space complexities. They posit that there is a big gap in task complexity between the two fields and leave us, cognitive scientists, with the challenge to venture away from simplicity and embrace complexity in order to align human and machine intelligence.
 
@@ -298,8 +899,13 @@ To bridge this gap, we have developed a novel game specifically tailored to expl
 \subsection{Materials and Methods}
 \subsubsection{hexxed}
 
-To investigate how complex skill learning ensues, the right tool is needed. After exploring the landscape of possible tasks\textsuperscript{\ref{hexxed_intro}}, we developed a novel task: \textit{hexxed}.
+To investigate how complex skill learning ensues, the right tool is needed. We developed a novel task: \textit{hexxed}.
 \textit{hexxed} is a puzzle-like videogame task that challenges it's solvers to explore and solve complex problems. Solving \textit{hexxed} requires carefully planning moves ahead in both space and time.
+
+We seek to combine the strengths of simple and complex tasks. This led us to identify several design constraints. First, the “state space” of the task is sufficiently large, motivating subjects to develop efficient strategies to solve it. Second, the values of all states and actions should be pre-defined so that the value of a player’s choice is unambiguous. Third, stimuli can be generated programmatically, allowing us to comprehensively sample subjects’ changing strategy across stimuli throughout learning. Fourth, the task progresses in difficulty, so that it can be used to observe skill formation within individuals. Finally, the task generates enough data, within and across subjects, to sufficiently sample the distribution of strategies that subjects employ. Over multiple iterations we arrived at a puzzle-based video game that meets these constraints: hexxed.
+
+\textit{hexxed} can be seen as a time-dependent version of the traveling salesman problem \cite{gavish1978travelling}. This class of problems requires combinatorial optimization, in that finding the optimal solution can require evaluating all possible solutions (known as a “brute force” search), which grows exponentially with the number of targets. Furthermore, the number of possible puzzles grows exponentially with the number of targets used. At the same time, both puzzle and solution spaces are discrete and enumerable. These properties position hexxed as an ideal psychophysical tool for probing how humans solve a complex problem.
+
 
 \subsubsection{The task}\label{the-task}
 
@@ -314,7 +920,7 @@ In \textit{hexxed}, the goal is to rotate a collector (which is the player's con
 In \textit{hexxed}, time is discretized. For every action a player takes, time progresses one unit into the future. This means that hexxed has no inherent time-pressure to be solved and that it is the players who determine the pace at which they solve it.
 
 
-At any point, players can make one of two actions. To tap or swipe one of the lobes.
+At any point, players can make one of two actions. To tap or swipe in any of the 6 lobes of the hexagon, for a total of 12 possible actions.
 
 Tapping on any of the lobes causes the collector (i.e. the player) to move there. The collector only moves one lobe at a time. If the player clicks the lobe adjacent to them, they move there and progress 1 unit of time. If the player clicks a lobe that is non-adjacent to their position, time progresses the corresponding distance (e.g. a player clicks the lobe on the opposite side of the hexagon - 3-away - and time progresses 3 units).
 Whenever time progresses, targets grow in size. Targets of size 1, are worth the least possible reward, whereas targets of size 6 are worth maximum reward. Targets of size 7 expire and are no longer visible or valuable to the player.
@@ -323,10 +929,10 @@ Swiping on a target collects points corresponding to the target's size.
 
 \begin{figure}[ht!]
   \centering
-      \includegraphics[width=0.95\textwidth]{figures/schematic_rewards.png}
-        Targets grow in size and value up until a threshold, in which they are no longer valuable. Player actions determine this growth.
-  \caption{\label{fig:point_structure}Target value schematic}
+      \includegraphics[width=0.95\textwidth]{figures/hexxed/hex_schematic.png}
 
+  \caption{\label{fig:puzzle_complexity}Game play progression in response to player actions}
+A) Example trial for a single-target puzzle (level 1). In each moment, one of two actions can be made: a tap (as illustrated by the yellow arrow) or a swipe (pink arrow). In this example, actions are restricted to the lobe containing the target. A tap leads to an increase in size, while a swipe leads to a collection event. Following collection, the player earns points. B) The value of targets is defined as the square of their size. After 6 non-collecting actions, the value of the target drops to 0.
 \end{figure}
 
 The task is then to navigate the hexagon's lobes and collect targets as large as possible.
@@ -335,22 +941,20 @@ The task is designed as an np-complete problem. Np-completeness (or nondetermini
 
 Complexity in hexxed can be manipulated in two ways: 1) by changing the number of targets on screen and 2) by changing the order in which targets are spawned. A growing number of targets forces the player to move more around the hexagon to collect them, whereas the order in which targets are spawned influences how those movements are made.
 
-\begin{figure}[ht!]
-  \centering
-  %    \includegraphics[width=0.8\textwidth]{figures/hex_schematic_1.png}
-  \caption{\label{fig:puzzle_complexity}Targets grow in size and value up until a threshold, in which they are no longer valuable. Player actions determine this growth.}
-\end{figure}
 
-The task is comprised of 6 different levels of difficulty - corresponding to the number of targets displayed on screen for that level. In the first 4 levels, the players are probed with all the possible puzzles (combinations of spawn locations and their rotational variants). In levels 5 and 6, only half the possible puzzles are shown. To progress in the task, players must approximate optimality to a varying degree (e.g. for level 1, players can lose no more than 15 points in order to complete the level).
+
+The task is comprised of 6 different levels of difficulty - corresponding to the number of targets displayed on screen for that level. In the first 4 levels, the players are probed with all the possible puzzles (combinations of spawn locations and their rotational variants). To progress in the task, players must approximate optimality to a varying degree (e.g. for level 1, players can lose no more than 15 points per puzzle in order to complete the level).
 
 
 \subsubsection{Scoring}
-Individual targets grow up to six times and are worth \(n^2\) points: from \(1^2\) - as they spawn - to \(6^2\) points - at their ripest. The exponential nature of target value places weight on collecting the target as large as possible. However - given that the game is self-paced -  too many interactions with the screen  will exhaust a target and lead to 0 reward (see \ref{the-task} for the task design).
+Individual targets grow up to six times and are worth \(n^2\) points: from \(1^2\) - as they spawn - to \(6^2\) points - at their ripest. The quadratic nature of target value places weight on collecting the target as large as possible. However, too many interactions with the screen (i.e. growth events) will exhaust a target and lead to 0 reward (see \ref{the-task} for the task design).
 
 \subsubsection{Action-sequences}\label{action-sequences}
-For analysis purposes, we wanted to understand what serial combinations of actions - or action sequences - the players used to solve hexxed. To do so, we number the 6 lobes of the hexagon from 0 to 5 clockwise. We number the lobe where the first target in a puzzle appears as 0. We then encode the sequence of touches or swipes (the two valid actions) on these lobes as a vector of actions. Touches are encoded as the number of the lobe that was pressed \textit{l} and swipes are encoded as the negative of said lobe number \textit{-l}.
 
-In an example action sequence for level 1, a subject performed a tap on the lobe to the left of the lobe which had a target; then, the player touched on the lobe with the target for 5 times; finally, the player swiped on the lobe with the target to get maximal reward. This action sequence is encoded as [5,0,0,0,0,0,-0].
+Our main object of analysis is the action sequence: the series of taps and swipes that a player uses in attempting to solve a single puzzle. In our task, several reference frames are possible when encoding action sequences. 1) From the perspective of the game board (‘world-centered’); 2) from the perspective of the target (‘target-centered’); 3) from the perspective of the collector (‘agent-centered’). To determine which of these most likely represent the player’s reference frame, we measured the log likelihood of player actions according to each frame. By this metric, the 3rd frame will be shown as most likely.
+To encode action sequences, we number the 6 lobes of the hexagon from 0 to 5 clockwise, relative to the collector’s location (Figure \ref{fig:puzzle_complexity}).  Since the collector has no location at the puzzle start, we use target-centered coordinates for the first action. We then encode the sequence of player taps or swipes on these lobes as a list of actions. Taps are encoded as the number of the lobe that was pressed and swipes are encoded as 6 more than the number of the lobe pressed.
+
+In the example action sequence for level 1 (Fig. 1C), a subject performed a tap on the lobe to the left of the lobe which had a target (5) ; then, the player tapped on the lobe with the target for 5 times - on the first time, the slider moves one to the right (1); then stays four times on the same lobe (0,0,0,0); finally, the player swiped on the lobe with the target (6) to get the maximal reward. This action sequence is encoded as [5,1,0,0,0,0,6].
 
 
 \subsubsection{Optimality in hexxed}
@@ -362,10 +966,10 @@ Because of the nature of the game design, in some circumstances, several action-
 
 For level 1, optimality is trivial since a single target can always be collected at maximum value: Any combination of moves that ends at the target lobe after 6 actions allows for maximal point collection.
 
-For level 2, two targets are available for collection. However, depending on wether targets are in adjacent lobes or not, they may or not be both collectible at maximum size (see figure \ref{fig:puzzle_complexity}). This means that, on non-adjacent targets, the player must sacrifice points of the first target to collect the second at its ripest. When targets are \textit{n} lobes away from each other, the maximum possible score is to collect the first target at step \(6 -\textit{n}+1\) so that there are enough moves available to rotate \textit{n} lobes and collect the second target at its maximum value (e.g. for two targets that are 3 lobes away from each other, the maximum ripeness is of \((6-2)+6 = 10\) or \((6 - 2)^2 + 6^2 = 52\) in points.
+For level 2, two targets are available for collection. However, depending on whether targets are in adjacent lobes or not, they may or not be both collectible at maximum size. This means that, on non-adjacent targets, the player must sacrifice points of the first target to collect the second at its ripest. When targets are \textit{n} lobes away from each other, the maximum possible score is to collect the first target at step \(6 -\textit{n}+1\) so that there are enough moves available to rotate \textit{n} lobes and collect the second target at its maximum value (e.g. for two targets that are 3 lobes away from each other, the maximum ripeness is of \((6 - 2)^2 + 6^2 = 52\) points.
 
 For levels 2 through 6, two competing heuristics can be used to maximize reward efficiently: targets can be collected a) in order of their appearance or b) in order of their proximity (see figure \ref{fig:puzzle_complexity}).
-As puzzle complexity increases to levels 3 and onward, collecting targets in their order of appearance is no longer the optimal strategy.
+As puzzle complexity increases to levels 3 and onward, collecting targets in their order of appearance or proximity are no longer the optimal strategies.
 
 The way hexxed is designed, thus, forces players to constantly rethink and revisit their previously optimal policies. By virtue of its NP-completeness, hexxed requires players to update their policies to incorporate progressively higher-order dependencies, making it a great candidate to investigate complex skill learning.
 
@@ -383,16 +987,16 @@ The data collection process for the \textit{hexxed} experiment encompassed both 
 
 In the controlled laboratory setting, study participants engaged with the game on a large touch-sensitive screen located within a quiet, controlled environment. The participant pool consisted of individuals from the Champalimaud Research community, comprising undergraduate students, technicians, graduate students, and postgraduates. It is important to note that unless otherwise specified, the \textit{hexxed} dataset presented in this dissertation primarily stems from online data collection.
 
-Conducting data collection online introduced unique challenges, notably those related to scalability and the breadth of data collection. By framing the experiment as a game, we anticipated data to be generated at varying and unpredictable rates, as the game was accessible to anyone, anywhere, at any time. To maximize participation, we collaborated with the science communication offices of both Champalimaud Research and the University of California, Berkeley, resulting in extensive media coverage that attracted a substantial number of participants. Consequently, we had to develop tailored solutions for data formatting, storage, and transfer to effectively manage the influx of data.
+Conducting data collection online introduced unique challenges, notably those related to scalability and the breadth of data collection. By framing the experiment as a game, we anticipated data to be generated at varying and unpredictable rates, as the game was accessible to anyone, anywhere, at any time. To maximize participation, we collaborated with the science communication offices of both Champalimaud Research and the University of California, Berkeley, resulting in extensive media coverage that attracted an initial 8k participants. Consequently, we had to develop tailored solutions for data formatting, storage, and transfer to effectively manage the influx of data.
 
-It is essential to emphasize that, despite its gamified presentation, \textit{hexxed} remains a scientific experiment. Therefore, we diligently adhered to the ethical and deontological guidelines set forth by the Champalimaud Research ethics committee. This encompassed ensuring compliance with the General Data Protection Regulation (GDPR), obtaining informed consent from participants, ensuring data anonymization, and providing participants with the option to opt out, among other ethical considerations. The comprehensive license agreement and privacy policy governing data usage for \textit{hexxed} can be accessed at the following URL: \url{https://hexxed.io}. Additionally, any ethical approval documentation and related ethics materials can be made available upon request through the same URL: \url{https://hexxed.io}.
+We diligently adhered to the ethical and deontological guidelines set forth by the Champalimaud Research ethics committee. This encompassed ensuring compliance with the General Data Protection Regulation (GDPR), obtaining informed consent from participants, ensuring data anonymization, and providing participants with the option to opt out, among other ethical considerations. The comprehensive license agreement and privacy policy governing data usage for \textit{hexxed} can be accessed at the following URL: \url{https://hexxed.io}. Additionally, any ethical approval documentation and related ethics materials can be made available upon request through the same URL: \url{https://hexxed.io}.
 
 
 
 
 \subsubsection{Data Architecture}
 
-To manage the data generated by \textit{hexxed}, we developed a customized data format implemented within a JSON structure. The data handling process involves the \textit{hexxed} executable, which generates a file that logs every interaction players have with the screen during a playthrough. Each interaction, encompassing actions such as touches or swipes, results in the creation of a list containing pertinent data related to that specific interaction. These lists are dynamically generated and continually appended to memory as the game progresses.
+To manage the data generated by \textit{hexxed}, we developed a customized data format implemented within a JSON structure. The data handling process involves the \textit{hexxed} executable, which generates a file that logs every interaction players have with the screen during a playthrough. Each interaction, encompassing actions such as touches or swipes, results in their addition to a list containing pertinent data related to that specific interaction. These lists are dynamically generated and continually appended to memory as the game progresses.
 
 At the culmination of a playthrough, which occurs either when a player completes or fails a level or when they exit the game, all the accumulated lists stored in memory are encoded into a JSON payload. This payload is subsequently transmitted to a secure server designated for this purpose.
 
@@ -408,251 +1012,141 @@ Due to the size and complexity of the collected data, we had to build a custom p
 
 After downloaded, the data is extracted from the JSON payload into a pandas dataframe. This process requires careful consideration, as it is easy to underestimate the needed computational resources when dealing with such a large dataset.
 
-Raw data is saved in a compressed format. Now, its efficient parsing becomes the challenge. Because of the payload structure, to extract the data into an analysis-friendly format we naively would have to iterate through thousands of rows, parsing each JSON string as appropriately \textit{typed} columns in a dataframe. Luckily, python and pandas allow for alternatives to this iterative process. Using the split-apply-combine \cite{wickham2011split} framework, and after thorough optimization steps, we transform our entire dataset into a large long-formatted pandas dataframe (i.e. a timeseries). Following the preprocessing steps, the data is now easily \textit{query-able} and manipulable.
+Raw data is saved in a compressed format. Now, its efficient parsing becomes the challenge. Because of the payload structure, to extract the data into an analysis-friendly format we naively would have to iterate through thousands of rows, parsing each JSON string as appropriately typed columns in a dataframe. Luckily, python and pandas allow for alternatives to this iterative process. Using the split-apply-combine \cite{wickham2011split} framework, and after thorough optimization steps, we transform our entire dataset into a large long-formatted pandas dataframe (i.e. a timeseries). Following the preprocessing steps, the data is now easily query-able and manipulable.
 Our final dataframe has a coarse-ness of one action per row - the highest granularity the raw data allows for. Using pandas groupby, it is easy to adjust on which variable we want to group this dataframe, allowing for efficient analysis of any type. All of these steps took our data processing pipeline from approximately two hours to no more than two minutes.
 
-
-\iffalse
-\begin{longtable}[l]{ | m{5em} | m{10em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | m{5em} | }
-
-  \hline
-  device-ID & session-start & time & sw-flip & sw-offset & sw-subwave-num & sw-number & mo-y & mo-x & mo-fake-release & mo-act-drag & mo-lobe & level & version & device-timezone & device-OS & time-diff & coord-diff & total-events & first & last & target-location & action-location & action-location-normalized & actions & actions-normalized & collect & false-collect & action-sequences & action-sequences-str & count \\
-  \hline
-  0 & 0012e848890bbcb5 & 522282 & 531464 & False & 4.000000 & 2.000000 & 1.000000 & -121.111099 & 196.539368 & 0.000000 & False & 5.000000 & 1.000000 & 2.000000 & {'bias': 0.0, 'name': 'WET'} & Android & -49938.000000 & 318.914062 & 3 & True & False & 4.000000 & 4.000000 & 0.000000 & 4.000000 & 0.000000 & False & False & [0.0, 3.0, 0.0] & [0.0, 3.0, 0.0] & 475 \\
-  1 & 0012e848890bbcb5 & 522282 & 533139 & False & 4.000000 & 2.000000 & 1.000000 & 82.777802 & -131.273987 & 0.000000 & False & 2.000000 & 1.000000 & 2.000000 & {'bias': 0.0, 'name': 'WET'} & Android & 1675.000000 & -531.702271 & 3 & False & False & 4.000000 & 1.000000 & 3.000000 & 1.000000 & 3.000000 & False & False & [0.0, 3.0, 0.0] & [0.0, 3.0, 0.0] & 475 \\
-  2 & 0012e848890bbcb5 & 522282 & 534881 & False & 4.000000 & 2.000000 & 1.000000 & -87.222214 & 103.195862 & 0.000000 & False & 5.000000 & 1.000000 & 2.000000 & {'bias': 0.0, 'name': 'WET'} & Android & 1742.000000 & 404.469849 & 3 & False & True & 4.000000 & 4.000000 & 0.000000 & 4.000000 & 0.000000 & False & False & [0.0, 3.0, 0.0] & [0.0, 3.0, 0.0] & 475 \\
-  3 & 0012e848890bbcb5 & 522282 & 540839 & False & 4.000000 & 5.000000 & 2.000000 & 127.222229 & 202.651123 & 0.000000 & False & 6.000000 & 1.000000 & 2.000000 & {'bias': 0.0, 'name': 'WET'} & Android & 5958.000000 & -114.989182 & 6 & True & False & 4.000000 & 5.000000 & 1.000000 & 5.000000 & 1.000000 & False & False & [1.0, 2.0, 3.0, 4.0, 5.0, 1.0] & [1.0, 2.0, 3.0, 4.0, 5.0, 1.0] & 146 \\
-  4 & 0012e848890bbcb5 & 522282 & 542457 & False & 4.000000 & 5.000000 & 2.000000 & 246.111145 & -10.149719 & 0.000000 & False & 1.000000 & 1.000000 & 2.000000 & {'bias': 0.0, 'name': 'WET'} & Android & 1618.000000 & -331.689758 & 6 & False & False & 4.000000 & 0.000000 & 2.000000 & 0.000000 & 2.000000 & False & False & [1.0, 2.0, 3.0, 4.0, 5.0, 1.0] & [1.0, 2.0, 3.0, 4.0, 5.0, 1.0] & 146 \\
-  \hline
-\end{longtable}
-\fi
-
-
-% Table Part 1
-\begin{longtable}[l]{ | m{5em} | m{8em} | m{4em} | m{4em} | m{4em} | m{8em} | }
-  \caption{Table Title for Part 1} \\
-  \hline
-  device-ID & session-start & time & sw-flip & sw-offset & sw-subwave-num \\
-  \hline
-  \endfirsthead
-
-  \multicolumn{6}{c}%
-  {{\tablename\ \thetable{} -- continued from previous page}} \\
-  \hline
-  device-ID & session-start & time & sw-flip & sw-offset & sw-subwave-num \\
-  \hline
-  \endhead
-
-  0 & 0012e848890bbcb5 & 522282 & 531464 & False & 4.000000 \\
-  1 & 0012e848890bbcb5 & 522282 & 533139 & False & 4.000000 \\
-  2 & 0012e848890bbcb5 & 522282 & 534881 & False & 4.000000 \\
-  3 & 0012e848890bbcb5 & 522282 & 540839 & False & 4.000000 \\
-  4 & 0012e848890bbcb5 & 522282 & 542457 & False & 4.000000 \\
-  \hline
-\end{longtable}
-
-
-% Table Part 2
-\begin{longtable}[l]{ | m{5em} | m{4em} | m{6em} | m{7em} | m{6em} | m{5em} | }
-
-  \hline
-  sw-number & mo-y & mo-x & mo-fake-release & mo-act-drag & mo-lobe \\
-  \hline
-  \endfirsthead
-
-  \multicolumn{6}{c}%
-  {{\tablename\ \thetable{} -- continued from previous page}} \\
-  \hline
-  sw-number & mo-y & mo-x & mo-fake-release & mo-act-drag & mo-lobe \\
-  \hline
-  \endhead
-
-  2.000000 & 1.000000 & -121.111099 & 196.539368 & 0.000000 & False \\
-  2.000000 & 1.000000 & 82.777802 & -131.273987 & 0.000000 & False \\
-  2.000000 & 1.000000 & -87.222214 & 103.195862 & 0.000000 & False \\
-  5.000000 & 2.000000 & 127.222229 & 202.651123 & 0.000000 & False \\
-  5.000000 & 2.000000 & 246.111145 & -10.149719 & 0.000000 & False \\
-  \hline
-\end{longtable}
-
-
-% Table Part 3
-\begin{longtable}[l]{ | m{5em} | m{5em} | m{9em} | m{5em} | m{7em} | m{6em} | }
-  \hline
-  level & version & device-timezone & device-OS & time-diff & coord-diff \\
-  \hline
-  \endfirsthead
-
-  \multicolumn{6}{c}%
-  {{\tablename\ \thetable{} -- continued from previous page}} \\
-  \hline
-  level & version & device-timezone & device-OS & time-diff & coord-diff \\
-  \hline
-  \endhead
-
-  5.000000 & 1.000000 & {'bias': 0.0, 'name': 'WET'} & Android & -49938.000000 & 318.914062 \\
-  2.000000 & 1.000000 & {'bias': 0.0, 'name': 'WET'} & Android & 1675.000000 & -531.702271 \\
-  5.000000 & 1.000000 & {'bias': 0.0, 'name': 'WET'} & Android & 1742.000000 & 404.469849 \\
-  6.000000 & 1.000000 & {'bias': 0.0, 'name': 'WET'} & Android & 5958.000000 & -114.989182 \\
-  1.000000 & 1.000000 & {'bias': 0.0, 'name': 'WET'} & Android & 1618.000000 & -331.689758 \\
-  \hline
-\end{longtable}
+While shortly described, we found this process to be both extremely valuable and time consuming. As the scope and dimensionality of datasets increases in behavioral sciences, it is increasingly important that scientists adopt novel strategies with which to handle their data. Efficient data handling and transparency allow for replicability and 3rd party analysis/criticism/expansion, and thus, all our processing and analysis scripts are available at \url{https://hexxed.io} upon request.
 
 
 
-While shortly described, we found this process to be extremely valuable. As the scope and dimensionality of datasets increases in behavioral sciences, it is increasingly important that scientists adopt novel strategies with which to handle their data. Efficient data handling and transparency allow for replicability and 3rd party analysis/criticism/expansion, and thus, all our processing and analysis scripts are available at \url{https://hexxed.io}.
+\subsubsection{Scope of the current work}
 
-\subsubsection{Artificial agents solving hexxed}
-As part of our research and leveraging the careful task design, we were able to ask artificial agents to solve our task. To facilitate this, a collaborator of our team encoded the task within a GYM environment. GYM is a library that offers a standardized API for communication between reinforcement learning agents and a task of interest.
-Several agents were exposed and trained in our task: \textit{1 Layer Linear, 3-Layer ReLU, 1 Conv. Layer + 3-Layer ReLU})
-Performance from all agents was similar. With more complexity in agent design, we found increases in the rate at which the task could be learned. Marginally, the agent that learned the fastest was the \textit{1 Convolution Layer + 3-Layer ReLU}, thus, the results shown in this work will be from this agent.
+By interviewing our human subjects during the testing phase, we learned that they learned to play this game in two related but distinct phases: 1) Learning the rules and objectives of the game – Since subjects were not given any verbal instructions, they must search for sufficiently rewarding action sequences. In the first level, both humans and AIs need to learn to collect a single object at its full size. This requires choosing from over 4,000 viable action sequences. Interviews indicated that rule learning process largely (but not completely) takes place in level 1. 2) Knowing the rules and objectives, identifying the best action – once subjects understand the rules, they must make an inference regarding how to apply these rules to maximize reward. Interviews indicated that this process starts in level two and onwards, when subjects must determine an optimal path to collect two or more objects (more directly comparable to the combinatorial optimization of the traveling salesman problem). We have limited the scope of our current analysis to the first of these two phases, because formally it corresponds to the problem with the smallest search space, and because understanding this phase should help constrain our models of the second phase.
 
+\subsubsection{Comparison to null models}
+To compare human behavior to that of artificial agents, we needed to encode the game into an API that could be called by the agent. For this, we chose OpenAI’s Gym, which offers an API for communication between artificial agents and a task of interest. It does not take as input the graphical representation of hexxed. Instead, we encoded hexxed as a binary state-space grid that can be easily digested by agents. Several agents were used in our task.
+    1) 0th order agent - assumes a uniform distribution of possible actions. This agent draws a random number from the possible values in our action-space (i.e. an action between 0 and 11).
+    2)  1st order agent - selects actions based on the observed probabilities of user actions (which is non-uniform).
+    3) 2nd order agent - selects actions based on the observed probabilities of user actions conditioned on users’ previously chosen action.
+For each of these agents, we calculated their log-likelihood in explaining the data using 5-fold cross-validation.
 
 %
 %
 
-\subsubsection{Beyond this thesis} \textcolor{red}{currently in bullet points only}
-
-- The specific implementations of the agents \\
-- All levels above 1 \\
-- Lab collected data \\
-
-
+\subsubsection{Beyond this thesis}
+The hexxed dataset has underwent several iterations that were left beyond the scope of this work. Amongst this rich dataset, we have in-lab participants from whom pupil tracking data was collected.
 
 \subsection{Results}
-\textcolor{red}{add the agents plots and text/narrative}
+
 \subsubsection{Introduction}
 \textit{hexxed} was designed to explore complexity in learning and, as such, learning comprises a large part of this work. In fact, the scope of this thesis will solely be on the phase where subjects learn the rules of the game - level 1.
 
-\textcolor{red}{explain the role of the plots of the agents}
-
-
 
 \FloatBarrier
-\subsubsection{"Picky" - Humans explore the space of possible rewards unevenly}\label{picky}
+\subsubsection{"Picky"}\label{picky}
 \textit{hexxed's} dataset is vast. Let us start with a low level observation: the first ever interaction with the task.
 
 As the game provides the player with little to no instructions (see \ref{the-task}), how and where the players interact with the screen can give insight on whether, in broad strokes, the game is intuitive or, at the very least, interpretable.
 
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=0.8\textwidth]{figures/first_touch.png}
-  \caption{\label{fig:first_touch} "First touch" - A heat-map of the participants' first ever touch coordinates on the screen, superimposed with a screenshot of the game. Player touches are largely centered around the gray bar on the bottom. Unbeknownst to the player, this bar is an indicator that a target will appear on that lobe. }
+  \includegraphics[width=0.8\textwidth]{figures/hexxed/first_touch.png}
+  \caption{\label{fig:first_touch} "First touch"}
+  A heat-map of the participants' first ever touch coordinates on the screen, superimposed with a screenshot of the game. Player touches are largely centered around the gray bar on the bottom. Unbeknownst to the player, this bar is an indicator that a target will appear on that lobe.
 \end{figure}
 
 In Figure \ref{fig:first_touch}, the first ever interaction with the game is shown. Players seem to have a common \textit{prior} that they ought to press the hexagon on the lobe that is highlighted. That lobe is where a target becomes available for collection, thus, pressing it is a sensible option.
 
-Due to the sheer dimension of the dataset, we will focus on the first level of the task for the rest of this work. In level 1, only one target is available for collection (see \ref{the-task}).
+In future analysis, we abstract away the coordinates of each action, using instead a discrete action-based encoding (see methods).
 
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=0.4\textwidth]{figures/mdp.png}
-  \caption{\label{fig:mdp} A visualization of level 1 in the shape of a Markov Decision Problem. From the initial node, each player action propagates them 1 step rightwards. Lines show possible transitions. The orange colored circles denote reward availability and magnitude (light hue = larger reward). The black circle symbolizes a reward of 0. }
+      \includegraphics[width=0.8\textwidth]{figures/hexxed/mdp.png}
+
+  \caption{\label{fig:mdp} Schematic of a single target puzzle as a Markov Decision Process}
+ A single-target puzzle represented as a Markov Decision Process (MDP). From the initial node, each player action propagates them 1 step rightwards. Lines show deterministic transitions resulting from specific actions. The high-contrast circles denote terminal states, with brighter orange corresponding to larger reward and black symbolizing a reward of 0. Arrows denote an example optimal solution for a puzzle of level 1, yellow indicating taps and pink indicating a swipe.
 \end{figure}
-Our task can be formalized as a Markov Decision Problem (MDP). In Figure \ref{fig:mdp}, we show an example visualization of said MDP for puzzles in level 1.
+
+Our task can be formalized as a Markov Decision Problem (MDP) (Figure \ref{fig:mdp}). As continuous choices are made, specific strategies or ways of playing emerge. In Figure \ref{fig:sankey}, a flattened version of the MDP of Figure \ref{fig:mdp} is populated with the action-transitions made by our subjects. We visualize how humans as a population traverse this MDP in their first puzzle attempts. Notably, the path constituting interactions with the target-containing lobe (top horizontal path) is overrepresented.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.95\textwidth]{figures/hexxed/sankey.png}
+  \caption{\label{fig:sankey} Action transitions in level 1 puzzles in a flattened version of Figure \ref{fig:mdp}.}
+  Frequency of observed action sequences on the flattened MDP. All subjects start on the leftmost node and traverse the graph rightwards.  Line widths represent the occurrence of that state transition within the data set (thicker lines indicate higher probability). Node sizes represent the frequency of their occurrence. Rewards are available on the nodes on the top row, growing in value from left to right. States are numbered in target-centered coordinates, as agent-centered coordinates are not compatible with this visualization. The rightmost node represents a reward of 0, achieved when a target exceeds the size of the board. Columns distinguish states in which the target is of a certain size. Rows represent the position of the collector relative to the target (n=3994).
+\end{figure}
 
 As players explore level 1, they eventually collect points. In Figure \ref{fig:rewards}, we show the probability of our subjects, on a given trial, getting any of the seven possible reward sizes.
 Rewards of 0 are the most common - this reflects that failures are the most common outcome in the task.
 Looking at the remaining reward sizes, the second most common collected reward is the maximum reward - a requirement for optimal level completion.
-The only other reward size that is differently explored is the smallest reward possible.
-%In Figure \ref{fig:rewards}, the same plot is shown for the agents that performed our task.
-%In contrast with humans, the artificial agents show a more even exploration of the space of possible rewards.
+The only other reward size that is frequently explored is the smallest reward possible.
 
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=0.8\textwidth]{figures/rewards.png}
+  \includegraphics[width=0.8\textwidth]{figures/hexxed/rewards.png}
   \caption{\label{fig:rewards} The probability of getting rewards for all possible reward sizes. }
+  The probability of getting rewards for all possible reward sizes in the first time that subjects attempt the puzzle (n=3994).
 \end{figure}
 
+We next modeled the observed distribution of human action sequences using a series of generative models of growing complexity.
 
-As continuous choices are made, specific strategies or ways of playing emerge. In Figure \ref{fig:sankey}, a flattened version of the MDP of Figure \ref{fig:mdp} is populated with the action-transitions made by our subjects. The path closest to rewards is overrepresented and. As seen in Figure \ref{fig:rewards}, states that lead to rewards of 0, 1 and optimal are the most commonly visited.
-
-Our subjects explore the space of possible rewards unevenly.
+The 0th order agent selects uniformly among the 12 possible actions. The 1st order agent selects actions determined by the observed probabilities of human actions (Figure \ref{fig:actions}). Finally, the 2nd order agent introduces a momentum prior by considering the previous action.
 
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=0.95\textwidth]{figures/sankey.png}
-  \caption{\label{fig:sankey} Action transitions in level 1 puzzles in a flattened version of \ref{fig:mdp}. All subjects start on the leftmost node and traverse the plot rightwards. From the initial state, line widths represent the probability of transitions to subsequent nodes and node widths, their occupancy. Rewards are available on the nodes on the top row, growing in value from left to right. The rightmost node represents a reward of 0.}
+  \includegraphics[width=0.8\textwidth]{figures/hexxed/actions.png}
+  \caption{\label{fig:actions} The probability of actions }
+The probability of each action being performed by our subjects. The most common action is “0” - tapping on the lobe where the target is present.  The other common actions are “1” and “5”, representing clockwise and counterclockwise navigation, and “6”, representing an in-place swipe (n=3994).
 \end{figure}
 
 
-\FloatBarrier
-\subsubsection{"Sticky" - Humans are persistent in their learning strategies}
+We then calculated the cross-validated log-likelihoods for all three models. We find that, as we increase the complexity of the agent, we gain more explanatory power over the data (Figure 2E). This shows that humans prefer smoothly changing trajectories that take them to a target of interest.
 
-After looking at the landscape of action-transitions in a trial/puzzle, we now investigate what are the dynamics  across trials. In Figure \ref{fig:rewards_heatmap}, we plot the conditional probability of getting reward \textit{r} in trial \textit{t} given the reward in the previous trial \textit{t-1}. We observe that the edges of the diagonal seem overrepresented. This is consistent with the points raised on \ref{picky}. Rewards of 0 (i.e. failures) lead to revisiting failures, whereas optimal rewards lead to optimal rewards once more. The center of the heat-map is more fuzzy.
-Intermediate rewards suggest intermediate sub-optimal strategies where perhaps subjects have already learned the basic controls of the game, however, are still not capable of solving it optimally.
 
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=0.7\textwidth]{figures/rewards_heatmap.png}
-  \caption{\label{fig:rewards_heatmap} The probability of getting a reward \textit{r} on trial \textit{t} conditional on the reward of the previous trial \textit{t-1}: $ P(r_t|r_{t-1}) $. Darker colors indicate higher probability. Normalized by reward size (columns). }
+  \includegraphics[width=0.8\textwidth]{figures/hexxed/log_likelihood.png}
+  \caption{\label{fig:log_likelihood} The negative log likelihood for all three models }
+The negative log-likelihood (5-fold cross-validated, lower represents a better fit) for all three models.
 \end{figure}
 
 
-In order to progress in the game, sequences of actions are made. Our players performed 14158 unique action sequences. In Table \ref{tab:action_sequences}, the 20 most common are shown - the encoding is explained on section \ref{action-sequences}.
-
-\begin{table}[ht]
-  \centering
-  \begin{tabular}{|l|l|l|l|}
-    \hline
-    \textbf{Action\_Sequence} & \textbf{Frequency} & \textbf{Rank} \\
-    \hline
-    [-0.0] & 9805 & 1.0  \\
-    \hline
-    [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.0] & 7507 & 2.0  \\
-    \hline
-    [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] & 2978 & 3.0  \\
-    \hline
-    [0.0, -0.0] & 2752 & 4.0  \\
-    \hline
-    [1.0, 2.0, 3.0, 4.0, 5.0, 0.0, -0.0] & 819 & 5.0  \\
-    \hline
-    [3.0, 0.0, 3.0] & 582 & 6.0  \\
-    \hline
-    [5.0, 4.0, 3.0, 2.0, 1.0, 0.0, -0.0] & 535 & 7.0  \\
-    \hline
-    [0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 0.0] & 460 & 8.0  \\
-    \hline
-    [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] & 439 & 9.0  \\
-    \hline
-    [0.0, 3.0, 0.0] & 438 & 10.0  \\
-    \hline
-    [0.0, 0.0, 0.0, 0.0, 0.0, -0.0] & 437 & 11.0  \\
-    \hline
-    [-3.0, -0.0] & 406 & 12.0  \\
-    \hline
-    [0.0, 0.0, -0.0] & 406 & 12.0  \\
-    \hline
-    [1.0, 2.0, 3.0, 4.0, 5.0, 0.0, 0.0] & 318 & 13.0  \\
-    \hline
-    [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0] & 302 & 14.0 \\
-    \hline
-    [0.0, 5.0, 4.0, 3.0, 2.0, 1.0, 0.0] & 301 & 15.0  \\
-    \hline
-    [3.0, -0.0] & 279 & 16.0  \\
-    \hline
-    [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.0] & 273 & 17.0  \\
-    \hline
-    [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] & 269 & 18.0  \\
-    \hline
-    [3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0] & 263 & 19.0 \\
-    \hline
-    [1.0, 2.0, 3.0, 4.0, 5.0, 0.0, 1.0] & 254 & 20.0  \\
-    \hline
-  \end{tabular}
-  \caption{The top 20 action sequences and respective frequencies of occurrence - in total occurrences across all players. There are a total of 14158 unique action sequences.}
-  \label{tab:action_sequences}
-\end{table}
+In order to progress in the game, sequences of actions are made. Our players performed 14158 unique action sequences. In Figure \ref{fig:action_sequences}, the 20 most common are shown - the encoding is explained on chapter \ref{action-sequences}.
 
 We see that the most common action is a single swipe on the correct lobe - which leads to a reward of 1. The second most common is one of the optimal solutions - tapping only the lobe where reward is available and swiping at the last possible moment. The third does not include swipes, and thus leads to a reward of 0. The fifth and seventh represent, respectively, navigating the hexagon clockwise and counterclockwise before swiping at the last possible step - both leading to optimal reward.
 
-Now it is possible to look at the action sequence transitions from sequence \textit{s} on trial \textit{t} from the sequence done on the previous trial \textit{t-1}.
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/hexxed/action_seqs.png}
+  \caption{\label{fig:action_sequences} The most common action sequences}
+  The top 20 action sequences and respective frequencies of occurrence - in total occurrences across all players. There are a total of 14158 unique action sequences. An action sequence [6] represents a collection event leading to a reward of size 1. The second most common action sequence “[0, 0, 0, 0, 0, 0, 6]” indicates an optimal collection event leading to maximal reward. The fifth and seventh most common action-sequences represent navigating the lobes clockwise or counterclockwise and then collecting reward at its maximum size.
+\end{figure}
+
+
+Our subjects explore the space of possible rewards unevenly.
+
+
+\FloatBarrier
+\subsubsection{"Sticky"}
+
+Having established the prior knowledge that humans bring to the task, we now examine how this knowledge is modified across trials with experience. In Figure \ref{fig:rewards_heatmap}, we plot the conditional probability of getting reward \textit{r} in trial \textit{t} given the reward in the previous trial \textit{t-1}. We observe that the edges of the diagonal seem overrepresented. This is consistent with the points raised on \ref{picky} where we demonstrate that these are the most explored rewards. Rewards of 0 (i.e. failures) lead to revisiting failures, whereas optimal rewards lead to optimal rewards once more.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/hexxed/rewards_heatmap.png}
+  \caption{\label{fig:rewards_heatmap} Reward Transition Matrix}
+  The probability of getting a reward \textit{r} on trial \textit{t} conditional on the reward of the previous trial \textit{t-1}: $ P(r_t|r_{t-1}) $. Darker colors indicate higher probability. Columns of probability sum to 1. (n = 3994)
+\end{figure}
+
+One limitation of this depiction is that multiple action sequences can lead to the same reward.
+To address that, we look at the action sequence transitions from sequence \textit{s} on trial \textit{t} from the sequence done on the previous trial \textit{t-1} (Figure \ref{fig:sequences_heatmap}).
 Again, the diagonal appears to be overrepresented. This signifies that players often repeat the same action sequence they performed before. This is especially the case for optimal solutions (e.g. sequences 2, 5 and 7), where it makes most sense to keep repeating ones current action sequence. Another feature is the asymmetry between the lower and upper sides of the diagonal. Action sequences are most commonly taken from least common to most common, perhaps signifying some conversion towards learning.
 
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=1\textwidth]{figures/sequences_heatmap.png}
-  \caption{\label{fig:sequences_heatmap} The probability of performing the action sequence \textit{s} on trial \textit{t} conditional on the sequence done on the previous trial \textit{t-1}: $ P(s_t|s_{t-1}) $. The top 19 sequences are displayed and the remaining thousands are grouped as "other". Sequences are ordered by their frequency of occurrence in the data. Darker colors indicate higher probability. Normalized by sequence (columns). }
+  \includegraphics[width=1.1\textwidth]{figures/hexxed/sequences_heatmap.png}
+  \caption{\label{fig:sequences_heatmap}  Action Sequences Transition Matrix}
+  The probability of performing the action sequence \textit{s} on trial \textit{t} conditional on the sequence chosen on the previous trial \textit{t-1}: $ P(s_t|s_{t-1}) $. The top 20 sequences are displayed and the remaining thousands are grouped as "other". Sequences are ordered by their frequency of occurrence in the data. Darker colors indicate higher probability. Columns are normalized to sum to 1.
 \end{figure}
 
 
@@ -664,7 +1158,7 @@ Our subjects are persistent in which actions they perform, both when looking at 
 
 \subsubsection{"Leapy"}
 
-We finally zoom-out and observe the entire progression of a player throughout a level. In Figure \ref{fig:leapy}, each individual player is represented by a randomly colored line. To complete level 1, subjects must collect a certain amount of reward (see \ref{the-task}). Here, this threshold is represented by the dashed line. In these traces we observe a pattern of low performance on a number of sessions followed by a rapid leap that leads to success. In the top panel, a histogram of when players reached the reward threshold. We see an early centered yet long tailed distribution that contrasts with \textcolor{red}{the agents'}.
+We finally zoom-out and observe the entire progression of a player throughout a level. In Figure \ref{fig:leapy}, each individual player is represented by a randomly colored line. To complete level 1, subjects must collect a certain amount of reward (see \ref{the-task}). Here, this threshold is represented by the dashed line. In these traces we observe a pattern of low performance on a number of sessions followed by a rapid leap that leads to success. In the top panel, a histogram of when players reached the reward threshold. We see an early centered yet long tailed distribution. This hints that albeit fast at learning, subjects tend to do so in a leapy fashion - consistently failing for several attempts until finally achieving the threshold in a single final attempt.
 
 
 \begin{figure}[ht!]
@@ -672,105 +1166,194 @@ We finally zoom-out and observe the entire progression of a player throughout a 
   \includegraphics[width=1\textwidth]{figures/bins_leapy.png}
   \includegraphics[width=1\textwidth]{figures/leapy.png}
 
-  \caption{\label{fig:leapy}
-  Bottom panel: Raw traces of reward progression across level attempts during learning (i.e. until the level is complete for the first time). In order to complete a level, subjects must reach a fixed reward threshold, here represented as a dashed line - see \ref{the-task}. Hue is randomly assigned for easier visual discrimination across individual traces.
-  Top panel: Summary visualization of the bottom panel. A histogram of how many players reached/crossed the reward threshold across levels. }
+  \caption{\label{fig:leapy} Performance during level attempts}
+Top panel: Summary visualization of the bottom panel. Histogram of number of attempts needed to complete level 1 reveals that many subjects solve the task rapidly, while a few take significantly longer, leading to a right-tailed distribution.
+Bottom panel: Individual traces of performance across level attempts during learning (i.e. until level completion). To complete a level, subjects must reach a fixed reward threshold, here represented as a dashed line. Hue is randomly assigned for easier visual discrimination across individual traces.
 \end{figure}
 
 
 
 
 \subsection{Discussion}
+
+Embracing complex large datasets comes with a myriad of challenges. Our work highlights the importance of careful data collection and manipulation. We leveraged the wide dissemination of smartphones and unlocked their potential by launching our behavioral task as a downloadable app. The outcome of this was a rich and large dataset that allowed us to explore the intricacies of human complex learning.
+
+Our work focused on the early stages of learning. Crucially, our task comes with little to no instructions -  this gives us first-hand insight into the process of learning the rules and mechanics of the game. One of the interesting findings of our work is the first ever action performed on the game. We showed that subjects largely tap on the coordinates congruent with the future appearance of a target. This could be due to the presentation of a hint on screen that highlights where a target is going to appear. It hints that our players follow some sort of shared prior, going in stark contrast to what an artificial agent would do, for example, when solving this game.
+
+We then demonstrated that subjects do not evenly explore the space of possible actions in the task. They instead focus on the highest possible rewards and the actions that most directly lead to them. Simple actions of tapping in place where rewards are available were preferred.
+
+What  the most parsimonious solutions are was revealed by how our subjects navigated the puzzles. Subjects preferred sequences of actions that directly led to reward. The exceptions to this were sequences that rotated clockwise or anti-clockwise on the game board before collecting optimal reward - this strategy is valid for level 1 because the amount of steps required to grow a target optimally are the same as traversing the whole board in one of the rotational orders (i.e. 6 steps). Nonetheless, the top most performed action-sequences are generally ones that follow simple heuristics. This suggests that our subjects share these simple heuristics about rotational properties and prefer them over more complex yet equally rewarding action-sequences. We deemed this phenomenon pickiness, as subjects tend to choose specific routes in which to navigate the state-space. Interestingly, we demonstrated that models growing in complexity increasingly approximated pickiness. Future research is needed to assert whether an ever more complex agent could fully replicate pickiness, but it is safe to say that our results point towards a model that takes into account priors.
+
+We then looked at phenomena happening over trials. Both in reward and action space, our data was heavily centered around repeating actions over trials. Moreover, these spaces were not explored evenly. Our subjects tended to go from the less to  the more common. Action-sequences thus took a directionality congruent with learning.
+
+When observing the learning trajectories, we find that our subjects follow a pattern of fast yet non-gradual learning. Instead, their performance remains low until a point where it ballistically grows into clearing the level. This is what we describe as “leapy”. A naive agent performing bottom-up learning would follow gradient ascent which would be reflected in a slow, gradual increase in points. Instead, our subjects show signatures of top-down learning. A process by which humans converge on common explanatory solutions which they replace only upon collecting sufficient evidence to the contrary. This solidifies the reliance on priors to perform in our task.
+
 \subsection{Author Contributions}
+
+\begin{itemize}
+    \item Task design, implementation and analysis by T. Quendera and G. Agarwal.
+    \item Discussion by T. Quendera.
+\end{itemize}
+
 \subsection{Acknowledgments}
+I would like to acknowledge the contribution of Gautam Agarwal towards the work developed in this chapter. All of it was done in close collaboration with him. None of it would have been possible without him and our seemingly infinite hours of discussion.
+Thank you.
+
+\clearpage
 
 \section{General Discussion}
-\subsection{Brief summary of the main findings}
-\subsection{Opportunities for expansion}
-\subsection{Concluding remarks}
+This thesis explored human behavior across three distinct contexts—controlled laboratory settings, clinical populations, and a real-world complex task—to uncover the computational and adaptive mechanisms underlying decision-making.
+
+\subsection{Key points}
+\subsubsection{Inference-Based Foraging in the Lab}
+
+    The first chapter demonstrated that humans employ inference-based strategies to solve a foraging task, dynamically adjusting their behavior to task demands (e.g., reward probability, traversal costs). Participants maintained stable performance across sessions, suggesting the formation of robust internal models of task dynamics.
+
+    \subsubsection{Challenges in Clinical Behavioral Phenotyping}
+    The second chapter revealed no significant differences between individuals with OCD and healthy controls across three behavioral tasks (reversal learning, stop-signal reaction time, and the hidden-state task). These null results highlight the complexity of linking heterogeneous psychiatric constructs to discrete behavioral metrics. Methodological limitations—such as task design, symptom heterogeneity, and compensatory strategies—may obscure subtle computational deficits in OCD.
+
+    \subsubsection{Learning in Complex Environments}
+    The third chapter, leveraging the NP-complete game hexxed, uncovered "picky", "sticky" and non-gradual, "leapy" learning in humans. Participants rapidly converged on heuristic strategies (e.g., targeting high-reward lobes, repeating action sequences) rather than exhaustively exploring the state-space. This contrasts with artificial agents that rely on brute-force search or gradient-based optimization, suggesting humans prioritize top-down priors and efficient hypothesis testing. The findings illuminate how humans balance exploration-exploitation in high-dimensional environments, offering insights for AI systems aiming to mimic human-like learning.
+
+\subsection{Future Directions}
+
+    \subsubsection{Beyond Initial Learning Phases}
+    The hexxed analysis focused on early rule acquisition, leaving later skill refinement unexplored. Extending this work to advanced stages could reveal how humans chunk actions or transfer strategies across problem types—a hallmark of expert performance.
+
+    \subsubsection{Ethical and Scalable Data Collection}
+    While hexxed demonstrated the power of crowdsourcing behavioral data, ethical challenges (e.g., data privacy, informed consent) and technical barriers (e.g., data standardization) remain. Developing open-source frameworks for large-scale behavioral experiments could democratize research while ensuring rigor and reproducibility. All of this thesis and its content was written and developed on fully open-source software.
+
+\subsection{Conclusion}
+
+This thesis advocates for a multidisciplinary approach to studying behavior, one that harmonizes the precision of lab experiments and the ecological validity of real-world tasks. By embracing complexity without sacrificing mechanistic clarity, we can unravel the cognitive architectures that enable humans — and machines alike — to thrive in uncertain environments. As psychiatry grapples with the limits of symptom-based diagnoses and AI seeks human-like adaptability, behavioral science remains a linchpin for innovation, demanding creativity, collaboration, and humility in equal measure. We have been fortunate enough to have the chance to put these results into writing. We hope it was a pleasure to read them.
+
+
+\clearpage
 
 \section{Supplementary}
 
 
 
-\begin{landscape}
-  %\begin{center}
-  \setlength\tabcolsep{20pt}
 
-  \begin{small}
-    \begin{longtable}{|p{8em}|p{1.6em}|p{24em}|p{20em}|}
+\begin{sidewaystable}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{|
+>{\raggedright}m{3.5em}|
+m{5em}|
+m{4em}|
+m{4em}|
+m{4em}|
+m{5em}|
+m{4em}|
+m{4em}|
+m{5em}|
+m{5em}|
+m{5em}|
+m{5em}|
+m{4em}|
+m{5em}|
+m{7em}|
+m{5em}|
+m{5em}|
+m{5em}|
+m{5em}|
+m{5em}|
+m{5em}|
+m{5em}|
+m{5em}|
+m{5em}|
+m{7em}|
+m{7em}|
+m{5em}|
+m{5em}|
+m{7em}|
+m{7em}|
+m{5em}|
+m{5em}|
+m{5em}|
+m{5em}|
+m{5em}|}
 
-      \hline
-      \textbf{Variable Name} & \textbf{Size} & \textbf{Description} & \textbf{Example} \\
-      \hline
-      \endhead
+\hline
+\rotatebox{90}{device-ID} &
+\rotatebox{90}{session-start} &
+\rotatebox{90}{time} &
+\rotatebox{90}{sw-flip} &
+\rotatebox{90}{sw-offset} &
+\rotatebox{90}{sw-subwave-num} &
+\rotatebox{90}{sw-number} &
+\rotatebox{90}{mo-y} &
+\rotatebox{90}{mo-x} &
+\rotatebox{90}{mo-fake-release} &
+\rotatebox{90}{mo-act-drag} &
+\rotatebox{90}{mo-lobe} &
+\rotatebox{90}{level} &
+\rotatebox{90}{version} &
+\rotatebox{90}{device-timezone} &
+\rotatebox{90}{device-OS} &
+\rotatebox{90}{time-diff} &
+\rotatebox{90}{coord-diff} &
+\rotatebox{90}{total-events} &
+\rotatebox{90}{first} &
+\rotatebox{90}{last} &
+\rotatebox{90}{target-location} &
+\rotatebox{90}{action-location} &
+\rotatebox{90}{action-location-normalized} &
+\rotatebox{90}{actions} &
+\rotatebox{90}{actions-normalized} &
+\rotatebox{90}{collect} &
+\rotatebox{90}{false-collect} &
+\rotatebox{90}{action-sequences} &
+\rotatebox{90}{action-sequences-str} &
+\rotatebox{90}{count} \\
+\hline
+\endhead
 
-      %    \begin{longtable}[l]{ | m{10em} | m{1.6em} | m{25em} | m{16em} | }
+0 & 0012e848890bbcb5 & 522282 & 531464 & False & 4.000000 & 2.000000 & -121.111099 & 196.539368 & 0.000000 & False & 5.000000 & 1.000000 & 2.000000 & \{bias:0.0, name:WET\} & Android & -49938.000000 & 318.914062 & 3 & True & False & 4.000000 & 4.000000 & 0.000000 & 4.000000 & 0.000000 & False & False & [0.0,3.0,0.0] & [0.0,3.0,0.0] & 475 \\
+1 & 0012e848890bbcb5 & 522282 & 533139 & False & 4.000000 & 2.000000 & 82.777802 & -131.273987 & 0.000000 & False & 2.000000 & 1.000000 & 2.000000 & \{bias:0.0, name:WET\} & Android & 1675.000000 & -531.702271 & 3 & False & False & 4.000000 & 1.000000 & 3.000000 & 1.000000 & 3.000000 & False & False & [0.0,3.0,0.0] & [0.0,3.0,0.0] & 475 \\
+2 & 0012e848890bbcb5 & 522282 & 534881 & False & 4.000000 & 2.000000 & -87.222214 & 103.195862 & 0.000000 & False & 5.000000 & 1.000000 & 2.000000 & \{bias:0.0, name:WET\} & Android & 1742.000000 & 404.469849 & 3 & False & True & 4.000000 & 4.000000 & 0.000000 & 4.000000 & 0.000000 & False & False & [0.0,3.0,0.0] & [0.0,3.0,0.0] & 475 \\
+3 & 0012e848890bbcb5 & 522282 & 540839 & False & 4.000000 & 5.000000 & 127.222229 & 202.651123 & 0.000000 & False & 6.000000 & 1.000000 & 2.000000 & \{bias:0.0, name:WET\} & Android & 5958.000000 & -114.989182 & 6 & True & False & 4.000000 & 5.000000 & 1.000000 & 5.000000 & 1.000000 & False & False & [1.0,2.0,3.0,4.0,5.0,1.0] & [1.0,2.0,3.0,4.0,5.0,1.0] & 146 \\
+4 & 0012e848890bbcb5 & 522282 & 542457 & False & 4.000000 & 5.000000 & 246.111145 & -10.149719 & 0.000000 & False & 1.000000 & 1.000000 & 2.000000 & \{bias:0.0, name:WET\} & Android & 1618.000000 & -331.689758 & 6 & False & False & 4.000000 & 0.000000 & 2.000000 & 0.000000 & 2.000000 & False & False & [1.0,2.0,3.0,4.0,5.0,1.0] & [1.0,2.0,3.0,4.0,5.0,1.0] & 146 \\
+\hline
+\caption{\textit{hexxed} processed data structure example}
+\label{table:pandas}
+\end{longtable}
+\end{sidewaystable}
 
-      \hline
-      drone-play & (1) & time at which the background drone music restarts the loop & [374062] \\ \hline
-      mo-act-drag & (13) & 0 for tap, 1 for drag (swipe). & [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1] \\ \hline
-      mo-fake-release & (13) & ??? multiple releases by a single press as registered by the device. & [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] \\ \hline
-      mo-lobe & (13) & lobe number (1-indexed) that was either touched or swiped, value is 0 if user touches/swipes outside the hexagon & [2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4] \\ \hline
-      mo-press-time & (13) & time of user action relative to start of level (milliseconds) & [365039, 365192, 365338, 365486, 365635, 366691, 368974, 369089, 369218, 369360, 369496, 369641, 371266] \\ \hline
-      mo-press-x & (13) & where you press relative to the center of the big hexagon & [-96.825806, -101.270752, -87.935974, -83.491028, -90.158447, -168.500244, 7.074341, 22.075989, 19.297913, 22.631592, 20.409119, 19.853516, 0.406982] \\ \hline
-      mo-press-y & (13) & where you press relative to the center of the big hexagon & [82.777802, 80.000031, 61.666687, 62.222229, 67.777802, 120.555573, -155, -156.666656, -155, -158.333328, -167.222214, -171.666656, -195] \\ \hline
-      mo-time & (13) & when you release & [365058, 365225, 365387, 365525, 365671, 366832, 368991, 369122, 369272, 369396, 369545, 369694, 371364] \\ \hline
-      mo-x & (13) & where you release & [-97.381409, -101.270752, -88.491577, -84.046631, -91.269653, 28.743347, 7.074341, 22.075989, 20.409119, 23.187195, 20.964722, 20.409119, -9.594116] \\ \hline
-      mo-y & (13) & where you release & [83.333344, 80.000031, 62.777802, 62.777802, 68.333344, 21.666687, -155, -156.666656, -155, -158.333328, -166.666656, -171.111099, -62.222214] \\ \hline
-      mo-act-taken-act & (16) & actions from the vantage point of slider, +/-1 if slide is moving (clockwise/counterclockwise), 2 if slider is collecting, 0 if it's aggregating (tap in place). The other numbers in the example above can actually be anything, including 0, -1, 1, and 2. In order to disambiguate these, look at mo-act-taken-pos, the entries that are -1 correspond to these random numbers here that indicate begin/end of a puzzle. & [50, 0, 0, 0, 0, 0, 2, -1962528752, 0, 0, 0, 0, 0, 0, 2, -1962528752] \\ \hline
-      mo-act-taken-pos & (16) & Each -1 "bookends" the start/end of a puzzle, other numbers refer to the lobes (0-indexed) & [-1, 1, 1, 1, 1, 1, 1, -1, 3, 3, 3, 3, 3, 3, 3, -1] \\ \hline
-      mo-act-taken-time & (17) & godot signal system logs these "taken" values into a queue as soon as the slider movement is done (tween completion), e.g., & [364621, 365338, 365652, 365952, 366254, 366565, 367116, 368208, 369289, 369598, 369905, 370218, 370532, 370835, 371668, 371976, 374062] \\ \hline
-      mo-move-pos-x & (24) & every time Android sends a drag (swipe) signal, it will write to these arrays. These include taps that are misunderstood as drags/swipes by Android, but Godot logic has a more stringent requirement to count an interaction as a swipe. & [-97.381409, -88.491577, -88.491577, -84.046631, -91.269653, -91.269653, -167.944641, -166.277771, -161.277283, -152.38739, -133.49646, -101.270752, 28.743347, 19.853516, 20.409119, 23.187195, 20.964722, 20.409119, 0.406982, -0.148682, -1.259888, -4.037964, -9.038513, -9.594116] \\ \hline
-      mo-move-pos-y & (24) & & [83.333344, 62.222229, 62.777802, 62.777802, 67.777802, 68.333344, 120.000031, 118.888916, 117.222229, 112.777802, 102.777802, 85.555573, 21.666687, -155, -155, -158.333328, -166.666656, -171.111099, -194.444443, -192.222214, -182.222214, -160, -76.111099, -62.222214] \\ \hline
-      mo-move-time & (24) & & [365057, 365371, 365387, 365525, 365670, 365670, 366725, 366743, 366761, 366778, 366796, 366814, 366832, 369254, 369271, 369395, 369529, 369694, 371282, 371298, 371315, 371331, 371363, 371364] \\ \hline
-      ba-ID & (2) & The size rank of the object collected, biggest target=0, second biggest=1, and so on. & [0, 0] \\ \hline
-      ba-age & (2) & size at which the object was collected, if you miss it, it's indicated by a 7 -- the value is at least 1. & [5, 6] \\ \hline
-      ba-position & (2) & the lobe that the collected object was on (and by definition was collected from) & [1, 3] \\ \hline
-      ba-time & (2) & time of collection & [367116, 371651] \\ \hline
-      focus-in & (2) & when the player switches back into the app & [379081, 386834] \\ \hline
-      focus-out & (2) & when the player switches out of the app & [374954, 381247] \\ \hline
-      sw-time-end & (2) & time that subwave (puzzle) ended. & [367116, 371651] \\ \hline
-      sw-flip & (3) & whether flipped or not (after rotational offset) around the first piece. & [0, 1, 0] \\ \hline
-      sw-offset & (3) & rotational offset of objects (0-indexed) & [1, 3, 4] \\ \hline
-      sw-subwave-num & (3) & the puzzle id according to the spawn.txt (see section on spawn.txt below) & [0, 1, 5] \\ \hline
-      sw-time & (3) & start time of the subwave (puzzle) & [364339, 367914, 373764] \\ \hline
-      device-IP & (7) & & ['192.168.1.66',
-      '2001:569:7ac6:6900:1457:626f:c220:f868',
-      '2001:569:7ac6:6900:ee9b:f3ff:fe96:3eb5',
-      'fe80:0:0:0:ee9b:f3ff:fe96:3eb5',
-      'fe80:0:0:0:ec9b:f3ff:fe96:3eb5',
-      '127.0.0.1',
-      '0:0:0:0:0:0:0:1'] \\ \hline
-      level & (1) & current level NOT 0-indexed. & 1 \\ \hline
-      version & (1) & & 1.08 \\ \hline
-      rand-pos & (1) & a/b testing: which category you were put into... & 2 \\ \hline
-      device-ID & (1) & unique identifier of the physical device of the user (did not used to be accessible by older Godot versions) & a3f1ef82e68aa9bb \\ \hline
-      device-OS & (1) & & Android \\ \hline
-      level-won & (1) & only True if the session is saved upon successful completion of the level. NOTE: if False, it does not mean that this payload was sent upon the user LOSING the level. Since they could have focused out: if focus-out is the last event of the game then that's a good indication for this scenario. The only way you can judge loss of level is if the total number of points earned falls below the threshold of points needed for successful completion & False \\ \hline
-      user-quit & (1) & if the user pressed back. It does NOT register a quit if the user focuses OUT and then closes the app. & False \\ \hline
-      device-dpi & (1) & & 420 \\ \hline
-      repeat-bad & (1) & a/b testing variable: whether you present the same pattern if a person fails it... currently disabled i.e. they don't see the same puzzle again. & 2 \\ \hline
-      device-name & (1) & & SM-N920W8 \\ \hline
-      total-saves & (1) & number of times this user's files have been saved: cumulative across all levels; incremented for each focus-out event. & 13 \\ \hline
-      max-unlocked & (1) & maximum level unlocked PRIOR to this attempt, 0-indexed & 1 \\ \hline
-      OS-start-time & (1) & & 364316 \\ \hline
-      device-ID-rand & (1) & random number assigned to the user the first time they open the game after install used in conjunction with below in lieu of device-ID in older Godot versions & 2846276096 \\ \hline
-      device-ID-time & (1) & time at which the user opens the game for the first time after install: used in conjunction with above in lieu of device-ID in older Godot versions & 1592595456 \\ \hline
-      failure-thresh & (1) & level dependent, always 15 except last level, which is set to 5. & 15 \\ \hline
-      device-timezone & (1) & & {'bias': -420, 'name': 'PDT'} \\ \hline
-      device-kb-locale & (1) & & en-CA \\ \hline
-      device-current-time & (1) & & {'day': 22, 'dst': True, 'hour': 14, 'year': 2020, 'month': 6, 'minute': 51, 'second': 40, 'weekday': 1} \\ \hline
-      device-screensize-x & (1) & & 1920 \\ \hline
-      device-screensize-y & (1) & & 1080 \\ \hline
-      device-video-driver & (1) & & 0 \\
-      \hline
-      \caption{An example of \textit{hexxed's} data structure as sent by the remote device in four columns: Column 1 - The variable name; Column 2 - How many times this variable was logged for this given example; Column 3 - Variable description; Column 4 - An example value for the variable}
-      \label{table:payload}
-    \end{longtable}
-    %\end{center}
-  \end{small}
-\end{landscape}
+
+
+
+
+\begin{sidewaystable}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{|
+>{\RaggedRight}p{9em}|
+>{\centering}p{2.5em}|
+>{\RaggedRight}p{23em}|
+>{\RaggedRight}p{17em}|}
+\hline
+\textbf{Variable Name} & \textbf{Size} & \textbf{Description} & \textbf{Example} \\
+\hline
+\endhead
+
+\hline
+drone-play & (1) & time at which the background drone music restarts the loop & [374062] \\
+\hline
+mo-act-drag & (13) & 0 for tap, 1 for drag (swipe). & [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1] \\
+\hline
+mo-fake-release & (13) & multiple releases by a single press as registered by the device. & [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] \\
+\hline
+device-video-driver & (1) & & 0 \\
+\hline
+\caption{\textit{hexxed} raw data structure example}
+\label{table:payload}
+\end{longtable}
+\end{sidewaystable}
+
 
 
 
